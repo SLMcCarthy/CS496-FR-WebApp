@@ -10,3 +10,11 @@ https://docs.google.com/document/d/16YUo763EvtuhvDke_LvGwz5d2_zicV5pOJYPoHJMZTs/
 User Stories:
 https://docs.google.com/spreadsheets/d/1xpO4QXAz2QJKGdvALRZPuO8Yp-0lh8K0L8P4IuvzYC4/edit?usp=sharing
 
+
+
+<h4>databases to consider</h4>
+<lu>
+  <li>postgreSQL - likely different</li>
+  <li>MariaDB</li>
+  <li>JPA java parcistant api</li>
+</lu>
