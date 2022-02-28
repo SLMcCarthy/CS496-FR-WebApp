@@ -10,3 +10,5 @@ https://docs.google.com/document/d/16YUo763EvtuhvDke_LvGwz5d2_zicV5pOJYPoHJMZTs/
 User Stories:
 https://docs.google.com/spreadsheets/d/1xpO4QXAz2QJKGdvALRZPuO8Yp-0lh8K0L8P4IuvzYC4/edit?usp=sharing
 
+Iteration Planning:
+https://docs.google.com/document/d/1RUVLgKL8Uku-mX5xUD6Ulww6sSS_znkhontuoKgrihI/edit?usp=sharing
