@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html><head>
+<html>
+  <head>
+
     <title> Let's Go France**** </title>
     <meta charset="utf-8"> <!-- charset --> 
     <meta name="description" content="not finished homepage" /> 
@@ -12,9 +14,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">  <!-- Bootstrap Icons -->   
 
     <style>
+      /* Current BG images are placeholders */
       .bg-image 
       {
-        /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
         background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://www.parisinsidersguide.com/image-files/demonstration-may-day-palais-garnier-opera-800-2x1.jpg');
 
         /* Set a specific height */
@@ -31,7 +33,9 @@
 </head>
 
 <body>
+
   <div class="container">
+
     <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom border-danger">
       <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
         <!-- <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg> -->
@@ -49,11 +53,12 @@
         <li><a href="#" class="nav-link px-2 link-dark">Media</a></li>
       </ul>
     </header>
+
   </div>
 
-
+  <!-- Hero -->
   <div class="bg-image p-5 text-center rounded mb-5">
-    <div class="bg-text" style="text-align: center; color: white;">
+    <div class="bg-text" style="text-align: center; color: white;"> <!-- Need to find a better text color -->
       <h1>Events</h1>
         <p>
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus praesentium
@@ -63,9 +68,9 @@
     </div>
   </div>
 
+  <!--Listing Preview (List Group)-->
   <div class="container">
     <h1>Event Listings</h1><br/>
-    <!--Listing Preview (List Group)-->
     <div class="list-group" id="eventListings">
       <button type="button" class="list-group-item list-group-item-action" data-bs-toggle="modal" data-bs-target="#listingModal">
         <div class="d-flex w-100 justify-content-between">
@@ -82,21 +87,23 @@
   <div class="modal fade" id="listingModal" tabindex="-1" aria-labelledby="listingModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
+        
         <div class="modal-header">
           <h5 class="modal-title" id="listingModalLabel">Expanded Listing</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
+
         <div class="modal-body">
           Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
         </div>
+
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
           <button type="button" class="btn btn-primary">More Info</button>
         </div>
+
       </div>
     </div>
   </div>
-
-
 
 </body>
