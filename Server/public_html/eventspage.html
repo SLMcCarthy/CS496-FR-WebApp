@@ -17,7 +17,7 @@
       /* Current BG images are placeholders */
       .bg-image 
       {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://www.parisinsidersguide.com/image-files/demonstration-may-day-palais-garnier-opera-800-2x1.jpg');
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.ctfassets.net/gxwgulxyxxy1/7JTYkshGF2X333k00BXP3k/874d99a8e8b83a30845dca206a2af6c7/paris-florian-wehde-408590-unsplash.jpg');
 
         /* Set a specific height */
         height: 50%;
@@ -70,8 +70,31 @@
 
   <!--Listing Preview (List Group)-->
   <div class="container">
-    <h1>Event Listings</h1><br/>
-    <div class="list-group" id="eventListings">
+    <div class="row">
+      <div class="col">
+        <h1>Event Listings</h1>
+      </div>
+      <div class="col me-1">
+        <button type="button" class="btn btn-primary">More Info</button>
+      </div>
+    </div><br/>
+    <div class="list-group border border-primary" id="eventListings">
+      <button type="button" class="list-group-item list-group-item-action" data-bs-toggle="modal" data-bs-target="#listingModal">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">Listing</h5>
+          <small>*date*</small>
+        </div>
+        <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+        <small>Click for more info</small>
+      </button>
+      <button type="button" class="list-group-item list-group-item-action" data-bs-toggle="modal" data-bs-target="#listingModal">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">Listing</h5>
+          <small>*date*</small>
+        </div>
+        <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+        <small>Click for more info</small>
+      </button>
       <button type="button" class="list-group-item list-group-item-action" data-bs-toggle="modal" data-bs-target="#listingModal">
         <div class="d-flex w-100 justify-content-between">
           <h5 class="mb-1">Listing</h5>
