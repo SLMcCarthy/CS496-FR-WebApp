@@ -67,6 +67,7 @@
         </p>
     </div>
   </div>
+            
 
   <!--Listing Preview (List Group)-->
   <div class="container">
@@ -79,32 +80,13 @@
       </div>
     </div><br/>
     <div class="list-group border border-primary" id="eventListings">
-      <button type="button" class="list-group-item list-group-item-action" data-bs-toggle="modal" data-bs-target="#listingModal">
-        <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">Listing</h5>
-          <small>*date*</small>
-        </div>
-        <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-        <small>Click for more info</small>
-      </button>
-      <button type="button" class="list-group-item list-group-item-action" data-bs-toggle="modal" data-bs-target="#listingModal">
-        <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">Listing</h5>
-          <small>*date*</small>
-        </div>
-        <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-        <small>Click for more info</small>
-      </button>
-      <button type="button" class="list-group-item list-group-item-action" data-bs-toggle="modal" data-bs-target="#listingModal">
-        <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">Listing</h5>
-          <small>*date*</small>
-        </div>
-        <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-        <small>Click for more info</small>
-      </button>
-    </div>
+
+      <!-- This is where events are inserted -->
+
+    
+    </div> 
   </div>
+  
 
   <!-- Expanded Listing (Modal) -->
   <div class="modal fade" id="listingModal" tabindex="-1" aria-labelledby="listingModalLabel" aria-hidden="true">
@@ -129,5 +111,39 @@
     </div>
   </div>
 
+
+
+
+
+<script>
+  async function getListings(){ 
+    // main function to ask the server for user data
+    // and display it in this web page.
+
+    let response = await fetch('http://localhost:4000/listings');
+    let listings = await response.json();
+
+    let out = ``;
+
+      for(let i=0;i<listings.length;i++) {
+          out+= `
+              
+          <button type="button" class="list-group-item list-group-item-action" data-bs-toggle="modal" data-bs-target="#listingModal">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1"> ${listings[i].title}</h5>
+          <small>${listings[i].date}</small>
+        </div>
+        <p class="mb-1">${listings[i].body}</p>
+        <small>Click for more info</small>
+      </button>` ;
+          }
+
+    document.getElementById('eventListings').innerHTML = out;
+    
+  }
+  getListings();
+</script>
+
 </body>
+
 </html>

@@ -11,7 +11,7 @@
   {
     "_id": 2,
     "title": "sample event 2",
-    "body": "2 whole lotta filler text, yada yada yadadhfjskfhs djfhjd jsjhfj dsjfjsdfhwhfshfjhsaiufhsjhdfush fhsfjkahurehfaue fhus fhh fue hfu hfsfhasjkfhiu ahfu hfuis u su",
+    "body": "2 whole lotta filler text, yada yada yadadhfjskfhs djfhjd jsjhfj dsjfjsdfhf jfd kf djf dkjflsjf idjfsil jfl dsjfd ksj kd jfs fjdskf jdswhfshfjhsaiufhsjhdfush fhsfjkahurehfaue fhus fhh fue hfu hfsfhasjkfhiu ahfu hfuis u su",
     "date": "3/25/22",
     "type": "Event",
     "typeint": 1,
@@ -27,4 +27,24 @@
     "typeint": 1,
     "titleFR": "3 sample event in french",
     "bodyFR": "3 french text whole lotta filler text, yada yada yadadhfjskfhs djfhjd jsjhfj dsjfjsdfhwhfshfjhsaiufhsjhdfush fhsfjkahurehfaue fhus fhh fue hfu hfsfhasjkfhiu ahfu hfuis u su"
+  },
+  {
+    "_id": 4,
+    "title": "sample event 4",
+    "body": "4 adding another event from json",
+    "date": "3/16/22",
+    "type": "Event",
+    "typeint": 1,
+    "titleFR": "4 sample event in french",
+    "bodyFR": "4 french text whole lotta filler text, yada yada yadadhfjskfhs djfhjd jsjhfj dsjfjsdfhwhfshfjhsaiufhsjhdfush fhsfjkahurehfaue fhus fhh fue hfu hfsfhasjkfhiu ahfu hfuis u su"
+  },
+  {
+    "_id": 5,
+    "title": "sample event 5",
+    "body": "5 adding another event from json -> checking for longer list",
+    "date": "3/16/22",
+    "type": "Event",
+    "typeint": 1,
+    "titleFR": "5 sample event in french",
+    "bodyFR": "5 french text whole lotta filler text, yada yada yadadhfjskfhs djfhjd jsjhfj dsjfjsdfhwhfshfjhsaiufhsjhdfush fhsfjkahurehfaue fhus fhh fue hfu hfsfhasjkfhiu ahfu hfuis u su"
   }]
