@@ -10,7 +10,7 @@ app.use(morgan('dev')); //For better logging, we use morgan
 app.use(express.static('public_html'));// Static server use the folder 'public_html'
 
 const users = [ //For this phase, we will store the data in memory, on the server
-    { _id:1,name:'Henrique Rocha', login:'hsrocha@loyola.edu', password:'123456',permission:1},
+    { _id:1,name:'Jeremy Unanue', login:'jrunanue@loyola.edu', password:'123456',permission:1},
     { _id:2,name:'John Doe', login:'jd@aol.com', password:'123456', permission:2},
     { _id:3,name:'Jane Doe', login:'janed@compuserve.com' ,password:'123456', permission:2}
 ];
