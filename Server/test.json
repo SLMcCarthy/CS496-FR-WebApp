@@ -1,7 +1,7 @@
 [{
     "_id": 1,
-    "title": "sample event",
-    "body": "whole lotta filler text, yada yada yadadhfjskfhs djfhjd jsjhfj dsjfjsdfhwhfshfjhsaiufhsjhdfush fhsfjkahurehfaue fhus fhh fue hfu hfsfhasjkfhiu ahfu hfuis u su",
+    "title": "sample event 1",
+    "body": "whole lotta filler text, yada yada yadadhfjskfhs djfhjd jsjhfj fhus fhh fue hfu hfsfhasjkfhiu ahfu hfuis u su",
     "date": "3/25/22",
     "type": "Event",
     "typeint": 1,
@@ -17,4 +17,14 @@
     "typeint": 1,
     "titleFR": "2 sample event in french",
     "bodyFR": "2 french text whole lotta filler text, yada yada yadadhfjskfhs djfhjd jsjhfj dsjfjsdfhwhfshfjhsaiufhsjhdfush fhsfjkahurehfaue fhus fhh fue hfu hfsfhasjkfhiu ahfu hfuis u su"
+  },
+  {
+    "_id": 3,
+    "title": "sample event 3",
+    "body": "3 more filler text, yada yada yadad sfjkahurehfaue fhus fhh fue hfu hfsfhasjkfhiu ahfu hfuis u su",
+    "date": "3/25/22",
+    "type": "Event",
+    "typeint": 1,
+    "titleFR": "3 sample event in french",
+    "bodyFR": "3 french text whole lotta filler text, yada yada yadadhfjskfhs djfhjd jsjhfj dsjfjsdfhwhfshfjhsaiufhsjhdfush fhsfjkahurehfaue fhus fhh fue hfu hfsfhasjkfhiu ahfu hfuis u su"
   }]
