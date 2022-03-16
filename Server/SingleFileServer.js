@@ -1,5 +1,6 @@
 const express = require('express'); //import express
 const morgan = require('morgan'); //import morgan for logging
+const fs = require('fs');
 
 let port = 4000;
 let hostname = 'localhost';
@@ -15,10 +16,15 @@ const users = [ //For this phase, we will store the data in memory, on the serve
     { _id:3,name:'Jane Doe', login:'janed@compuserve.com' ,password:'123456', permission:2}
 ];
 
-app.get('/user',function(req,res){ // REST get (all) method
-    res.status(200); // 200 = Ok
-    res.send(users); //send the users back to the client
-    res.end(); 
+// pull from test json file and display
+app.get('/listings',function(req,res){ // REST get (all) method
+    fs.readFile('test.json', (err, data) => {
+        if (err) throw err;
+        let listings = JSON.parse(data);
+        res.status(200); // 200 = Ok
+        res.send(listings); //send the data back to the client
+        res.end(); 
+    });
 });
 
 app.listen(port,hostname,function(){ // Listen to client requests in hostname:port
