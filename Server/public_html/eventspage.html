@@ -28,6 +28,11 @@
         background-size: cover;
         position: relative;
       }
+      .scroll
+      {
+        height: 300px;
+        overflow-y: scroll;
+      }
     </style>
 
 </head>
@@ -79,12 +84,14 @@
         <button type="button" class="btn btn-primary">More Info</button>
       </div>
     </div><br/>
-    <div class="list-group border border-primary" id="eventListings">
+    <!-- <div style="height:180px;width:180px;overflow:auto;"> -->
+    <div class="list-group border border-primary scroll" id="eventListings">
 
       <!-- This is where events are inserted -->
 
     
     </div> 
+  <!-- </div> -->
   </div>
   
 
