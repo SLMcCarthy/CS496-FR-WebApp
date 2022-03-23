@@ -1,17 +1,17 @@
 [{
     "_id": 1,
-    "title": "sample event 1",
-    "body": "whole lotta filler text, yada yada yadadhfjskfhs djfhjd jsjhfj fhus fhh fue hfu hfsfhasjkfhiu ahfu hfuis u su",
+    "title": "Event Listing 1",
+    "body": "Here Listings Will Present A Brief Description",
     "date": "3/25/22",
     "type": "Event",
     "typeint": 1,
     "titleFR": "sample event in french",
-    "bodyFR": "french text whole lotta filler text, yada yada yadadhfjskfhs djfhjd jsjhfj dsjfjsdfhwhfshfjhsaiufhsjhdfush fhsfjkahurehfaue fhus fhh fue hfu hfsfhasjkfhiu ahfu hfuis u su"
+    "bodyFR": "Here, Listings Will Present A More Detailed Overview For The Expanded Listing"
   },
   {
     "_id": 2,
-    "title": "sample event 2",
-    "body": "2 whole lotta filler text, yada yada yadadhfjskfhs djfhjd jsjhfj dsjfjsdfhf jfd kf djf dkjflsjf idjfsil jfl dsjfd ksj kd jfs fjdskf jdswhfshfjhsaiufhsjhdfush fhsfjkahurehfaue fhus fhh fue hfu hfsfhasjkfhiu ahfu hfuis u su",
+    "title": "Event Listing 2",
+    "body": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus praesentium labore accusamus sequi, voluptate debitis tenetur in deleniti possimus modi voluptatum neque maiores dolorem unde? Aut dolorum quod excepturi fugit",
     "date": "3/25/22",
     "type": "Event",
     "typeint": 1,
@@ -20,8 +20,8 @@
   },
   {
     "_id": 3,
-    "title": "sample event 3",
-    "body": "3 more filler text, yada yada yadad sfjkahurehfaue fhus fhh fue hfu hfsfhasjkfhiu ahfu hfuis u su",
+    "title": "Event Listing 3",
+    "body": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus praesentium labore accusamus sequi, voluptate debitis tenetur in deleniti possimus modi voluptatum neque maiores dolorem unde? Aut dolorum quod excepturi fugit",
     "date": "3/25/22",
     "type": "Event",
     "typeint": 1,
@@ -30,8 +30,8 @@
   },
   {
     "_id": 4,
-    "title": "sample event 4",
-    "body": "4 adding another event from json",
+    "title": "Event Listing 4",
+    "body": "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
     "date": "3/16/22",
     "type": "Event",
     "typeint": 1,
@@ -40,7 +40,7 @@
   },
   {
     "_id": 5,
-    "title": "sample event 5",
+    "title": "Event Listing 5",
     "body": "5 adding another event from json -> checking for longer list",
     "date": "3/16/22",
     "type": "Event",
