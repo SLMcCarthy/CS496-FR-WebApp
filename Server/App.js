@@ -13,8 +13,6 @@ app.get('/', function(req,res){ // if called on localhost:4000
     res.end();
 });
 
-
-
 // pull from test json file and display
 app.get('/listings', listingCont.getAll);
 /*
