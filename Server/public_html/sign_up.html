@@ -64,29 +64,36 @@
     </div>
   </div>
 
+  <div class="bg-text" style="text-align: center;">
+    <h1 style="font-weight: bold;">Log In</h1>
+  </div>
+
   <div class="container">
-    <div class="bg-text" style="text-align: center;">
-      <h1 style="font-weight: bold;">Log In</h1>
-    </div>
-    
-    <form action="/login" class="form-horizontal" id="logIn" method="post">
+
+    <form action="/user" class="form" id="newUser" method="post">
           
-      <div class="form-group">
-        <label for="listingTitle" class="form-label">Listing Title:</label>
-        <input type="text" class="form-control" name="listingTitle" id="listingTitle" placeholder="Enter the Listing Title"/><br/><br/>
+      <div class="row mb-2">
+        <label class="col-form-label col-md-3" for="user_name"> Name: </label>
+        <div class="col-12 col-md">
+          <input class="form-control" type="text" name="user_name" id="txt_name" required />
+        </div>
       </div>
 
-      <div class="form-group">
-        <label for="listingLink" class="form-label">Listing Link:</label>
-        <input type="text" class="form-control" name="listingLink" id="listingLink" placeholder="Enter an External Link"/><br/><br/>
+      <div class="row mb-2">
+        <label class="col-form-label col-md-3" for="txt_login"> Email: </label>
+        <div class="col-12 col-md">
+          <input class="form-control" type="email" name="txt_login" id="txt_login" required />
+        </div>
       </div>
 
-      <div class="form-group">
-        <label for="listingBody" class="form-label" >Listing Info:</label>
-        <textarea class="form-control" id="listingBody" rows="3"></textarea><br/><br/>
+      <div class="row mb-2">
+        <label class="col-form-label col-md-3" for="txt_pass"> Password: </label>
+        <div class="col-12 col-md">
+          <input class="form-control" type="password" name="txt_pass" id="txt_pass" minlength="6" required />
+        </div>
       </div>
+
     </form>
-
 
   </div>
 
