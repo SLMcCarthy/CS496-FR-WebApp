@@ -1,7 +1,7 @@
-const dao = require('../model/ListingDaoMem');  // reads from data access model
+const dao = require('../model/ListingDaoMongo');  // reads from data access model
 
-exports.getAll = function(req, res) {
+exports.getAll = async function(req, res) {
     res.status(200); // 200 = OK
-    res.send(dao.readAll());
+    res.send(await dao.readAll());
     res.end();
 }
