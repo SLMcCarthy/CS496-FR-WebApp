@@ -22,6 +22,20 @@ const listingSchema = new mongoose.Schema({
 //     bodyFR: {type:String, required:true},
 // });
 
+// const listingSchema = new mongoose.Schema({
+//     title: {type:String, required:true}
+//     titleFR: {type:String, required:false}
+//     body: {type:String, required:true}
+//     bodyFR: {type:String, required:false}
+//     link: {type:String, required:false}
+//     listStart: {type:Date, required:false}
+//     listEnd: {type: Date, required:false}
+//     autoOpen: {type: Bool, required:true}
+//     autoclose: {type: Bool, required:true}
+//     active: {type: Bool, required:true}
+//     type: {type: String, required:true}
+// });
+
 
 const listingsModel = mongoose.model('listings',listingSchema);
 
