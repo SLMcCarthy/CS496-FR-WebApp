@@ -16,5 +16,6 @@ app.get('/', function(req,res){ // if called on localhost:4000
 
 // pull from test json file and display
 app.get('/listings', listingCont.getAll);
+app.post('/listings', listingCont.postCreateOrUpdateListing);
 
 exports.app = app;
