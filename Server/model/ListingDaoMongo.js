@@ -1,16 +1,16 @@
 // Call DBConnection on the Server.js
 const mongoose = require('mongoose');
 
-const listingSchema = new mongoose.Schema({
-    title: {type:String, required:true},
-    body: {type:String, required:true},
-    titleFR: {type:String, required:true},
-    bodyFR: {type:String, required:true},
-    creation: {type:Date, default:Date.now},
-    expiration:Date,
-    eventDate:Date,
-    type: {type:String, required:true}
-});
+ const listingSchema = new mongoose.Schema({
+     title: {type:String, required:true},
+     body: {type:String, required:true},
+     titleFR: {type:String, required:true},
+     bodyFR: {type:String, required:true},
+     creation: {type:Date, default:Date.now},
+     expiration:Date,
+     eventDate:Date,
+     type: {type:String, required:true}
+ });
 
 // const listingSchema = new mongoose.Schema({
 //     title: {type:String, required:true},
@@ -23,16 +23,16 @@ const listingSchema = new mongoose.Schema({
 // });
 
 // const listingSchema = new mongoose.Schema({
-//     title: {type:String, required:true}
-//     titleFR: {type:String, required:false}
-//     body: {type:String, required:true}
-//     bodyFR: {type:String, required:false}
-//     link: {type:String, required:false}
-//     listStart: {type:Date, required:false}
-//     listEnd: {type: Date, required:false}
-//     autoOpen: {type: Bool, required:true}
-//     autoclose: {type: Bool, required:true}
-//     active: {type: Bool, required:true}
+//     title: {type:String, required:true},
+//     titleFR: {type:String, required:false},
+//     body: {type:String, required:true},
+//     bodyFR: {type:String, required:false},
+//     link: {type:String, required:false},
+//     listStart: {type:Date, required:false},
+//     listEnd: {type: Date, required:false},
+//     autoOpen: {type: Bool, required:true},
+//     autoclose: {type: Bool, required:true},
+//     active: {type: Bool, required:true},
 //     type: {type: String, required:true}
 // });
 
