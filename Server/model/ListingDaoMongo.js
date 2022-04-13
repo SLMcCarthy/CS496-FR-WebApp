@@ -1,17 +1,6 @@
 // Call DBConnection on the Server.js
 const mongoose = require('mongoose');
 
-//  const listingSchema = new mongoose.Schema({
-//      title: {type:String, required:true},
-//      body: {type:String, required:true},
-//      titleFR: {type:String, required:true},
-//      bodyFR: {type:String, required:true},
-//      creation: {type:Date, default:Date.now},
-//      expiration:Date,
-//      eventDate:Date,
-//      type: {type:String, required:true}
-//  });
-
 const listingSchema = new mongoose.Schema({
     title: {type:String, required:true},
     titleFR: {type:String, required:false},
