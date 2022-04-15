@@ -24,38 +24,46 @@ exports.get = async function(req, res) {
 }
 
 exports.postCreateOrUpdateListing = function(req,res){
-    // let newListing = {}; //empty obj
-    // newListing.title = req.body.listingTitleEN;
-    // newListing.titleFR = req.body.listingTitleFR;
-    // newListing.body = req.body.listingBodyEN;
-    // newListing.bodyFR = req.body.listingBodyFR;
-    // newListing.link = req.body.listingLink;
-    // newListing.listStart = req.body.listingStartDate;
-    // newListing.listEnd = req.body.listingEndDate;
-    // newListing.autoOpen = false;
-    // newListing.autoClose = false;
-    // newListing.active = true;
-    // newListing.type = "Event";
-    // console.log("testerooooo");
-    // console.log(newListing.title);
-    //newListing.creation = req.body.txt_name;
-
-
-
-    let newListing = {}; //empty obj
-    newListing.title = "title 01";
-    newListing.titleFR = "French title 01";
-    newListing.body = "body 01";
-    newListing.bodyFR = "FR body 01";
-    newListing.link = "French.com";
-    newListing.listStart = "2021-01-01";
-    newListing.listEnd = "2021-08-01";
+    let newListing = {};     // empty obj
+    newListing.title = req.body.listingTitleEN;
+    newListing.titleFR = req.body.listingTitleFR;
+    newListing.body = req.body.listingBodyEN;
+    newListing.bodyFR = req.body.listingBodyFR;
+    newListing.link = req.body.listingLink;
+    newListing.listStart = req.body.listingStartDate;
+    newListing.listEnd = req.body.listingEndDate;
     newListing.autoOpen = false;
     newListing.autoClose = false;
     newListing.active = true;
     newListing.type = "Event";
     console.log("testerooooo");
+
+
+
+    // let newListing = {}; //empty obj
+    // newListing.title = "title 01";
+    // newListing.titleFR = "French title 01";
+    // newListing.body = "body 01";
+    // newListing.bodyFR = "FR body 01";
+    // newListing.link = "French.com";
+    // newListing.listStart = "2021-01-01";
+    // newListing.listEnd = "2021-08-01";
+    // newListing.autoOpen = false;
+    // newListing.autoClose = false;
+    // newListing.active = true;
+    // newListing.type = "Event";
     console.log(newListing.title);
+    console.log(newListing.titleFR);
+    console.log(newListing.body);
+    console.log(newListing.bodyFR);
+    console.log(newListing.link);
+    console.log(newListing.listStart);
+    console.log(newListing.listEnd);
+    console.log(newListing.autoOpen);
+    console.log(newListing.autoClose);
+    console.log(newListing.active);
+    console.log(newListing.type);
+
 
 
 
