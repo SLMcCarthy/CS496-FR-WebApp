@@ -32,7 +32,6 @@
       }
 
     </style>
-
 </head>
 
 <body>
@@ -65,36 +64,70 @@
   </div>
 
   <div class="bg-text" style="text-align: center;">
-    <h1 style="font-weight: bold;">Log In</h1>
+    <h1 style="font-weight: bold;">Sign Up</h1><br/>
   </div>
 
-  <div class="container">
+  <!-- User Sign In Form -->
+  <div class="container border-top border-danger">
+    <form action="/user" class="form-horizontal" id="signUp" method="post">
 
-    <form action="/user" class="form" id="newUser" method="post">
-          
-      <div class="row mb-2">
-        <label class="col-form-label col-md-3" for="user_name"> Name: </label>
-        <div class="col-12 col-md">
-          <input class="form-control" type="text" name="user_name" id="txt_name" required />
+      <div class="form-group"><input type="hidden" id="userId" name="userId"></div>
+
+      <div class="row mt-5 justify-content-center align-items-center">
+        <div class="col-12 col-md-4">
+          <div class="form-group"><input type="hidden" id="userName" name="userName"></div>
+          <div class="form-group">
+            <label for="userName" class="form-label">Choose your Username:</label>
+            <input type="text" class="form-control" name="userName" id="userName"/><br/><br/>
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="form-group">
+            <label for="userPassword" class="form-label">Choose your Password:</label>
+            <input type="text" class="form-control" name="userPassword" id="userPassword"/><br/><br/>
+          </div>
         </div>
       </div>
 
-      <div class="row mb-2">
-        <label class="col-form-label col-md-3" for="txt_login"> Email: </label>
-        <div class="col-12 col-md">
-          <input class="form-control" type="email" name="txt_login" id="txt_login" required />
+      <div class="row justify-content-center align-items-center">
+        <div class="col-12 col-md-4">
+          <div class="form-group">
+            <label for="userFirstName" class="form-label">First Name:</label>
+            <input type="text" class="form-control" name="userFirstName" id="userFirstName"/><br/><br/>
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="form-group">
+            <label for="userLastName" class="form-label">Last Name:</label>
+            <input type="text" class="form-control" name="userLastName" id="userLastName"/><br/><br/>
+          </div>
         </div>
       </div>
 
-      <div class="row mb-2">
-        <label class="col-form-label col-md-3" for="txt_pass"> Password: </label>
-        <div class="col-12 col-md">
-          <input class="form-control" type="password" name="txt_pass" id="txt_pass" minlength="6" required />
+      <div class="row justify-content-center align-items-center">
+        <div class="col-12 col-md-4">
+          <div class="form-group">
+            <label for="userEmail" class="form-label">Email: </label>
+            <input class="form-control" type="email" name="userEmail" id="userEmail" required /><br/><br/>
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="form-check">
+            <label class="form-check-label" for="emailNotifications">Opt-In to Email Notifications</label>
+            <input class="form-check-input" type="checkbox" value="" id="emailNotifications"><br/><br/>
+          </div>
         </div>
       </div>
 
+      <div class="row justify-content-center">
+        <div class="col-md-auto mb-3 g-3">
+          <button type="submit" class="w-100 btn btn-primary">Sign Up</button>
+        </div>
+        <div class="col-md-auto mb-3 g-3 justify-content-center">
+          <button type="clear" class="w-100 btn btn-danger">Cancel</button>
+        </div>
+      </div>
     </form>
-
   </div>
 
 </body>
