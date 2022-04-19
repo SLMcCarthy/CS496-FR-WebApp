@@ -77,13 +77,13 @@
         <div class="col-12 col-md-4">
           <div class="form-group">
             <label for="userName" class="form-label">Choose your Username:</label>
-            <input type="text" class="form-control" name="userName" id="userName"/><br/><br/>
+            <input type="text" class="form-control" name="userName" id="userName" minlength="4" required><br/><br/>
           </div>
         </div>
         <div class="col-12 col-md-4">
           <div class="form-group">
-            <label for="userPassword" class="form-label">Choose your Password:</label>
-            <input type="text" class="form-control" name="userPassword" id="userPassword"/><br/><br/>
+            <label for="userPass" class="form-label">Choose your Password:</label>
+            <input type="text" class="form-control" name="userPass" id="userPass" minlength="6" required><br/><br/>
           </div>
         </div>
       </div>
@@ -92,13 +92,13 @@
         <div class="col-12 col-md-4">
           <div class="form-group">
             <label for="userFirstName" class="form-label">First Name:</label>
-            <input type="text" class="form-control" name="userFirstName" id="userFirstName"/><br/><br/>
+            <input type="text" class="form-control" name="userFirstName" id="userFirstName"><br/><br/>
           </div>
         </div>
         <div class="col-12 col-md-4">
           <div class="form-group">
             <label for="userLastName" class="form-label">Last Name:</label>
-            <input type="text" class="form-control" name="userLastName" id="userLastName"/><br/><br/>
+            <input type="text" class="form-control" name="userLastName" id="userLastName"><br/><br/>
           </div>
         </div>
       </div>
@@ -107,7 +107,7 @@
         <div class="col-12 col-md-4">
           <div class="form-group">
             <label for="userEmail" class="form-label">Email: </label>
-            <input class="form-control" type="email" name="userEmail" id="userEmail" required /><br/><br/>
+            <input class="form-control" type="email" name="userEmail" id="userEmail" required><br/><br/>
           </div>
         </div>
         <div class="col-12 col-md-4">
@@ -135,6 +135,20 @@
 
     </form>
   </div>
+
+  <script>
+
+    function newUser()
+    {
+      document.getElementById("userName").value = '';
+      document.getElementById("userPass").value = '';
+      document.getElementById("userFirstName").value = '';
+      document.getElementById("userLastName").value = '';
+      document.getElementById("userEmail").value = '';
+      document.getElementById("emailNotifications").value = '';
+    }
+
+  </script>
 
 </body>
 

@@ -63,7 +63,7 @@
     <h1 style="font-weight: bold;">Log in</h1><br/>
   </div>
 
-  <!-- User Sign In Form -->
+  <!-- User Log In Form -->
   <div class="container border-top border-danger">
     <form action="/user" class="form-horizontal" id="signUp" method="post">
       <div class="form-group"><input type="hidden" id="userId" name="userId"></div>
@@ -78,14 +78,14 @@
         <div class="col-12 col-md-4">
           <div class="form-group">
             <label for="userPassword" class="form-label">Password:</label>
-            <input type="text" class="form-control" name="userPassword" id="userPassword" required><br/><br/>
+            <input type="text" class="form-control" name="userPassword" id="userPassword" minlength="6" required><br/><br/>
           </div>
         </div>
       </div>
 
       <div class="row justify-content-center">
         <div class="col-md-auto mb-3 g-3">
-          <button type="submit" class="w-100 btn btn-primary">Login</button>
+          <button type="submit" onclick="validateLogin();" class="w-100 btn btn-primary">Login</button>
         </div>
         <div class="col-md-auto mb-3 g-3 justify-content-center">
           <button type="clear" class="w-100 btn btn-danger">Cancel</button>
@@ -100,6 +100,33 @@
 
     </form>
   </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6" id="invalidLogin">
+      </div>
+    </div>
+  </div>
+
+  <script>
+
+    function validateLogin()
+    {
+      const params = new URLSearchParams(window.location.search);    
+      let alert = null;
+
+      if(params.get('error') === '1')
+      {
+        alert = `
+          <div class="alert alert-danger alert-dismissible">
+              <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+              <strong>Error!</strong> Incorrect Login or Password.
+            </div>`;
+        document.getElementById("invalidLogin").innerHTML = alert;
+      } 
+    }
+
+  </script>
 
 </body>
 
