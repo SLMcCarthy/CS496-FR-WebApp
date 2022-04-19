@@ -2,7 +2,6 @@
 
 <html>
   <head>
-    
     <title> Let's Go France**** </title>
     <meta charset="utf-8"> <!-- charset --> 
     <meta name="description" content="unfinishedhomepage" /> 
@@ -34,93 +33,59 @@
     </style>
 </head>
 
-<body>
-
+<body>  
   <div class="container">
     <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom border-danger">
-      
       <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-        <img class="img-fluid" width="100px" height="100px" src="./images/frlogo.jpg" alt="France Icon">
+      <img class="img-fluid" width="100px" height="100px" src="./images/frlogo.jpg" alt="France Icon">
       </a>
 
       <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-        <li><a href="#" class="nav-link px-2 link-secondary"><i class="bi bi-house-door"></i></a></li>
-        <li><a href="/eventspage.html" class="nav-link px-2 link-dark">Events</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">Study Abroad</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">Internships</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">Services</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">Resouces</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">Media</a></li>
+      <li><a href="#" class="nav-link px-2 link-secondary"><i class="bi bi-house-door"></i></a></li>
+      <li><a href="/eventspage.html" class="nav-link px-2 link-dark">Events</a></li>
+      <li><a href="#" class="nav-link px-2 link-dark">Study Abroad</a></li>
+      <li><a href="#" class="nav-link px-2 link-dark">Internships</a></li>
+      <li><a href="#" class="nav-link px-2 link-dark">Services</a></li>
+      <li><a href="#" class="nav-link px-2 link-dark">Resouces</a></li>
+      <li><a href="#" class="nav-link px-2 link-dark">Media</a></li>
       </ul>
-
     </header>
   </div>
 
   <!-- Hero -->
   <div class="hero-bg-image p-5 text-center rounded mb-5">
     <div class="bg-text" style="text-align: center; color: white;"> <!-- Need to find a better text color -->
-      <h1 style="font-weight: bold;">Bienvenue à Allons-y Département Français!</h1>
+      <h1 style="font-weight: bold;">Content De Te Revoir!</h1>
     </div>
   </div>
 
   <div class="bg-text" style="text-align: center;">
-    <h1 style="font-weight: bold;">Sign Up</h1><br/>
+    <h1 style="font-weight: bold;">Log in</h1><br/>
   </div>
 
   <!-- User Sign In Form -->
   <div class="container border-top border-danger">
     <form action="/user" class="form-horizontal" id="signUp" method="post">
-
       <div class="form-group"><input type="hidden" id="userId" name="userId"></div>
-    
+
       <div class="row mt-5 justify-content-center align-items-center">
         <div class="col-12 col-md-4">
           <div class="form-group">
-            <label for="userName" class="form-label">Choose your Username:</label>
-            <input type="text" class="form-control" name="userName" id="userName"/><br/><br/>
-          </div>
-        </div>
-        <div class="col-12 col-md-4">
-          <div class="form-group">
-            <label for="userPassword" class="form-label">Choose your Password:</label>
-            <input type="text" class="form-control" name="userPassword" id="userPassword"/><br/><br/>
-          </div>
-        </div>
-      </div>
-
-      <div class="row justify-content-center align-items-center">
-        <div class="col-12 col-md-4">
-          <div class="form-group">
-            <label for="userFirstName" class="form-label">First Name:</label>
-            <input type="text" class="form-control" name="userFirstName" id="userFirstName"/><br/><br/>
-          </div>
-        </div>
-        <div class="col-12 col-md-4">
-          <div class="form-group">
-            <label for="userLastName" class="form-label">Last Name:</label>
-            <input type="text" class="form-control" name="userLastName" id="userLastName"/><br/><br/>
-          </div>
-        </div>
-      </div>
-
-      <div class="row justify-content-center align-items-center">
-        <div class="col-12 col-md-4">
-          <div class="form-group">
             <label for="userEmail" class="form-label">Email: </label>
-            <input class="form-control" type="email" name="userEmail" id="userEmail" required /><br/><br/>
+            <input class="form-control" type="email" name="userEmail" id="userEmail" required><br/><br/>
           </div>
         </div>
         <div class="col-12 col-md-4">
-          <div class="form-check">
-            <label class="form-check-label" for="emailNotifications">Opt-In to Email Notifications</label>
-            <input class="form-check-input" type="checkbox" value="" id="emailNotifications"><br/><br/>
+          <div class="form-group">
+            <label for="userPassword" class="form-label">Password:</label>
+            <input type="text" class="form-control" name="userPassword" id="userPassword" required><br/><br/>
           </div>
         </div>
       </div>
 
       <div class="row justify-content-center">
         <div class="col-md-auto mb-3 g-3">
-          <button type="submit" class="w-100 btn btn-primary">Sign Up</button>
+          <button type="submit" class="w-100 btn btn-primary">Login</button>
         </div>
         <div class="col-md-auto mb-3 g-3 justify-content-center">
           <button type="clear" class="w-100 btn btn-danger">Cancel</button>
@@ -129,7 +94,7 @@
 
       <div class="row" style="text-align: center;">
         <div class="col">
-          <p>Already have an account? <a href="/log_in.html">Log In!</a></p>
+          <p>Don't have an account? <a href="/sign_up.html">Sign In!</a></p>
         </div>
       </div>
 
