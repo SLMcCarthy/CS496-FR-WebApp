@@ -81,11 +81,26 @@
   <!--Listing Preview (List Group)-->
   <div class="container">
     <div class="row">
-      <div class="col">
+      <div class="col col-4">
         <h1>Event Listings</h1>
       </div>
-      <div class="col">
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createListingModal" >Add Listing</button>
+      <div class="col col-2">
+        <select class="form-control" name="filter" id="filter" required>
+            <option id="all" selected default>all</option>
+            <option id="event"> Event </option>
+            <option id="internship"> Internships </option>
+            <option id="service"> Service </option>
+            <option id="resouces"> Resouces </option>
+            <option id="media"> Media </option>
+        </select>
+        <i class="bi bi-sort-alpha-down"> </i>
+        <i class="bi bi-sort-alpha-up"> </i>
+      </div>
+      <div class="col col-2">
+          <button type="button" class="btn btn-primary"> Sort </button>
+      </div> 
+      <div class="col col-4">
+        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#createListingModal" >Add Listing</button>
       </div>
     </div><br/>
     <!-- <div style="height:180px;width:180px;overflow:auto;"> -->
