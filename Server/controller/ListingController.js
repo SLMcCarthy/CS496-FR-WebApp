@@ -36,7 +36,6 @@ exports.postCreateOrUpdateListing = function(req,res){
     newListing.autoClose = false;
     newListing.active = true;
     newListing.type = "Event";
-    console.log("testerooooo");
 
 
 
