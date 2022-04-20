@@ -102,3 +102,21 @@ dist
 
 # TernJS port file
 .tern-port
+
+Server/coverage/clover.xml
+
+Server/coverage/coverage-final.json
+
+Server/coverage/lcov.info
+
+Server/coverage/lcov-report/base.css
+
+Server/coverage/lcov-report/block-navigation.js
+
+Server/coverage/lcov-report/index.html
+
+Server/coverage/lcov-report/prettify.css
+
+Server/coverage/lcov-report/prettify.js
+
+Server/coverage/lcov-report/sorter.js
