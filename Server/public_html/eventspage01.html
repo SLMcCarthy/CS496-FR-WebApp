@@ -81,11 +81,26 @@
   <!--Listing Preview (List Group)-->
   <div class="container">
     <div class="row">
-      <div class="col">
+      <div class="col col-4">
         <h1>Event Listings</h1>
       </div>
-      <div class="col">
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createListingModal" >Add Listing</button>
+      <div class="col col-2">
+        <select class="form-control" name="filter" id="filter" required>
+            <option id="all" selected default>all</option>
+            <option id="event"> Event </option>
+            <option id="internship"> Internships </option>
+            <option id="service"> Service </option>
+            <option id="resouces"> Resouces </option>
+            <option id="media"> Media </option>
+        </select>
+        <i class="bi bi-sort-alpha-down"> </i>
+        <i class="bi bi-sort-alpha-up"> </i>
+      </div>
+      <div class="col col-2">
+          <button type="button" class="btn btn-primary"> Sort </button>
+      </div> 
+      <div class="col col-4">
+        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#createListingModal" >Add Listing</button>
       </div>
     </div><br/>
     <!-- <div style="height:180px;width:180px;overflow:auto;"> -->
@@ -182,7 +197,7 @@
                 <div class="col">
                   <div class="col-12 col-md mb-2">
                     <label for="listingStartDate" class="form-label" >Listing Start Date:</label>
-                    <input type="datetime-local" class="form-control" id="listingStartDate"/>
+                    <input type="datetime-local" class="form-control" name="listingStartDate" id="listingStartDate"/>
                   </div>
                 </div>
               </div>
@@ -190,7 +205,7 @@
                 <div class="col-12 col-md mb-2">
                   <div class="form-group">
                     <label for="listingEndDate" class="form-label" >Listing End Date:</label>
-                    <input type="datetime-local" class="form-control" id="listingEndDate"/>
+                    <input type="datetime-local" class="form-control" name="listingEndDate" id="listingEndDate"/>
                     
                   </div>
                 </div>  
@@ -218,7 +233,7 @@
               <!-- <div class="row mb-2" style="display: none;" id="test2"> -->
                 <label for="listingBodyFR" class="form-label" >French Listing Info:</label>
                 <div class="col-12 col-md mb-2">
-                  <textarea class="form-control" id="listingBodyFR" rows="3" ></textarea>
+                  <textarea class="form-control" id="listingBodyFR" name="listingBodyFR" rows="3" ></textarea>
                 </div>
               </div>    
             </div>
@@ -249,12 +264,19 @@
       let out = ``;
 
         for(let i=0;i<listings.length;i++) {
+            let tempStart = new Date(listings[i].listStart);
+            //console.log(tempStart.toDateString());
+            //console.log(tempStart.toLocaleDateString());
+            let tempEnd = new Date(listings[i].listEnd);
+            //console.log(tempEnd.toDateString());
+            //console.log(tempEnd.toLocaleDateString());
+
             out+= `
                 
             <button type="button" class="list-group-item list-group-item-action" data-bs-toggle="modal" data-bs-target="#listingModal">
           <div class="d-flex w-100 justify-content-between">
             <h5 class="mb-1"> ${listings[i].title}</h5>
-            <small>${listings[i].date}</small>
+            <small>${tempStart.toLocaleDateString()}-${tempEnd.toLocaleDateString()}</small>
           </div>
           <p class="mb-1">${listings[i].body}</p>
           <small>Click for more info</small>
