@@ -76,14 +76,15 @@
       <div class="row mt-5 justify-content-center align-items-center">
         <div class="col-12 col-md-4">
           <div class="form-group">
-            <label for="userName" class="form-label">Choose your Username:</label>
-            <input type="text" class="form-control" name="userName" id="userName" minlength="4" required><br/><br/>
+            <label for="userEmail" class="form-label">Enter your Email:</label>
+            <input class="form-control" type="email" name="userEmail" id="userEmail" required><br/><br/>
           </div>
         </div>
+
         <div class="col-12 col-md-4">
-          <div class="form-group">
-            <label for="userPass" class="form-label">Choose your Password:</label>
-            <input type="text" class="form-control" name="userPass" id="userPass" minlength="6" required><br/><br/>
+          <div class="form-check">
+            <label class="form-check-label" for="emailNotifications">Opt-In to Email Notifications</label>
+            <input class="form-check-input" type="checkbox" value="" id="emailNotifications"><br/><br/>
           </div>
         </div>
       </div>
@@ -106,14 +107,14 @@
       <div class="row justify-content-center align-items-center">
         <div class="col-12 col-md-4">
           <div class="form-group">
-            <label for="userEmail" class="form-label">Email: </label>
-            <input class="form-control" type="email" name="userEmail" id="userEmail" required><br/><br/>
+            <label for="userPass" class="form-label">Enter your Password:</label>
+            <input type="password" class="form-control" name="userPass" id="userPass" minlength="6" required><br/><br/>
           </div>
         </div>
         <div class="col-12 col-md-4">
-          <div class="form-check">
-            <label class="form-check-label" for="emailNotifications">Opt-In to Email Notifications</label>
-            <input class="form-check-input" type="checkbox" value="" id="emailNotifications"><br/><br/>
+          <div class="form-group">
+            <label for="userPass" class="form-label">Confirm your Password:</label>
+            <input type="password" class="form-control" name="userPass" id="userPass" minlength="6" required><br/><br/>
           </div>
         </div>
       </div>
@@ -122,8 +123,8 @@
         <div class="col-md-auto mb-3 g-3">
           <button type="submit" class="w-100 btn btn-primary">Sign Up</button>
         </div>
-        <div class="col-md-auto mb-3 g-3 justify-content-center">
-          <a href="/homepage.html" class="btn btn-secondary" role="button" type="reset">Cancel</a>
+        <div class="col-md-auto mb-3 g-3">
+          <a href="/homepage.html" class="w-100 btn btn-secondary" role="button" type="reset">Cancel</a>
         </div>
       </div>
 
