@@ -104,7 +104,10 @@
       </div>
     </div><br/>
     <!-- <div style="height:180px;width:180px;overflow:auto;"> -->
-    <div class="list-group border border-primary scroll" id="eventListings"></div> 
+    <div class="row">
+      <div class="list-group border border-primary scroll" id="eventListings"></div> 
+    </div>
+    
   </div>
 
   <!-- <div class="container mt-5">
@@ -167,47 +170,42 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
 
-
         <form class="was-validated" method="post" action="/listings">
           <div class="modal-body">
             <div class="container" id="MainForm">
           
               <div class="row mb-2">
-                <label for="listingTitle" class="form-label">English Listing Title:</label>
                 <div class="col-12 col-md mb-2">
+                  <label for="listingTitle" class="form-label">English Listing Title:</label>
                   <input type="text" class="form-control" name="listingTitleEN" id="listingTitleEN" placeholder="Enter the Listing Title" required/>
                 </div>
               </div>
 
               <div class="row mb-2">
-                <label for="listingBody" class="form-label" >Listing Info:</label>
                 <div class="col-12 col-md mb-2">
+                  <label for="listingBody" class="form-label" >Listing Info:</label>
                   <textarea class="form-control" id="listingBodyEN" name="listingBodyEN" rows="3" required></textarea>
                 </div>
               </div>              
 
               <div class="row mb-2">
-                <label for="listingLink" class="form-label">Listing Link:</label>
+                <div class="col-12 col-md mb-2">
+                  <label for="listingLink" class="form-label">Listing Link:</label>
                   <input type="text" class="form-control" name="listingLink" id="listingLink" placeholder="Enter an External Link"/>
                 </div>
               </div>
               
-
               <div class="row mb-2">
-                <div class="col">
-                  <div class="col-12 col-md mb-2">
-                    <label for="listingStartDate" class="form-label" >Listing Start Date:</label>
-                    <input type="datetime-local" class="form-control" name="listingStartDate" id="listingStartDate"/>
-                  </div>
+                <div class="col-12 col-md mb-2">
+                  <label for="listingStartDate" class="form-label" >Listing Start Date:</label>
+                  <input type="datetime-local" class="form-control" name="listingStartDate" id="listingStartDate"/>
                 </div>
               </div>
+
               <div class = "row mb-2">
                 <div class="col-12 col-md mb-2">
-                  <div class="form-group">
-                    <label for="listingEndDate" class="form-label" >Listing End Date:</label>
-                    <input type="datetime-local" class="form-control" name="listingEndDate" id="listingEndDate"/>
-                    
-                  </div>
+                  <label for="listingEndDate" class="form-label" >Listing End Date:</label>
+                  <input type="datetime-local" class="form-control" name="listingEndDate" id="listingEndDate"/>
                 </div>  
               </div>
 
@@ -223,14 +221,15 @@
               </div>
 
               <div class="row mb-2" style="display: none;" id="test1">
-              <!-- <div class="row mb-2" style="display: none;" id="test1"> -->
+                <!-- <div class="row mb-2" style="display: none;" id="test1"> -->
                 <label for="listingTitleFR" class="form-label">French Listing Title:</label>
                 <div class="col-12 col-md mb-2">
-                <input type="text" class="form-control" name="listingTitleFR" id="listingTitleFR" placeholder="Enter the Listing Title in French"/>
+                  <input type="text" class="form-control" name="listingTitleFR" id="listingTitleFR" placeholder="Enter the Listing Title in French"/>
+                </div>
               </div>
 
               <div class="row mb-2" style="display: none;" id="test2">
-              <!-- <div class="row mb-2" style="display: none;" id="test2"> -->
+                <!-- <div class="row mb-2" style="display: none;" id="test2"> -->
                 <label for="listingBodyFR" class="form-label" >French Listing Info:</label>
                 <div class="col-12 col-md mb-2">
                   <textarea class="form-control" id="listingBodyFR" name="listingBodyFR" rows="3" ></textarea>
