@@ -19,5 +19,11 @@ app.get('/', function(req,res){ // if called on localhost:4000
 // pull from test json file and display
 app.get('/listings', listingCont.getAll);
 app.post('/listings', listingCont.postCreateOrUpdateListing);
+app.get('/listings/Events', listingCont.getEvents);
+app.get('/listings/Services', listingCont.getServices);
+app.get('/listings/Medias', listingCont.getMedias);
+app.get('/listings/Internships', listingCont.getInternships);
+app.get('/listings/Resouces', listingCont.getResources);
+
 
 exports.app = app;

@@ -86,18 +86,18 @@
       </div>
       <div class="col col-2">
         <select class="form-control" name="filter" id="filter" required>
-            <option id="all" selected default>all</option>
-            <option id="event"> Event </option>
-            <option id="internship"> Internships </option>
-            <option id="service"> Service </option>
-            <option id="resouces"> Resouces </option>
-            <option id="media"> Media </option>
+            <option id="all" value="/listings" selected default>all</option>
+            <option id="event" value="/listings/Events">Event</option>
+            <option id="internship" value="/listings/Internships">Internship</option>
+            <option id="service" value="/listings/Services">Service</option>
+            <option id="resource" value="/listings/Resouces">Resource</option>
+            <option id="media" value="/listings/Medias">Media</option>
         </select>
-        <i class="bi bi-sort-alpha-down"> </i>
-        <i class="bi bi-sort-alpha-up"> </i>
+        <!-- <i class="bi bi-sort-alpha-down"> </i>
+        <i class="bi bi-sort-alpha-up"> </i> -->
       </div>
       <div class="col col-2">
-          <button type="button" class="btn btn-primary"> Sort </button>
+          <button type="button" onclick='refreshListings();' class="btn btn-primary"> Sort </button>
       </div> 
       <div class="col col-4">
         <button type="button" onclick='insertForm();' class="btn btn-success" data-bs-toggle="modal" data-bs-target="#createListingModal" >Add Listing</button>
@@ -125,7 +125,22 @@
         <form class="was-validated" method="post" action="/listings">
           <div class="modal-body">
             <div class="container" id="MainForm">
-          
+              
+              <div class="row mb-2">
+                <div class="col-12 col-md mb-2">
+                  <label for="listingType" class="form-label">Set type of Listing:</label>
+                  <select class="form-control" name="listingType" id="listingType" required>
+                    <option id="identifyDefault" selected disabled placeholder="choose"> </option>
+                    <option id="event">Event</option>
+                    <option id="service">Service</option>
+                    <option id="media">Media</option>
+                    <option id="internship">Internship</option>
+                    <option id="Resource">Resource</option>
+
+                </select>
+                </div>
+              </div>
+
               <div class="row mb-2">
                 <div class="col-12 col-md mb-2">
                   <label for="listingTitle" class="form-label">English Listing Title:</label>
@@ -205,12 +220,22 @@
   </div>
 
   <script>
-    async function getListings(){ 
+    function refreshListings(){
+      let temp = document.getElementById('filter');
+      console.log('worked');
+      var address = temp.options[temp.selectedIndex].value;
+      console.log(address);
+      getListings(address);
+
+    }
+    async function getListings( address ){ 
       // main function to ask the server for user data
       // and display it in this web page.
 
-      let response = await fetch('/listings');
+      let response = await fetch(address);
       let listings = await response.json();
+
+
 
       let out = ``;
 
@@ -237,7 +262,7 @@
       document.getElementById('eventListings').innerHTML = out;
       
     }
-    getListings();
+    refreshListings();
 
     function expandListing()
     {
@@ -249,16 +274,14 @@
         document.getElementById("listingBodyEN").value = '';
         document.getElementById("listingLink").value = '';
 
-        if (document.getElementById("listAutoOpen").hasAttribute("checked"))
+        //if (document.getElementById("listAutoOpen").hasAttribute("checked"))
             document.getElementById("listAutoOpen").removeAttribute("checked");
         
-        if (document.getElementById("listAutoClose").hasAttribute("checked"))
+        //if (document.getElementById("listAutoClose").hasAttribute("checked"))
             document.getElementById("listAutoClose").removeAttribute("checked");
 
        document.getElementById("listingTitleFR").value = '';
        document.getElementById("listingBodyFR").value = '';
-       document.getElementById("txt_pass").value = '';
-       document.getElementById("txt_perm").value = '2';
     }
 
     function toggleFrenchModal()
@@ -278,8 +301,6 @@
         }      
     }
 
-    let test = document.getElementById("listAutoClose").hasAttribute("checked");
-    console.log(test);
   </script>
 
 </body>

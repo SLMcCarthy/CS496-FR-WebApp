@@ -6,8 +6,36 @@ exports.getAll = async function(req, res) {
     res.end();
 }
 
+exports.getEvents = async function(req, res) {
+    res.status(200);
+    res.send(await dao.readEvents());
+    res.end();
+}
 
-// needs to be fixed
+exports.getServices = async function(req, res) {
+    res.status(200);
+    res.send(await dao.readServices());
+    res.end();
+}
+
+exports.getInternships = async function(req, res) {
+    res.status(200);
+    res.send(await dao.readInternships());
+    res.end();
+}
+
+exports.getResources = async function(req, res) {
+    res.status(200);
+    res.send(await dao.readResources());
+    res.end();
+}
+
+exports.getMedias = async function(req, res) {
+    res.status(200);
+    res.send(await dao.readMedias());
+    res.end();
+}
+
 exports.get = async function(req, res) {
     let id = req.params.id; //get param and convert to int
     let found = dao.read(id);
@@ -35,45 +63,9 @@ exports.postCreateOrUpdateListing = function(req,res){
     newListing.autoOpen = false;
     newListing.autoClose = false;
     newListing.active = true;
-    newListing.type = "Event";
+    newListing.type = req.body.listingType;
 
-
-
-    // let newListing = {}; //empty obj
-    // newListing.title = "title 01";
-    // newListing.titleFR = "French title 01";
-    // newListing.body = "body 01";
-    // newListing.bodyFR = "FR body 01";
-    // newListing.link = "French.com";
-    // newListing.listStart = "2021-01-01";
-    // newListing.listEnd = "2021-08-01";
-    // newListing.autoOpen = false;
-    // newListing.autoClose = false;
-    // newListing.active = true;
-    // newListing.type = "Event";
-    console.log(newListing.title);
-    console.log(newListing.titleFR);
-    console.log(newListing.body);
-    console.log(newListing.bodyFR);
-    console.log(newListing.link);
-    console.log(newListing.listStart);
-    console.log(newListing.listEnd);
-    console.log(newListing.autoOpen);
-    console.log(newListing.autoClose);
-    console.log(newListing.active);
-    console.log(newListing.type);
-
-
-
-
-    // if(req.body.txt_id){
-    //     //update listing
-    //     console.log('Update listing');
-    //     dao.update(newListing);
-    // }
-    // else{
-        //insert user
-        dao.create(newListing);        
-    //}
-    res.redirect('eventspage01.html');
+    dao.create(newListing);        
+    
+    res.redirect('admin_page.html');
 }
