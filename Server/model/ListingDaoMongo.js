@@ -66,8 +66,9 @@ exports.del = async function(id){
     return listing;
 } 
 
-exports.deleteAll = async function(){
-    await listingsModel.deleteMany();
+exports.deleteAll = async function(test){
+    if(test === 'test')
+        await listingsModel.deleteMany();
 }
 
 exports.update = function(listing){

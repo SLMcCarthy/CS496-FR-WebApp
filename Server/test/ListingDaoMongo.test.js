@@ -10,6 +10,15 @@ afterAll( function(){
     dbcon.disconnect();
 });
 
+beforeEach(async function(){
+    dao.deleteAll('test');
+    let newListing = {title:'test T', titleFR:'le test T', body:'test B', bodyFR:'le test B', 
+                        link:'test.com', listStart:new Date('2021-01-01'), listEnd:new Date('2021-08-01'), 
+                        autoOpen:false, autoClose:false, active:true, type:'Event'};
+    let created = await dao.create(newListing);
+
+})
+
 
 //test('msg',function(){});
 
@@ -47,5 +56,4 @@ test('Testing Delete', async function(){
     let afterSize = (await dao.readAll()).length;
     expect(afterSize).toBe(beforeSize-1);
     expect(await dao.readAll).not.toContain(deleted);
-    
 });
