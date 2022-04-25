@@ -16,6 +16,12 @@
 
     <style>
 
+      .bg-text 
+      {
+        text-align: center; 
+        color: white;
+        text-shadow: 2px 2px 5px rgba(0,0,0,0.8), 0px 0px 2px  rgba(0,0,0,1);
+      }
       /* Current BG images are placeholders */
       .hero-bg-image 
       {
@@ -36,7 +42,7 @@
 
 <body>
 
-  <div class="container">
+  <div class="container-fluid">
     <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom border-danger">
       
       <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
@@ -44,8 +50,8 @@
       </a>
 
       <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-        <li><a href="#" class="nav-link px-2 link-secondary"><i class="bi bi-house-door"></i></a></li>
-        <li><a href="/eventspage.html" class="nav-link px-2 link-dark">Events</a></li>
+        <li><a href="./homepage.html" class="nav-link px-2 link-secondary"><i class="bi bi-house-door"></i></a></li>
+        <li><a href="./eventspage.html" class="nav-link px-2 link-dark">Events</a></li>
         <li><a href="#" class="nav-link px-2 link-dark">Study Abroad</a></li>
         <li><a href="#" class="nav-link px-2 link-dark">Internships</a></li>
         <li><a href="#" class="nav-link px-2 link-dark">Services</a></li>
@@ -57,18 +63,17 @@
   </div>
 
   <!-- Hero -->
-  <div class="hero-bg-image p-5 text-center rounded mb-5">
-    <div class="bg-text" style="text-align: center; color: white;"> <!-- Need to find a better text color -->
-      <h1 style="font-weight: bold;">Bienvenue à Allons-y Département Français!</h1>
+  <div class="container-fluid">
+    <div class="hero-bg-image p-5 text-center rounded mb-5">
+      <div class="bg-text" style="text-align: center; color: white;"> <!-- Need to find a better text color -->
+        <h1 style="font-weight: bold;">Bienvenue à Allons-y Département Français!</h1>
+        <h1 style="font-weight: bold;">Sign Up</h1><br/>
+      </div>
     </div>
   </div>
 
-  <div class="bg-text" style="text-align: center;">
-    <h1 style="font-weight: bold;">Sign Up</h1><br/>
-  </div>
-
   <!-- User Sign In Form -->
-  <div class="container border-top border-danger">
+  <div class="container">
     <form action="/user" class="form-horizontal" id="signUp" method="post">
 
       <div class="form-group"><input type="hidden" id="userId" name="userId"></div>
