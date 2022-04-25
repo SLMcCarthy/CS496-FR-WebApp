@@ -1,13 +1,23 @@
 const express = require('express'); //import express
 const morgan = require('morgan'); //import morgan for logging
-const listingCont = require('./controller/ListingController')
+const listingCont = require('./controller/ListingController');
+const userCont = require('./controller/UserController');
+const session = require('express-session');
+const memorystore = require('memorystore')(session);
 
 
 const app = express(); //creates a new Express Application
 app.use(morgan('dev')); //For better logging, we use morgan
-app.use(express.json()); //not entirely sure what this does
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
+
+app.use(session({
+    secret: 'Pineapple - Guava - Orange',
+    cookie: {maxAge: 86400000 }, // = 1000*60*60*24 = 24Hours
+    store: new memorystore({ checkPeriod:86400000 }),
+    resave: false,
+    saveUninitialized: true
+}));
 
 app.use(express.static('public_html'));// Static server use the folder 'public_html'
 
@@ -24,6 +34,7 @@ app.get('/listings/Services', listingCont.getServices);
 app.get('/listings/Medias', listingCont.getMedias);
 app.get('/listings/Internships', listingCont.getInternships);
 app.get('/listings/Resouces', listingCont.getResources);
+app.post('/user', userCont.postCreateOrUpdate);
 
 
 exports.app = app;

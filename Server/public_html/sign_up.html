@@ -84,7 +84,7 @@
         <div class="col-12 col-md-4">
           <div class="form-check">
             <label class="form-check-label" for="emailNotifications">Opt-In to Email Notifications</label>
-            <input class="form-check-input" type="checkbox" value="" id="emailNotifications"><br/><br/>
+            <input class="form-check-input" type="checkbox" value="" id="emailNotifications" name="emailNotifications"><br/><br/>
           </div>
         </div>
       </div>
@@ -114,7 +114,7 @@
         <div class="col-12 col-md-4">
           <div class="form-group">
             <label for="userPass" class="form-label">Confirm your Password:</label>
-            <input type="password" class="form-control" name="userPass" id="userPass" minlength="6" required><br/><br/>
+            <input type="password" class="form-control" name="confPass" id="confPass" minlength="6" required><br/><br/>
           </div>
         </div>
       </div>
@@ -141,7 +141,6 @@
 
     function newUser()
     {
-      document.getElementById("userName").value = '';
       document.getElementById("userPass").value = '';
       document.getElementById("userFirstName").value = '';
       document.getElementById("userLastName").value = '';
