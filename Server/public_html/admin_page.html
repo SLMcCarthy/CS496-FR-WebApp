@@ -39,9 +39,20 @@
 
       .scroll
       {
-        height: 725px;
+        height: 500px;
         overflow-y: scroll;
       }
+
+			.list-group-item{height: 150px;}
+
+			.listing-body
+			{
+				max-height: 70px;
+				overflow: hidden; 
+    		text-overflow: ellipsis; 
+				white-space: normal;
+			};
+
 
     </style>
 
@@ -51,12 +62,7 @@
 
   <div class="container-fluid">
     <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom border-danger">
-<<<<<<< HEAD
 			<div class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-=======
-      
-      <div class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
->>>>>>> eac8cdd6dcea1c0f7bf0ff32963588b685523e74
         <img class="img-fluid" width="100px" height="100px" src="./images/frlogo.jpg" alt="France Icon">
       </div>
 
@@ -255,7 +261,7 @@
             <h5 class="mb-1"> ${listings[i].title}</h5>
             <small>Open ${tempStart.toLocaleDateString()} - Close ${tempEnd.toLocaleDateString()}</small>
           </div>
-          <p class="mb-1">${listings[i].body}</p>
+          <p class="listing-body mb-1">${listings[i].body}</p>
           <small>Click for more info</small>
         </button>` ;
       }
