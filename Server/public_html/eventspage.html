@@ -13,6 +13,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">  <!-- Bootstrap Icons -->   
 
     <style>
+
+      .bg-text 
+      {
+        text-align: center; 
+        color: white;
+        text-shadow: 2px 2px 5px rgba(0,0,0,0.8), 0px 0px 2px  rgba(0,0,0,1);
+      }
+
       .hero-bg-image 
       {
 				/* Current BG images are placeholders */
@@ -49,7 +57,7 @@
 
 <body>
 
-  <div class="container">
+  <div class="container-fluid">
     <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom border-danger">
 			<div class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
         <img class="img-fluid" width="100px" height="100px" src="./images/frlogo.jpg" alt="France Icon">
@@ -68,19 +76,23 @@
   </div>
 
   <!-- Hero -->
-  <div class="hero-bg-image p-5 text-center rounded mb-5">
-    <div class="bg-text" style="text-align: center; color: white;"> <!-- Need to find a better text color -->
-      <h1>Events</h1>
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus praesentium
-          labore accusamus sequi, voluptate debitis tenetur in deleniti possimus modi voluptatum
-          neque maiores dolorem unde? Aut dolorum quod excepturi fugit.
-        </p>
+  <div class="container-fluid">
+    <div class="hero-bg-image p-5 text-center rounded mb-5">
+      <div class="bg-text"> <!-- Need to find a better text color -->
+        <h1 style="font-weight: bold;">Events</h1>
+          <p>
+            Welcome to the Events page! Here you can find useful info about events recommended by the French Department
+            at Loyola, listings and info for upcoming events, as well as testimonials from students and professors who
+            have participated!
+          </p>
+      </div>
     </div>
   </div>
-            
+      
   <!--Listing Preview (List Group)-->
   <div class="container mb-5">
+
+    <!--Listing Header-->
     <div class="row align-items-center mb-3">
       <div class="col col-md-6">
         <h1>Event Listings</h1>
@@ -104,6 +116,7 @@
       </div>
     </div>
 
+    <!--List Group for listings-->
     <div class="row">
       <div class="col">
         <div class="list-group border border-primary scroll w-100" id="eventListings"></div> 
@@ -128,8 +141,8 @@
 					<p id="listingModalBodyFR"></p>
 				</div>
 
-				<div class="modal-footer">
-					<a class="btn btn-success" onclick="toggleFrenchModal();"> <i class="bi bi-translate"></i>Toggle French</a>
+				<div class="modal-footer justify-content-center">
+					<a class="btn btn-success" onclick="toggleModalFrench();"> <i class="bi bi-translate"></i>Toggle French</a>
 					<a href="#" class="btn btn-primary" onclick='confirmLeave();'>More Info</a>
 					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 				</div>
@@ -170,17 +183,27 @@
 
     function expandListing(index)
     {
+      document.getElementById("listingModalTitleFR").style = 'display: none;';
 			document.getElementById("listingModalBodyFR").style = 'display: none;'
+
 			document.getElementById("listingModalTitle").innerHTML = listings[index].title;
 			document.getElementById("listingModalDate").innerHTML = `Posted on: ${dateString(listings[index].creation)}`;
 			document.getElementById("listingModalBody").innerHTML = listings[index].body;
+      document.getElementById("listingModalTitleFR").innerHTML = listings[index].titleFR;
+      document.getElementById("listingModalBodyFR").innerHTML = listings[index].bodyFR;
     }
 
-    function toggleFrenchModal()
+    function toggleModalFrench()
     {
-				//titleFr = document.getElementById;
+        let titleEn = document.getElementById("listingModalTitle");
+        let bodyEn = document.getElementById("listingModalBody");
+				let titleFr = document.getElementById("listingModalTitleFR");
+        let bodyFr = document.getElementById("listingModalBodyFR");
+
         if (titleFr.getAttribute('style')== 'display: none;')
         {
+            titleEn.style = 'display: none;';
+            bodyEn.style ='display: none;';
             titleFr.style = 'display: flex;';
             bodyFr.style = 'display: flex;';
         }
@@ -188,6 +211,8 @@
         {
             titleFr.style = 'display: none;';
             bodyFr.style = 'display: none;';
+            titleEn.style = 'display: flex;';
+            bodyEn.style = 'display: flex;';
         }      
     }
   </script>
