@@ -16,6 +16,12 @@
 
     <style>
 
+      .bg-text 
+      {
+        text-align: center; 
+        color: white;
+        text-shadow: 2px 2px 5px rgba(0,0,0,0.8), 0px 0px 2px  rgba(0,0,0,1);
+      }
       /* Current BG images are placeholders */
       .hero-bg-image 
       {
@@ -43,18 +49,16 @@
 
 <body>
 
-  <div class="container">
+  <div class="container-fluid">
     <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom border-danger">
       
       <div class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-        <!-- <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg> -->
-        <!-- THIS IS NOT WORKING in Node -->
         <img class="img-fluid" width="100px" height="100px" src="./images/frlogo.jpg" alt="France Icon">
       </div>
 
       <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-        <li><a href="/homepage.html" class="nav-link px-2 link-secondary"><i class="bi bi-house-door"></i></a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">Events</a></li>
+        <li><a href="./homepage.html" class="nav-link px-2 link-secondary"><i class="bi bi-house-door"></i></a></li>
+        <li><a href="./eventspage.html" class="nav-link px-2 link-dark">Events</a></li>
         <li><a href="#" class="nav-link px-2 link-dark">Study Abroad</a></li>
         <li><a href="#" class="nav-link px-2 link-dark">Internships</a></li>
         <li><a href="#" class="nav-link px-2 link-dark">Services</a></li>
@@ -63,53 +67,53 @@
       </ul>
 
     </header>
-
   </div>
 
   <!-- Hero -->
-  <div class="hero-bg-image p-5 text-center rounded mb-5">
-    <div class="bg-text" style="text-align: center; color: white;"> <!-- Need to find a better text color -->
-      <h1>Events</h1>
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus praesentium
-          labore accusamus sequi, voluptate debitis tenetur in deleniti possimus modi voluptatum
-          neque maiores dolorem unde? Aut dolorum quod excepturi fugit.
-        </p>
+  <div class="container-fluid">
+    <div class="hero-bg-image p-5 text-center rounded mb-5">
+      <div class="bg-text" style="text-align: center; color: white;"> <!-- Need to find a better text color -->
+        <h1 style="font-weight: bold;">Admin Page - Listings</h1>
+        <p>Manage Listings Here.</p>
+      </div>
     </div>
   </div>
+
             
   <!--Listing Preview (List Group)-->
   <div class="container">
-    <div class="row">
-      <div class="col col-4">
+    <div class="row align-items-center mb-3">
+
+      <div class="col col-md-6">
         <h1>Listings</h1>
       </div>
-      <div class="col col-2">
-        <select class="form-control" name="filter" id="filter" required>
-            <option id="all" value="/listings" selected default>all</option>
-            <option id="event" value="/listings/Events">Event</option>
-            <option id="internship" value="/listings/Internships">Internship</option>
-            <option id="service" value="/listings/Services">Service</option>
-            <option id="resource" value="/listings/Resouces">Resource</option>
-            <option id="media" value="/listings/Medias">Media</option>
-        </select>
-        <!-- <i class="bi bi-sort-alpha-down"> </i>
-        <i class="bi bi-sort-alpha-up"> </i> -->
-      </div>
-      <div class="col col-2">
-          <button type="button" onclick='refreshListings();' class="btn btn-primary"> Sort </button>
-      </div> 
-      <div class="col col-4">
-        <button type="button" onclick='insertForm();' class="btn btn-success" data-bs-toggle="modal" data-bs-target="#createListingModal" >Add Listing</button>
-        <!-- <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#createListingModal" >Add Listing</button> -->
 
+      <div class="col col-md-4">
+        <div class="input-group">
+          <select class="form-control" name="filter" id="filter" required>
+              <option id="all" value="/listings" selected default>all</option>
+              <option id="event" value="/listings/Events">Event</option>
+              <option id="internship" value="/listings/Internships">Internship</option>
+              <option id="service" value="/listings/Services">Service</option>
+              <option id="resource" value="/listings/Resouces">Resource</option>
+              <option id="media" value="/listings/Medias">Media</option>
+          </select>
+          <button type="button" onclick='refreshListings();' class="btn btn-outline-primary"> Sort </button>
+        </div>
+      </div>
+
+      <div class="col col-md-2">
+        <button type="button" onclick='insertForm();' class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#createListingModal" >Add Listing</button>
+        <!-- <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#createListingModal" >Add Listing</button> -->
+      </div>
     </div>
-    </div><br/>
+
     <!-- <div style="height:180px;width:180px;overflow:auto;"> -->
     <div class="row">
-      <div class="list-group border border-primary scroll" id="eventListings"></div> 
+      <div class="col">
+        <div class="list-group border border-primary scroll" id="eventListings"></div> 
+      </div>
     </div>
-    
   </div>
 
   <!-- New Listing Form (Modal) -->
@@ -136,8 +140,7 @@
                     <option id="media">Media</option>
                     <option id="internship">Internship</option>
                     <option id="Resource">Resource</option>
-
-                </select>
+                  </select>
                 </div>
               </div>
 
@@ -205,7 +208,6 @@
             </div>
           </div>
         
-
           <div class="modal-footer">
             <a class="btn btn-success" onclick='toggleFrenchModal();'> <i class="bi bi-translate"></i>Toggle French</a>
             <button type="submit" class="btn btn-primary">Submit</button>
@@ -214,13 +216,17 @@
           </div>
         </form>
 
-
       </div>
     </div>
   </div>
 
   <script>
-    function refreshListings(){
+
+    let listings = [];
+    let dateString = function(dateObj){return new Date(dateObj).toDateString();}
+    
+    function refreshListings()
+    {
       let temp = document.getElementById('filter');
       console.log('worked');
       var address = temp.options[temp.selectedIndex].value;
@@ -228,39 +234,29 @@
       getListings(address);
 
     }
-    async function getListings( address ){ 
-      // main function to ask the server for user data
-      // and display it in this web page.
 
+    async function getListings( address )
+    { 
       let response = await fetch(address);
-      let listings = await response.json();
-
-
+      listings = await response.json();
 
       let out = ``;
 
-        for(let i=0;i<listings.length;i++) {
-            let tempStart = new Date(listings[i].listStart);
-            //console.log(tempStart.toDateString());
-            //console.log(tempStart.toLocaleDateString());
-            let tempEnd = new Date(listings[i].listEnd);
-            //console.log(tempEnd.toDateString());
-            //console.log(tempEnd.toLocaleDateString());
-
-            out+= `
-                
-            <button type="button" class="list-group-item list-group-item-action" data-bs-toggle="modal" data-bs-target="#listingModal">
+      for(let i=0;i<listings.length;i++) 
+      {
+        let tempStart = new Date(listings[i].listStart);
+        let tempEnd = new Date(listings[i].listEnd);
+        out+= `      
+        <button type="button" class="list-group-item list-group-item-action" data-bs-toggle="modal" data-bs-target="#listingModal">
           <div class="d-flex w-100 justify-content-between">
             <h5 class="mb-1"> ${listings[i].title}</h5>
-            <small>${tempStart.toLocaleDateString()}-${tempEnd.toLocaleDateString()}</small>
+            <small>Open ${tempStart.toLocaleDateString()} - Close ${tempEnd.toLocaleDateString()}</small>
           </div>
           <p class="mb-1">${listings[i].body}</p>
           <small>Click for more info</small>
         </button>` ;
-            }
-
+      }
       document.getElementById('eventListings').innerHTML = out;
-      
     }
     refreshListings();
 
@@ -301,7 +297,8 @@
         }      
     }
 
-    function conf(){
+    function conf()
+    {
       return window.confirm('Are you sure you want to delete?');
     }
 
