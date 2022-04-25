@@ -72,5 +72,4 @@ exports.deleteAll = async function(test){
 }
 
 exports.update = function(listing){
-    //leave as homework
 }
