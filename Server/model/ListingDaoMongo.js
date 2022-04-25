@@ -21,7 +21,6 @@ const listingsModel = mongoose.model('listings',listingSchema);
 
 exports.readAll = async function(){
     let listings = await listingsModel.find();
-    // Later try: find().sort({name:'asc'}).skip(0).limit(5);
     return listings;
 }
 
@@ -45,6 +44,7 @@ exports.deleteAll = async function(){
     await listingsModel.deleteMany();
 }
 
-exports.update = function(listing){
-    //leave as homework
+exports.update = function(id,listing){
+    let updated = listingsModel.findByIdAndUpdate(id,listing);
+	return updated;
 }
