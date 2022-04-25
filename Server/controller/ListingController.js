@@ -12,6 +12,33 @@ exports.getEvents = async function(req, res) {
     res.end();
 }
 
+exports.getEventsNew = async function(req, res) {
+    res.status(200);
+    res.send(await dao.readEventsNew());
+    res.end();
+}
+
+exports.getEventsOld = async function(req, res) {
+    res.status(200);
+    res.send(await dao.readEventsOld());
+    res.end();
+}
+
+exports.getEventsAsc = async function(req, res) {
+    res.status(200);
+    res.send(await dao.readEventsAsc());
+    res.end();
+}
+
+exports.getEventsDesc = async function(req, res) {
+    res.status(200);
+    res.send(await dao.readEventsDesc());
+    res.end();
+}
+
+
+
+
 exports.getServices = async function(req, res) {
     res.status(200);
     res.send(await dao.readServices());

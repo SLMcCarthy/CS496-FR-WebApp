@@ -47,27 +47,28 @@ exports.postCreateOrUpdate = function(req,res){
 exports.deleteOne = function(req,res){
     //URL parameter always on req.params.<name>
     let id = req.params.id; //get param and convert to int    
-    
-    let user = req.session.user;
-    if(user!=null && user.permission===1){    
-        dao.del(id);
-    }
-    res.redirect('../users.html');
+    dao.del(id);
+    // let user = req.session.user;
+    // if(user!=null && user.permission===1){    
+    //     dao.del(id);
+    // }
+
+    res.redirect('/admin_users.html');
 }
 
 exports.login = async function(req, res){
-    let plogin = req.body.txt_login;
-    let pwd = passUtil.hashPassword(req.body.txt_pass);
+    let plogin = req.body.userEmail;
+    let pwd = req.body.userPassword;
     let user = await dao.login(plogin, pwd);
     console.log(user);
     if(user != null){ //login successful
         user.password = null; //for security
         //Save the user in the session
         req.session.user = user;
-        res.redirect('index.html');
+        res.redirect('homepage.html');
     }
     else{ //incorrect login or password
-        res.redirect('login.html?error=1');
+        res.redirect('log_in.html?error=1');
     }
 }
 

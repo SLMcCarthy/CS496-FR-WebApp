@@ -26,15 +26,24 @@ app.get('/', function(req,res){ // if called on localhost:4000
     res.end();
 });
 
-// pull from test json file and display
+// ------- Listings -------
 app.get('/listings', listingCont.getAll);
 app.post('/listings', listingCont.postCreateOrUpdateListing);
 app.get('/listings/Events', listingCont.getEvents);
+app.get('/listings/Events/new', listingCont.getEventsNew);
+app.get('/listings/Events/old', listingCont.getEventsOld);
+app.get('/listings/Events/asc', listingCont.getEventsAsc);
+app.get('/listings/Events/desc', listingCont.getEventsDesc);
+
 app.get('/listings/Services', listingCont.getServices);
 app.get('/listings/Medias', listingCont.getMedias);
 app.get('/listings/Internships', listingCont.getInternships);
 app.get('/listings/Resouces', listingCont.getResources);
+
+// -------- users ---------
 app.post('/user', userCont.postCreateOrUpdate);
+app.get('/user', userCont.getAll);
+app.get('/deluser/:id',userCont.deleteOne);
 
 
 exports.app = app;

@@ -29,6 +29,31 @@ exports.readEvents = async function(){
     return listings;
 }
 
+exports.readEventsNew = async function(){
+    let listings = await listingsModel.find({type : "Event"}).sort({creation: 'desc'});
+    return listings;
+}
+
+exports.readEventsOld = async function(){
+    let listings = await listingsModel.find({type : "Event"}).sort({creation: 'asc'});
+    return listings;
+}
+
+exports.readEventsAsc = async function(){
+    let listings = await listingsModel.find({type : "Event"}).sort({title: 'asc'});
+    return listings;
+}
+
+exports.readEventsDesc = async function(){
+    let listings = await listingsModel.find({type : "Event"}).sort({title: 'desc'});
+    return listings;
+}
+
+exports.readEventsSearch = async function(key){
+    let listings = await listingsModel.find({ title: /gmail/ });
+    return listings;
+}
+
 exports.readServices = async function(){
     let listings = await listingsModel.find({ type : "Service"}).exec();
     return listings;

@@ -95,10 +95,10 @@
         <div class="dropdown">
           <button class="btn btn-primary dropdown-toggle w-100" type="button" id="listingsSort" data-bs-toggle="dropdown" aria-expanded="false">Sort By:</button>
           <ul class="dropdown-menu" aria-labelledby="listingsSort">
-            <li><a class="dropdown-item" href="#">Newest</a></li>
-            <li><a class="dropdown-item" href="#">Oldest</a></li>
-            <li><a class="dropdown-item" href="#">Alphabetical (Ascending)</a></li>
-            <li><a class="dropdown-item" href="#">Alphabetical (Descending)</a></li>
+            <li><a class="dropdown-item" onclick="getListings('/listings/Events/new')" href="#">Newest</a></li>
+            <li><a class="dropdown-item" onclick="getListings('/listings/Events/old')" href="#">Oldest</a></li>
+            <li><a class="dropdown-item" onclick="getListings('/listings/Events/asc')" href="#">Alphabetical (Ascending)</a></li>
+            <li><a class="dropdown-item" onclick="getListings('/listings/Events/desc')" href="#">Alphabetical (Descending)</a></li>
           </ul>
         </div>
       </div>
@@ -146,9 +146,9 @@
 		let dateString = function(dateObj){return new Date(dateObj).toDateString();}
 
 		// Retrieve listings
-    async function getListings()
+    async function getListings(address)
 		{ 
-      let response = await fetch('/listings');
+      let response = await fetch(address);
       listings = await response.json();
 
       let out = ``;
@@ -166,7 +166,7 @@
 			}
       document.getElementById('eventListings').innerHTML = out;
     }
-    getListings();
+    getListings('/listings/Events');
 
     function expandListing(index)
     {
