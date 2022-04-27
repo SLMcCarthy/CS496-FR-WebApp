@@ -54,4 +54,3 @@ test('delete All', async function(){
     await dao.deleteAll('test');
     expect((await dao.readAll()).length).toBe(0);
 });
-

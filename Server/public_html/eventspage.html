@@ -99,8 +99,8 @@
       </div>
       <div class="col col-md-4">
         <div class="input-group">
-          <input type="text" class="form-control" placeholder="Search Listings" aria-label="Search Listings" aria-describedby="searchButton">
-          <button class="btn btn-outline-primary" type="button" id="searchButton"><i class="bi bi-search"></i></button>
+          <input type="text" class="form-control" placeholder="Search Listings" id="search" aria-label="Search Listings" aria-describedby="searchButton">
+          <button class="btn btn-outline-primary" onclick="searchListings()" type="button" id="searchButton"><i class="bi bi-search"></i></button>
         </div>
       </div>
       <div class="col col-md-2">
@@ -180,6 +180,19 @@
       document.getElementById('eventListings').innerHTML = out;
     }
     getListings('/listings/Events');
+
+    function searchListings()
+    {
+      if(document.getElementById('search').hasAttribute('value'))
+      {
+      let key = document.getElementById('search').value;
+      console.log(key);
+      let address = `/search/Events/${key}`;
+      getListings(address);
+      console.log(address);
+      }
+      else console.log('nothing');
+    }
 
     function expandListing(index)
     {
