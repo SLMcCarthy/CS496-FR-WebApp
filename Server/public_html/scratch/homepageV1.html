@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+
+    <title> Let's Go France**** </title>
+    <meta charset="utf-8"> <!-- charset --> 
+    <meta name="description" content="unfinishedhomepage" /> 
+    <meta name="author" content="Jeremy Unanue, Shane McCarthy" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- viewport --> 
+ 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"> <!-- Bootstrap CSS --> 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script> <!-- Bootstrap JS --> 
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">  <!-- Bootstrap Icons -->   
+
+    <style>
+
+      .bg-text 
+      {
+        text-align: center; 
+        color: white;
+        text-shadow: 2px 2px 5px rgba(0,0,0,0.8), 0px 0px 2px  rgba(0,0,0,1);
+      }
+
+      /* Current BG images are placeholders */
+      .hero-bg-image 
+      {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./images/Colmar.jpeg');
+
+        /* Set a specific height */
+        height: 50%;
+
+        /* Position and center the image to scale nicely on all screens */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+      }
+
+    </style>
+
+</head>
+
+<body>
+
+  <div class="container-fluid">
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom border-danger">
+			<div class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+        <img class="img-fluid" width="100px" height="100px" src="./images/frlogo.jpg" alt="France Icon">
+      </div>
+
+      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+        <li><a href="./homepage.html" class="nav-link px-2 link-secondary"><i class="bi bi-house-door"></i></a></li>
+        <li><a href="./eventspage.html" class="nav-link px-2 link-dark">Events</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">Study Abroad</a></li>
+        <li><a href="./internshippage.html" class="nav-link px-2 link-dark">Internships</a></li>
+        <li><a href="./servicepage.html" class="nav-link px-2 link-dark">Services</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">Resources</a></li>
+        <li><a href="./mediapage.html" class="nav-link px-2 link-dark">Media</a></li>
+      </ul>
+    </header>
+  </div>
+
+  <!-- Hero -->
+  <div class="container-fluid">
+    <div class="hero-bg-image p-5 text-center rounded mb-5">
+      <div class="bg-text" style="text-align: center; color: white;"> <!-- Need to find a better text color -->
+        <h1 style="font-weight: bold;">Bienvenue à Allons-y Département Français!</h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="container mb-5">
+    <div class="row">
+      <p style="text-align: center;">
+        Allons-y Département Français is a central portal for the French Department at Loyola
+        University Maryland! Here you can explore new listings and testimonials for Events, Internships,
+        and Service Opportunities - as well as info on Study Abroad, Course Resources, and recommended Media!
+        Log-In or Sign-Up below to opt into email notifications and bookmark listings!
+      </p>
+      <div class="col">
+        <div class="text-center">
+          <!-- <button type="button" class="btn btn-outline-primary me-2">Login</button> -->
+          <a href="/log_in.html" class="btn btn-lg btn-outline-primary me-2">Login</a>
+          <a href="/sign_up.html" class="btn btn-lg btn-outline-primary me-2">Sign Up</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
