@@ -16,7 +16,6 @@ const listingSchema = new mongoose.Schema({
     creation: {type:Date, default:Date.now}
 });
 
-
 const listingsModel = mongoose.model('listings',listingSchema);
 
 exports.readAll = async function(){
@@ -49,8 +48,10 @@ exports.readEventsDesc = async function(){
     return listings;
 }
 
-exports.readEventsSearch = async function(key){
-    let listings = await listingsModel.find({ title: /gmail/ });
+exports.readSearchEvent = async function(key){
+    console.log('Dao');
+    let listings = await listingsModel.find({ title: key });
+    console.log('read');
     return listings;
 }
 
@@ -95,8 +96,7 @@ exports.deleteAll = async function(test){
         await listingsModel.deleteMany();
 }
 
-
-exports.update = function(id,listing){
-    let updated = listingsModel.findByIdAndUpdate(id,listing);
+exports.update = function(listing){
+    let updated = listingsModel.findByIdAndUpdate(listing._id,listing);
 	return updated;
 }

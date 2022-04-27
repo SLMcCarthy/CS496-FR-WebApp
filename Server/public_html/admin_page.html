@@ -112,8 +112,7 @@
       </div>
 
       <div class="col col-md-2">
-        <button type="button" onclick='insertForm();' class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#createListingModal" >Add Listing</button>
-        <!-- <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#createListingModal" >Add Listing</button> -->
+        <button type="button" onclick='insertForm();' class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#ListingModal" >Add Listing</button>
       </div>
     </div>
 
@@ -126,7 +125,7 @@
   </div>
 
   <!-- New Listing Form (Modal) -->
-  <div class="modal fade" id="createListingModal" tabindex="-1" aria-hidden="true">
+  <div class="modal fade" id="ListingModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
 
@@ -139,6 +138,13 @@
           <div class="modal-body">
             <div class="container" id="MainForm">
               
+              <div class="row mb-2" id="listingID" style="display:flex;">
+                <div class="col-12 col-md mb-2">
+                  <label for="listingID" class="form-label"> Listing ID:</label>
+                  <input type="text" class="form-control" name="listingID" id="listingID" value="" autocomplete="off" readonly />
+                </div>
+              </div>
+
               <div class="row mb-2">
                 <div class="col-12 col-md mb-2">
                   <label for="listingType" class="form-label">Set type of Listing:</label>
@@ -184,7 +190,7 @@
               <div class = "row mb-2">
                 <div class="col-12 col-md mb-2">
                   <label for="listingEndDate" class="form-label" >Listing End Date:</label>
-                  <input type="datetime-local" class="form-control" name="listingEndDate" id="listingEndDate"/>
+                  <input type="date" class="form-control" name="listingEndDate" id="listingEndDate"/>
                 </div>  
               </div>
 
@@ -220,7 +226,8 @@
           <div class="modal-footer">
             <a class="btn btn-success" onclick='toggleFrenchModal();'> <i class="bi bi-translate"></i>Toggle French</a>
             <button type="submit" class="btn btn-primary">Submit</button>
-            <button type="reset" class="btn btn-secondary me-2" id="clear_button"> Clear </button>
+            <a href="" class="btn btn-secondary" onclick="conf();" id="delete_button" style="display: none;"> Delete </a>
+            <button type="reset" class="btn btn-secondary" id="clear_button" style="display: flex;"> Clear </button>
             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
           </div>
         </form>
@@ -256,7 +263,7 @@
         let tempStart = new Date(listings[i].listStart);
         let tempEnd = new Date(listings[i].listEnd);
         out+= `      
-        <button type="button" class="list-group-item list-group-item-action" data-bs-toggle="modal" data-bs-target="#listingModal">
+        <button type="button" class="list-group-item list-group-item-action" data-bs-toggle="modal" onclick="editForm(${i});" data-bs-target="#ListingModal">
           <div class="d-flex w-100 justify-content-between">
             <h5 class="mb-1"> ${listings[i].title}</h5>
             <small>Open ${tempStart.toLocaleDateString()} - Close ${tempEnd.toLocaleDateString()}</small>
@@ -269,12 +276,36 @@
     }
     refreshListings();
 
-    function expandListing()
+    function editForm(pos)
     {
+      document.getElementById("modalTitle").innerHTML = "Edit Listing";
+      document.getElementById("listingID").style = 'display:flex;';
+      document.getElementById("listingID").value = listings[pos]._id;
+      document.getElementById("listingTitleEN").value = listings[pos].title;
+      document.getElementById("listingBodyEN").value = listings[pos].body;
+      document.getElementById("listingLink").value = listings[pos].link;
+      document.getElementById("listingStartDate").value = new Date(listings[pos].listStart).toLocaleDateString();
+      console.log(listings[pos].listStart);
+      console.log(document.getElementById("listingStartDate").value);
+      document.getElementById("listingEndDate").value = listings[pos].listEnd;
 
+
+      //if (document.getElementById("listAutoOpen").hasAttribute("checked"))
+        document.getElementById("listAutoOpen").removeAttribute("checked");
+        
+      //if (document.getElementById("listAutoClose").hasAttribute("checked"))
+        document.getElementById("listAutoClose").removeAttribute("checked");
+
+     document.getElementById("listingTitleFR").value = listings[pos].titleFR;
+     document.getElementById("listingBodyFR").value = listings[pos].bodyFR;
+     // document.getElementById("delete_button").setAttribute('href', "https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/class");
+     document.getElementById("delete_button").setAttribute('href', `/deletelistings/${listings[pos]._id}`);
+     document.getElementById("clear_button").style = 'display: none;';
+     document.getElementById("delete_button").style = 'display: flex;';
     }
 
     function insertForm(){
+        document.getElementById("listingID").style = 'display:none;';
         document.getElementById("listingTitleEN").value = '';
         document.getElementById("listingBodyEN").value = '';
         document.getElementById("listingLink").value = '';
@@ -287,6 +318,8 @@
 
        document.getElementById("listingTitleFR").value = '';
        document.getElementById("listingBodyFR").value = '';
+       document.getElementById("clear_button").style = 'display: flex;';
+       document.getElementById("delete_button").style = 'display: none;';
     }
 
     function toggleFrenchModal()

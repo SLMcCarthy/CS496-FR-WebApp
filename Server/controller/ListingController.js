@@ -36,6 +36,24 @@ exports.getEventsDesc = async function(req, res) {
     res.end();
 }
 
+exports.searchEvents = async function(req, res) {
+    console.log('controller');
+    let key = req.params.key;
+    key = "/" + key + "/";
+    console.log(key);
+    let listings = await dao.readSearchEvent(key);
+
+    if(listings !== null){ //We found the requested user
+        res.status(200); //200 = OK
+        res.send(listings); //Send the found user
+    }
+    else{ //The requested id does not exist
+        res.status(404); //404 = Not Found
+        res.send({msg:'User not found.'}); //send a message
+    }
+    res.end(); //ends the response (only 1 end per response)
+}
+
 
 
 
@@ -95,4 +113,13 @@ exports.postCreateOrUpdateListing = function(req,res){
     dao.create(newListing);        
     
     res.redirect('admin_page.html');
+}
+
+exports.deleteOne = function(req,res){
+    //URL parameter always on req.params.<name>
+    let id = req.params.id; //get param and convert to int    
+    
+    dao.del(id);
+
+    res.redirect('../admin_page.html');
 }

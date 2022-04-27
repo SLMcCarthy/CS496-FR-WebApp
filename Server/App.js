@@ -29,11 +29,14 @@ app.get('/', function(req,res){ // if called on localhost:4000
 // ------- Listings -------
 app.get('/listings', listingCont.getAll);
 app.post('/listings', listingCont.postCreateOrUpdateListing);
+app.get('/deletelistings/:id', listingCont.deleteOne);
+
 app.get('/listings/Events', listingCont.getEvents);
 app.get('/listings/Events/new', listingCont.getEventsNew);
 app.get('/listings/Events/old', listingCont.getEventsOld);
 app.get('/listings/Events/asc', listingCont.getEventsAsc);
 app.get('/listings/Events/desc', listingCont.getEventsDesc);
+app.get('/search/Events/:key', listingCont.searchEvents);
 
 app.get('/listings/Services', listingCont.getServices);
 app.get('/listings/Medias', listingCont.getMedias);
