@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Allons-Y Departement Francias!</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta name="authors" content="Jeremy Unanue, Shane McCarthy, Bootstrap Template by HTML Codex" />
+  <meta content="" name="description">
+
+  <!-- Favicon -->
+  <link href="img/favicon.ico" rel="icon">
+
+  <!-- Google Web Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Icon Font Stylesheet -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/ebecec7f8d.js" crossorigin="anonymous"></script>
+
+  <!-- Libraries Stylesheet -->
+  <link href="lib/animate/animate.min.css" rel="stylesheet">
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+  <!-- Customized Bootstrap Stylesheet -->
+  <link href="./css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Template Stylesheet -->
+  <link href="./css/style.css" rel="stylesheet">
+
+  <style>
+    .static-header {
+    background: linear-gradient(rgba(24, 29, 56, .7), rgba(24, 29, 56, .7)), url(./img/carousel-2.jpeg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    }
+
+    .scroll{ height: 500px; overflow-y: scroll;}
+
+    .list-group-item{height: 150px;}
+
+    .listing-body{ max-height: 70px; overflow: hidden; text-overflow: ellipsis; white-space: normal;};
+  </style>
+</head>
+
+<body>
+  <!-- Spinner Start -->
+  <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+      <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+          <span class="sr-only">Loading...</span>
+      </div>
+  </div>
+  <!-- Spinner End -->
+
+
+  <!-- Navbar Start -->
+  <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+    <a href="./homepage.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+      <img class="img-fluid" width="100px" height="100px" style="border: 0;" src="./img/frlogo.jpg" alt="France Icon">
+    </a>
+    
+    <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <div class="navbar-nav ms-auto p-4 p-lg-0">
+        <a href="./homepage.html" class="nav-item nav-link active">Home</a>
+
+        <div class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Info</a>
+          <div class="dropdown-menu fade-down m-0">
+            <a href="#" class="dropdown-item">Study Abroad</a>
+            <a href="#" class="dropdown-item">Student Resources</a>
+          </div>
+        </div>
+
+        <a href="./eventspage.html" class="nav-item nav-link">Events</a>
+        <a href="./internshippage.html" class="nav-item nav-link">Internships</a>
+        <a href="./servicepage.html" class="nav-item nav-link">Service</a>
+        <a href="./mediapage.html" class="nav-item nav-link">Media</a>
+
+      </div>
+    </div>
+  </nav>
+  <!-- Navbar End -->
+
+  <!--Header Start-->
+  <div class="container-fluid py-5 mb-5 static-header">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 text-center">
+                <h1 class="display-3 text-white animated slideInDown">Events</h1>
+                <p class="fs-5 text-white mb-4 pb-2">Welcome to Allons-y Département Français! A central hub for the French Department at Loyola University Maryland</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Header End-->
+
+ <!--Listing Preview (List Group)-->
+ <div class="container mb-5">
+
+  <!--Listing Header-->
+  <div class="row align-items-center mb-3">
+    <div class="col col-md-6">
+      <h1>Event Listings</h1>
+    </div>
+    <div class="col col-md-4">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search Listings" id="search" aria-label="Search Listings" aria-describedby="searchButton">
+        <button class="btn btn-outline-primary" onclick="searchListings()" type="button" id="searchButton"><i class="bi bi-search"></i></button>
+      </div>
+    </div>
+    <div class="col col-md-2">
+      <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle w-100" type="button" id="listingsSort" data-bs-toggle="dropdown" aria-expanded="false">Sort By:</button>
+        <ul class="dropdown-menu" aria-labelledby="listingsSort">
+          <li><a class="dropdown-item" onclick="getListings('/listings/Events/new')" href="#">Newest</a></li>
+          <li><a class="dropdown-item" onclick="getListings('/listings/Events/old')" href="#">Oldest</a></li>
+          <li><a class="dropdown-item" onclick="getListings('/listings/Events/asc')" href="#">Alphabetical (Ascending)</a></li>
+          <li><a class="dropdown-item" onclick="getListings('/listings/Events/desc')" href="#">Alphabetical (Descending)</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!--List Group for listings-->
+  <div class="row">
+    <div class="col">
+      <div class="list-group border border-primary scroll w-100" id="eventListings"></div> 
+    </div>
+  </div>
+</div>
+
+<!-- Expanded Listing (Modal) -->
+<div class="modal fade" id="expandedListing" tabindex="-1" aria-labelledby="expandedListing" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title" id="listingModalTitle"></h5>
+        <h5 class="modal-title" id="listingModalTitleFR"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body">
+        <small id="listingModalDate"></small><br><br>
+        <p id="listingModalBody"></p>
+        <p id="listingModalBodyFR"></p>
+      </div>
+
+      <div class="modal-footer justify-content-center">
+        <a class="btn btn-success" onclick="toggleModalFrench();"> <i class="bi bi-translate"></i>Toggle French</a>
+        <a href="#" class="btn btn-primary" onclick='confirmLeave();'>More Info</a>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<script>
+
+  let listings = [];
+
+  let dateString = function(dateObj){return new Date(dateObj).toDateString();}
+
+  // Retrieve listings
+  async function getListings(address)
+  { 
+    let response = await fetch(address);
+    listings = await response.json();
+
+    let out = ``;
+    for(let i=0;i<listings.length;i++) 
+    {
+      out+= `  
+      <button type="button" class="list-group-item list-group-item-action" onclick="expandListing(${i});" data-bs-toggle="modal" data-bs-target="#expandedListing">
+      <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">${listings[i].title}</h5>
+          <small>Posted ${dateString(listings[i].creation)}</small>
+      </div>
+      <p class="listing-body mb-1" style="">${listings[i].body}</p>
+      <small>Click for more info</small>
+      </button>` ;
+    }
+    document.getElementById('eventListings').innerHTML = out;
+  }
+  getListings('/listings/Events');
+
+  function searchListings()
+  {
+    if(document.getElementById('search').hasAttribute('value'))
+    {
+    let key = document.getElementById('search').value;
+    console.log(key);
+    let address = `/search/Events/${key}`;
+    getListings(address);
+    console.log(address);
+    }
+    else console.log('nothing');
+  }
+
+  function expandListing(index)
+  {
+    document.getElementById("listingModalTitleFR").style = 'display: none;';
+    document.getElementById("listingModalBodyFR").style = 'display: none;'
+
+    document.getElementById("listingModalTitle").innerHTML = listings[index].title;
+    document.getElementById("listingModalDate").innerHTML = `Posted on: ${dateString(listings[index].creation)}`;
+    document.getElementById("listingModalBody").innerHTML = listings[index].body;
+    document.getElementById("listingModalTitleFR").innerHTML = listings[index].titleFR;
+    document.getElementById("listingModalBodyFR").innerHTML = listings[index].bodyFR;
+  }
+
+  function toggleModalFrench()
+  {
+      let titleEn = document.getElementById("listingModalTitle");
+      let bodyEn = document.getElementById("listingModalBody");
+      let titleFr = document.getElementById("listingModalTitleFR");
+      let bodyFr = document.getElementById("listingModalBodyFR");
+
+      if (titleFr.getAttribute('style')== 'display: none;')
+      {
+          titleEn.style = 'display: none;';
+          bodyEn.style ='display: none;';
+          titleFr.style = 'display: flex;';
+          bodyFr.style = 'display: flex;';
+      }
+      else
+      {
+          titleFr.style = 'display: none;';
+          bodyFr.style = 'display: none;';
+          titleEn.style = 'display: flex;';
+          bodyEn.style = 'display: flex;';
+      }      
+  }
+</script>
+
+
+
+  <!-- Back to Top -->
+<a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="lib/wow/wow.min.js"></script>
+<script src="lib/easing/easing.min.js"></script>
+<script src="lib/waypoints/waypoints.min.js"></script>
+<script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+<!-- Template Javascript -->
+<script src="js/main.js"></script>
+</body>
