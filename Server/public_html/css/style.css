@@ -177,6 +177,8 @@
     }
 }
 
+.header-carousel-container { box-shadow: 0px 8px 10px var(--danger); }
+
 .header-carousel .owl-nav {
     position: absolute;
     top: 50%;
@@ -208,7 +210,6 @@
     background: var(--primary);
     border-color: var(--primary);
 }
-
 
 .page-header-inner {
     position: absolute;
@@ -260,7 +261,6 @@
 .service-item {
     background: var(--light);
     transition: .5s;
-    border: var(--danger);
     height: 300px;
     position: relative;
 }
@@ -268,6 +268,7 @@
 .service-item:hover {
     margin-top: -10px;
     background: var(--primary);
+    box-shadow: 0px 5px 5px var(--dark);
 }
 
 .service-item * {
