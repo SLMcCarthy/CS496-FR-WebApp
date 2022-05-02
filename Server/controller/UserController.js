@@ -1,4 +1,9 @@
-const dao = require('../model/UserDaoMongo');
+let dao = require('../model/UserDaoMongo');
+
+exports.useMock = function(test) {
+    if (test === 'test')
+        dao = require('../test/MockDaoMem');
+}
 
 exports.getAll = async function(req,res){ // REST get (all) method
     res.status(200); // 200 = Ok
@@ -32,16 +37,21 @@ exports.postCreateOrUpdate = function(req,res){
     newuser.permission = 2;
 
 
-    if(req.body.txt_id){
+    if(req.body.userId){
         //update user
         console.log('Update user');
+        newuser._id= req.body.userId;
         dao.update(newuser);
+        res.status(200);
+        res.redirect('admin_users.html');
+
     }
     else{
         //insert user
-        dao.create(newuser);        
+        dao.create(newuser);   
+        res.status(201);
+        res.redirect('log_in.html');     
     }
-    res.redirect('log_in.html');
 }
 
 exports.deleteOne = function(req,res){
@@ -81,4 +91,8 @@ exports.loggedUser = function(req,res){
 exports.logout = function(req, res){
     req.session.user = null;
     res.redirect('index.html');
+}
+
+exports.tester = function(req, res){
+    res.send(  dao.testing() )
 }

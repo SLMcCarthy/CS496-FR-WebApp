@@ -38,8 +38,9 @@ exports.deleteAll = async function(test){
         await userModel.deleteMany();
 }
 
-exports.update = function(user){
-    //leave as homework
+exports.update = async function(user){
+    await userModel.findByIdAndUpdate(user._id,user);
+    //return user;
 }
 
 exports.login = async function(plogin, pwd){

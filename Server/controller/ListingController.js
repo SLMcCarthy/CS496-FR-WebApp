@@ -1,4 +1,9 @@
-const dao = require('../model/ListingDaoMongo');  // reads from data access model
+let dao = require('../model/ListingDaoMongo');  // reads from data access model
+
+exports.useMock = function(test) {
+    if (test === 'test')
+        dao = require('../test/MockDaoMem');
+}
 
 exports.getAll = async function(req, res) {
     res.status(200); // 200 = OK
