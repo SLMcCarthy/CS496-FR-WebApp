@@ -177,8 +177,6 @@
     }
 }
 
-.header-carousel-container { box-shadow: 0px 8px 10px var(--danger); }
-
 .header-carousel .owl-nav {
     position: absolute;
     top: 50%;
@@ -391,7 +389,6 @@
 
 /*** Footer ***/
 .footer {
-    box-shadow: 0px -8px 10px var(--danger);
     padding: 20px 15px 20px;
     font-size: 15px;
 }

@@ -39,7 +39,6 @@
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    box-shadow: 0px 8px 10px var(--danger);
     }
 
   </style>
@@ -153,8 +152,8 @@
       </div>
 
       <div class="modal-footer justify-content-center">
-        <a class="btn btn-success" onclick="toggleModalFrench();"><i class="fa-solid fa-language"></i> Toggle French</a>
-        <a href="#" class="btn btn-primary" onclick='confirmLeave();'><i class="fa-solid fa-arrow-up-right-from-square"></i> More Info</a>
+        <a class="btn btn-success" onclick="toggleModalFrench();"><i class="fa-solid fa-language"></i> Toggle FR</a>
+        <a href="" class="btn btn-primary" onclick="confirmLeave();" id="more-info"><i class="fa-solid fa-arrow-up-right-from-square"></i> More Info</a>
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
       </div>
 
@@ -177,7 +176,6 @@
   </div>
 </div>
 <!-- Footer End -->
-
 
 <script>
 
@@ -208,19 +206,21 @@
   }
   getListings('/listings/Events');
 
+  // Search Listings
   function searchListings()
   {
     if(document.getElementById('search').hasAttribute('value'))
     {
-    let key = document.getElementById('search').value;
-    console.log(key);
-    let address = `/search/Events/${key}`;
-    getListings(address);
-    console.log(address);
+      let key = document.getElementById('search').value;
+      console.log(key);
+      let address = `/search/Events/${key}`;
+      getListings(address);
+      console.log(address);
     }
     else console.log('nothing');
   }
 
+  // Expand Listing
   function expandListing(index)
   {
     document.getElementById("listingModalTitleFR").style = 'display: none;';
@@ -231,6 +231,13 @@
     document.getElementById("listingModalBody").innerHTML = listings[index].body;
     document.getElementById("listingModalTitleFR").innerHTML = listings[index].titleFR;
     document.getElementById("listingModalBodyFR").innerHTML = listings[index].bodyFR;
+    
+    // Set External Link, Hide button if empty
+    document.getElementById("more-info").href = `${listings[index].link}`; 
+    if(listings[index].link === "")
+      document.getElementById("more-info").style.display = "none"; 
+    else
+      document.getElementById("more-info").style.display = "block"; 
   }
 
   function toggleModalFrench()
@@ -256,8 +263,6 @@
       }      
   }
 </script>
-
-
 
   <!-- Back to Top -->
 <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
