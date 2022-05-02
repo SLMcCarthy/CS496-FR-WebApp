@@ -41,6 +41,7 @@ exports.getEventsDesc = async function(req, res) {
     res.end();
 }
 
+// Search Event Listings
 exports.searchEvents = async function(req, res) {
     console.log('controller');
     let key = req.params.key;
@@ -48,61 +49,67 @@ exports.searchEvents = async function(req, res) {
     console.log(key);
     let listings = await dao.readSearchEvent(key);
 
-    if(listings !== null){ //We found the requested user
-        res.status(200); //200 = OK
-        res.send(listings); //Send the found user
+    if(listings !== null){ 
+        res.status(200); 
+        res.send(listings); 
     }
-    else{ //The requested id does not exist
-        res.status(404); //404 = Not Found
-        res.send({msg:'User not found.'}); //send a message
+    else{ 
+        res.status(404); 
+        res.send({msg:'User not found.'}); 
     }
-    res.end(); //ends the response (only 1 end per response)
+    res.end();
 }
 
-
-
-
+// Get Service Listings
 exports.getServices = async function(req, res) {
     res.status(200);
     res.send(await dao.readServices());
     res.end();
 }
 
+// Get Internship Listings
 exports.getInternships = async function(req, res) {
     res.status(200);
     res.send(await dao.readInternships());
     res.end();
 }
 
+// remove
 exports.getResources = async function(req, res) {
     res.status(200);
     res.send(await dao.readResources());
     res.end();
 }
 
+// Get Media Listings
 exports.getMedias = async function(req, res) {
     res.status(200);
     res.send(await dao.readMedias());
     res.end();
 }
 
+// Get One Listing
 exports.get = async function(req, res) {
-    let id = req.params.id; //get param and convert to int
+    let id = req.params.id;     // Retrieve Listing ID from Params
     let found = dao.read(id);
 
-    if(found !== null){ //We found the requested user
+    if(found !== null){  // Listing found
         res.status(200); //200 = OK
-        res.send(found); //Send the found user
+        res.send(found); //Send Listing
     }
-    else{ //The requested id does not exist
-        res.status(404); //404 = Not Found
-        res.send({msg:'User not found.'}); //send a message
+    else{                   // Listing not found
+        res.status(404);    //404 = Not Found
+        res.send({msg:'User not found.'}); //Send error msg
     }
-    res.end(); //ends the response (only 1 end per response)
+    res.end(); 
 }
 
+// Create or Update a Listing
 exports.postCreateOrUpdateListing = function(req,res){
-    let newListing = {};     // empty obj
+    // Instantiate empty Listing object
+    let newListing = {};     
+
+    // Insert Requested Data and create Schema
     newListing.title = req.body.listingTitleEN;
     newListing.titleFR = req.body.listingTitleFR;
     newListing.body = req.body.listingBodyEN;
@@ -114,17 +121,14 @@ exports.postCreateOrUpdateListing = function(req,res){
     newListing.autoClose = false;
     newListing.active = true;
     newListing.type = req.body.listingType;
-
     dao.create(newListing);        
     
     res.redirect('admin_page.html');
 }
 
+// Delete one Listing
 exports.deleteOne = function(req,res){
-    //URL parameter always on req.params.<name>
-    let id = req.params.id; //get param and convert to int    
-    
+    let id = req.params.id; //get Listing id from params
     dao.del(id);
-
     res.redirect('../admin_page.html');
 }

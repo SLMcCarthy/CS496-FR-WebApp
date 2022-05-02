@@ -40,26 +40,32 @@
     opacity: 1;
 }
 
-
 /*** Button ***/
 .btn {
     font-family: 'Nunito', sans-serif;
     font-weight: 600;
     transition: .5s;
+    box-shadow: none !important
 }
 
 .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
     background-color: var(--primary) !important;
-    box-shadow: 5px 5px 5px var(--dark) !important;
-    border:#FFFFFF !important;
-    color: #FFFFFF !important;
+    border-radius: 8px !important;
+    border: #FFFFFF !important;
+    color: #FFFFFF !important; 
 }
 
 .btn-secondary, .btn-secondary:hover, .btn-secondary:active, .btn-secondary:visited {
     background-color: var(--danger) !important;
-    box-shadow: 5px 5px 5px var(--dark) !important;
+    border-radius: 8px !important;
     border:#FFFFFF !important;
     color: #FFFFFF !important;
+}
+
+.btn-success, .btn-success:hover, .btn-success:active, .btn-success:visited {
+    border-radius: 8px !important;
+    border:#FFFFFF !important;
+    color: #FFFFFF !important;   
 }
 
 .btn-square {
@@ -163,7 +169,6 @@
     }
 }
 
-
 /*** Header carousel ***/
 @media (max-width: 768px) {
     .header-carousel .owl-carousel-item {
@@ -180,6 +185,8 @@
     display: flex;
     flex-direction: column;
 }
+
+.header-img{width: 100%; height: 500px; object-fit: cover;}
 
 .header-carousel .owl-nav .owl-prev,
 .header-carousel .owl-nav .owl-next {
@@ -202,8 +209,12 @@
     border-color: var(--primary);
 }
 
-
 .page-header-inner {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    align-items: center;
     background: rgba(15, 23, 43, .7);
 }
 
@@ -211,11 +222,43 @@
     color: var(--light);
 }
 
+/*** Listings: Search Box ***/
+.search-box { 
+    border-radius: 8px !important;  
+    border-color: var(--primary) !important;
+    border-top-right-radius: 0% !important;
+    border-bottom-right-radius: 0% !important;
+    box-shadow: none !important
+}
+
+.btn-outline-primary{
+    border-radius: 8px !important;
+    border-color: var(--primary) !important;
+    color: var(--primary) !important; 
+    border-top-left-radius: 0% !important;
+    border-bottom-left-radius: 0% !important;
+}
+
+.btn-outline-primary:hover{
+    background: var(--primary) !important;
+    color: #FFFFFF !important; 
+}
+
+/*** Listings: List Group ***/
+.list-group { border-color: var(--primary) !important;}
+
+.list-group-item{height: 200px;}
+
+.listing-body{ max-height: 70px; overflow: hidden; text-overflow: ellipsis; white-space: normal;}
+
+.scroll{ height: 500px; overflow-y: scroll; }
+
+/** Listings: Expanded Listing Modal ***/
+
 /*** Service ***/
 .service-item {
     background: var(--light);
     transition: .5s;
-    border: var(--danger);
     height: 300px;
     position: relative;
 }
@@ -223,6 +266,7 @@
 .service-item:hover {
     margin-top: -10px;
     background: var(--primary);
+    box-shadow: 0px 5px 5px var(--dark);
 }
 
 .service-item * {
@@ -344,67 +388,11 @@
 
 
 /*** Footer ***/
-.footer .btn.btn-social {
-    margin-right: 5px;
-    width: 35px;
-    height: 35px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--light);
-    font-weight: normal;
-    border: 1px solid #FFFFFF;
-    border-radius: 35px;
-    transition: .3s;
-}
-
-.footer .btn.btn-social:hover {
-    color: var(--primary);
-}
-
-.footer .btn.btn-link {
-    display: block;
-    margin-bottom: 5px;
-    padding: 0;
-    text-align: left;
-    color: #FFFFFF;
+.footer {
+    padding: 20px 15px 20px;
     font-size: 15px;
-    font-weight: normal;
-    text-transform: capitalize;
-    transition: .3s;
 }
 
-.footer .btn.btn-link::before {
-    position: relative;
-    content: "\f105";
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-    margin-right: 10px;
-}
-
-.footer .btn.btn-link:hover {
-    letter-spacing: 1px;
-    box-shadow: none;
-}
-
-.footer .copyright {
-    padding: 25px 0;
-    font-size: 15px;
-    border-top: 1px solid rgba(256, 256, 256, .1);
-}
-
-.footer .copyright a {
+.footer a {
     color: var(--light);
-}
-
-.footer .footer-menu a {
-    margin-right: 15px;
-    padding-right: 15px;
-    border-right: 1px solid rgba(255, 255, 255, .1);
-}
-
-.footer .footer-menu a:last-child {
-    margin-right: 0;
-    padding-right: 0;
-    border-right: none;
 }
