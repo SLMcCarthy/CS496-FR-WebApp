@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<title> Let's Go France**** </title>
+    <meta charset="utf-8"> <!-- charset --> 
+    <meta name="description" content="intership listings" /> 
+    <meta name="author" content="Jeremy Unanue, Shane McCarthy" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- viewport --> 
+ 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"> <!-- Bootstrap CSS --> 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script> <!-- Bootstrap JS --> 
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">  <!-- Bootstrap Icons -->   
+
+    <style>
+
+      .bg-text 
+      {
+        text-align: center; 
+        color: white;
+        text-shadow: 2px 2px 5px rgba(0,0,0,0.8), 0px 0px 2px  rgba(0,0,0,1);
+      }
+
+      .hero-bg-image 
+      {
+				/* Current BG images are placeholders */
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./images/paris-florian-wehde-408590-unsplash.jpeg');
+
+        /* Set a specific height */
+        height: 50%;
+
+        /* Position and center the image to scale nicely on all screens */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+      }
+
+      .scroll
+      {
+        height: 500px;
+        overflow-y: scroll;
+      }
+
+			.list-group-item{height: 150px;}
+
+			.listing-body
+			{
+				max-height: 70px;
+				overflow: hidden; 
+    		text-overflow: ellipsis; 
+				white-space: normal;
+			};
+
+    </style>
+</head>
+
+<body>
+
+  <div class="container-fluid">
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom border-danger">
+			<div class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+        <img class="img-fluid" width="100px" height="100px" src="./img/frlogo.jpg" alt="France Icon">
+      </div>
+
+      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+        <li><a href="./homepage.html" class="nav-link px-2 link-secondary"><i class="bi bi-house-door"></i></a></li>
+        <li><a href="./eventspage.html" class="nav-link px-2 link-dark">Events</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">Study Abroad</a></li>
+        <li><a href="./internshippage.html" class="nav-link px-2 link-dark">Internships</a></li>
+        <li><a href="./servicepage.html" class="nav-link px-2 link-dark">Services</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">Resources</a></li>
+        <li><a href="./mediapage.html" class="nav-link px-2 link-dark">Media</a></li>
+      </ul>
+    </header>
+  </div>
+
+  <!-- Hero -->
+  <div class="container-fluid">
+    <div class="hero-bg-image p-5 text-center rounded mb-5">
+      <div class="bg-text"> <!-- Need to find a better text color -->
+        <h1 style="font-weight: bold;">Internships</h1>
+          <p>
+            Welcome to the internships page! Here you can find useful info about internship opportunities recommended by the French Department
+            at Loyola, listings and info for upcoming Internships, as well as testimonials from students and professors who
+            have participated!
+          </p>
+      </div>
+    </div>
+  </div>
+      
+  <!--Listing Preview (List Group)-->
+  <div class="container mb-5">
+
+    <!--Listing Header-->
+    <div class="row align-items-center mb-3">
+      <div class="col col-md-6">
+        <h1>Internship Listings</h1>
+      </div>
+      <div class="col col-md-4">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search Listings" aria-label="Search Listings" aria-describedby="searchButton">
+          <button class="btn btn-outline-primary" type="button" id="searchButton"><i class="bi bi-search"></i></button>
+        </div>
+      </div>
+      <div class="col col-md-2">
+        <div class="dropdown">
+          <button class="btn btn-primary dropdown-toggle w-100" type="button" id="listingsSort" data-bs-toggle="dropdown" aria-expanded="false">Sort By:</button>
+          <ul class="dropdown-menu" aria-labelledby="listingsSort">
+            <li><a class="dropdown-item" onclick="getListings('/listings/Events/new')" href="#">Newest</a></li>
+            <li><a class="dropdown-item" onclick="getListings('/listings/Events/old')" href="#">Oldest</a></li>
+            <li><a class="dropdown-item" onclick="getListings('/listings/Events/asc')" href="#">Alphabetical (Ascending)</a></li>
+            <li><a class="dropdown-item" onclick="getListings('/listings/Events/desc')" href="#">Alphabetical (Descending)</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!--List Group for listings-->
+    <div class="row">
+      <div class="col">
+        <div class="list-group border border-primary scroll w-100" id="eventListings"></div> 
+      </div>
+    </div>
+  </div>
+
+  <!-- Expanded Listing (Modal) -->
+  <div class="modal fade" id="expandedListing" tabindex="-1" aria-labelledby="expandedListing" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+				<div class="modal-header">
+					<h5 class="modal-title" id="listingModalTitle"></h5>
+					<h5 class="modal-title" id="listingModalTitleFR"></h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+
+				<div class="modal-body">
+					<small id="listingModalDate"></small><br><br>
+					<p id="listingModalBody"></p>
+					<p id="listingModalBodyFR"></p>
+				</div>
+
+				<div class="modal-footer justify-content-center">
+					<a class="btn btn-success" onclick="toggleModalFrench();"> <i class="bi bi-translate"></i>Toggle French</a>
+					<a href="#" class="btn btn-primary" onclick='confirmLeave();'>More Info</a>
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+				</div>
+
+			</div>
+    </div>
+  </div>
+
+  
+  <script>
+
+		let listings = [];
+
+		let dateString = function(dateObj){return new Date(dateObj).toDateString();}
+
+		// Retrieve listings
+    async function getListings(address)
+		{ 
+      let response = await fetch(address);
+      listings = await response.json();
+
+      let out = ``;
+			for(let i=0;i<listings.length;i++) 
+			{
+				out+= `  
+				<button type="button" class="list-group-item list-group-item-action" onclick="expandListing(${i});" data-bs-toggle="modal" data-bs-target="#expandedListing">
+				<div class="d-flex w-100 justify-content-between">
+						<h5 class="mb-1">${listings[i].title}</h5>
+						<small>Posted ${dateString(listings[i].creation)}</small>
+				</div>
+				<p class="listing-body mb-1" style="">${listings[i].body}</p>
+				<small>Click for more info</small>
+				</button>` ;
+			}
+      document.getElementById('eventListings').innerHTML = out;
+    }
+    getListings('/listings/internships');
+
+    function expandListing(index)
+    {
+      document.getElementById("listingModalTitleFR").style = 'display: none;';
+			document.getElementById("listingModalBodyFR").style = 'display: none;'
+
+			document.getElementById("listingModalTitle").innerHTML = listings[index].title;
+			document.getElementById("listingModalDate").innerHTML = `Posted on: ${dateString(listings[index].creation)}`;
+			document.getElementById("listingModalBody").innerHTML = listings[index].body;
+      document.getElementById("listingModalTitleFR").innerHTML = listings[index].titleFR;
+      document.getElementById("listingModalBodyFR").innerHTML = listings[index].bodyFR;
+    }
+
+    function toggleModalFrench()
+    {
+        let titleEn = document.getElementById("listingModalTitle");
+        let bodyEn = document.getElementById("listingModalBody");
+				let titleFr = document.getElementById("listingModalTitleFR");
+        let bodyFr = document.getElementById("listingModalBodyFR");
+
+        if (titleFr.getAttribute('style')== 'display: none;')
+        {
+            titleEn.style = 'display: none;';
+            bodyEn.style ='display: none;';
+            titleFr.style = 'display: flex;';
+            bodyFr.style = 'display: flex;';
+        }
+        else
+        {
+            titleFr.style = 'display: none;';
+            bodyFr.style = 'display: none;';
+            titleEn.style = 'display: flex;';
+            bodyEn.style = 'display: flex;';
+        }      
+    }
+  </script>
+
+</body>
+
+</html>
