@@ -63,7 +63,6 @@
 }
 
 .btn-success, .btn-success:hover, .btn-success:active, .btn-success:visited {
-    border-radius: 8px !important;
     border:#FFFFFF !important;
     color: #FFFFFF !important;   
 }
