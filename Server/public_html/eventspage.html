@@ -182,22 +182,23 @@
   <div class="modal-dialog">
     <div class="modal-content">
       
+      <!--Expanded Listing Title and close button-->
       <div class="modal-header">
-        <h5 class="modal-title" id="listingModalTitle"></h5>
+        <h5 class="modal-title" id="ex-listing-title"></h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
 
+      <!--Expanded Listing missing FR notification, date, and body-->
       <div class="modal-body">
-        <small id="expanded-FRtitle-available">(Translation not available for listing title)</small>
-        <small id="expanded-FRbody-available">(Translation not available for listing body)<br></small>
-        <small id="listingModalDate"></small><br><br>
-        <p id="listingModalBody"></p>
+        <small id="ex-listing-date"></small><br><br>
+        <small class="align-items-center" style="color: #808080;" id="ex-listing-noFR"><i class="fa-solid fa-bell"></i>Translations may be missing</small>
+        <p id="ex-listing-body"></p>
       </div>
 
       <div class="modal-footer justify-content-center">
-        <a class="btn btn-success" style="border-radius: 8px !important;" id="modal-toggle-lang"></a>
-        <a href="" class="btn btn-primary" onclick="confirmLeave();" id="more-info"></a>
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <a class="btn btn-success" style="border-radius: 8px !important;" id="ex-toggle-lang"></a>
+        <a href="" class="btn btn-primary" onclick="confirmLeave();" id="ex-more-info"></a>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="ex-close">Close</button>
       </div>
       
     </div>
@@ -261,7 +262,7 @@
       {
         out+= `  
         <button type="button" class="list-group-item list-group-item-action" onclick="expandListing(${i},'EN');" data-bs-toggle="modal" data-bs-target="#expandedListing">
-          <div class="d-flex w-100 justify-content-between">
+          <div class="mb-1 d-flex w-100 justify-content-between">
               <h5 class="mb-1">${listings[i].title}</h5>
               <small>Posted ${dateString(listings[i].creation)}</small>
           </div>
@@ -297,39 +298,37 @@
   }
 
   // Expand Listing
-  function expandListing(index, lang)
+  function expandListing(i, lang)
   {
-    if(lang === "FR")
-    {
-      let hasFRTitle = !(listings[index].titleFR === "");
-      let hasFRBody = !(listings[index].bodyFR === "");
+    let toggleFR = (lang === 'FR');
 
-      document.getElementById("listingModalTitle").innerHTML = (hasFRTitle) ? listings[index].titleFR : listings[index].title;
-      document.getElementById("expanded-FRtitle-available").style = (hasFRTitle) ? 'display: none;' : 'display: flex; color: #808080;';
-      document.getElementById("listingModalDate").innerHTML = `Posté sur: ${dateString(listings[index].creation)}`;
-      document.getElementById("listingModalBody").innerHTML = (hasFRBody) ? listings[index].bodyFR : listings[index].body;
-      document.getElementById("expanded-FRbody-available").style = (hasFRBody) ? 'display: none;' : 'display: flex; color: #808080;';
-      document.getElementById("modal-toggle-lang").innerHTML = '<i class="fa-solid fa-language"></i> Basculer au Anglais';
-      document.getElementById("modal-toggle-lang").onclick = `expandListing(${index},'EN');`;
-      document.getElementById("more-info").innerHTML = "<i class='fa-solid fa-arrow-up-right-from-square'></i> Plus d'infos";
+    // Determine if french title and/or body is missing, and to notify the user if so
+    let noTitleFR = (listings[i].titleFR === '');
+    let noBodyFR = (listings[i].bodyFR === '');
+    let noticeNoFR = (noTitleFR || noBodyFR);
+ 
+    // Set title and body
+    // if 'FR' and has french title/body, set to titleFR and bodyFR respectively.
+    // if 'FR' and has no french title/body, set to titleEN and bodyEN respectively
+    // if 'EN', set to set to titleEN and bodyEN
+    document.getElementById("ex-listing-title").innerHTML = (toggleFR && !noTitleFR) ? listings[i].titleFR : listings[i].title;
+    document.getElementById("ex-listing-body").innerHTML = (toggleFR && !noTitleFR) ? listings[i].bodyFR : listings[i].body;
 
-    }
-    else
-    {
-      document.getElementById("listingModalTitle").innerHTML = listings[index].title;
-      document.getElementById("listingModalDate").innerHTML = `Posted on: ${dateString(listings[index].creation)}`;
-      document.getElementById("listingModalBody").innerHTML = listings[index].body;
-      document.getElementById("expanded-FRtitle-available").style = 'display: none;';
-      document.getElementById("expanded-FRbody-available").style = 'display: none;';
-      document.getElementById("modal-toggle-lang").innerHTML = '<i class="fa-solid fa-language"></i> Toggle French';
-      //document.getElementById("modal-toggle-lang").onclick = `expandListing(${index},'FR');`;
-      document.getElementById("more-info").innerHTML = '<i class="fa-solid fa-arrow-up-right-from-square"></i> More Info';
-      
-    }
+    // Show notice if translations are missing
+    document.getElementById("ex-listing-noFR").style = (toggleFR && noticeNoFR) ? 'display: flex;' : 'display: none;';
+
+    // Set Date
+    let listingDate = dateString(listings[i].creation);
+    document.getElementById("ex-listing-date").innerHTML = (toggleFR) ? `Posté sur: ${listingDate}` : `Posted on: ${listingDate}` ;
+    
+    // Translate buttons
+    document.getElementById("ex-toggle-lang").innerHTML = (toggleFR) ? '<i class="fa-solid fa-language"></i> Basculer au Anglais' : '<i class="fa-solid fa-language"></i> Toggle French';
+    document.getElementById("ex-toggle-lang").onclick = (toggleFR) ? function() {expandListing(i,'EN');} : function() {expandListing(i,'FR');} ;
+    document.getElementById("ex-more-info").innerHTML = (toggleFR) ? "<i class='fa-solid fa-arrow-up-right-from-square'></i> Plus d'infos" : "<i class='fa-solid fa-language'></i> Toggle French";
 
     // Set External Link, Hide button if empty
-    document.getElementById("more-info").href = `${listings[index].link}`; 
-    document.getElementById("more-info").style.display = (listings[index].link === "") ? 'none' : 'block';
+    document.getElementById("ex-more-info").href = `${listings[i].link}`; 
+    document.getElementById("ex-more-info").style.display = (listings[i].link === "") ? 'none' : 'block';
   }
 
   // Toggle French - More info on homepage
