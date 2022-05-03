@@ -42,64 +42,89 @@
   <!-- Spinner End -->
 
 
-  <!-- Navbar Start -->
   <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
     <a href="./homepage.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-      <img class="img-fluid" width="100px" height="100px" style="border: 0;" src="./img/frlogo.jpg" alt="France Icon">
+      <img class="img-fluid" width="100px" height="100px" src="./img/frlogo.jpg" alt="France Icon">
     </a>
-    
+ 
     <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarCollapse">
-      <div class="navbar-nav ms-auto p-4 p-lg-0">
-        <a href="./homepage.html" class="nav-item nav-link active">Home</a>
+
+      <!--Navbar EN-->
+      <div class="navbar-nav ms-auto p-4 p-lg-0" id="navbar-EN">
+          <a href="./homepage.html" class="nav-item nav-link active">Home</a>
+
+          <div class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Info</a>
+            <div class="dropdown-menu fade-down m-0">
+              <a href="#" class="dropdown-item">Study Abroad</a>
+              <a href="#" class="dropdown-item">Student Resources</a>
+            </div>
+          </div>
+  
+          <a href="./eventspage.html" class="nav-item nav-link">Events</a>
+          <a href="./internshippage.html" class="nav-item nav-link">Internships</a>
+          <a href="./servicepage.html" class="nav-item nav-link">Service</a>
+          <a href="./mediapage.html" class="nav-item nav-link">Media</a>
+          <a class="btn btn-success py-4 px-lg-4 d-inline-flex d-lg-block align-items-center justify-content-center" style="border-radius: 0px !important;" onclick="toggleLang('FR');">
+            <i class="fa-solid fa-language"></i> Toggle FR</a>
+      </div>
+      <!--Navbar EN end-->
+
+      <!--Navbar FR-->
+      <div class="navbar-nav ms-auto p-4 p-lg-0" id="navbar-FR">
+        <a href="./homepage.html" class="nav-item nav-link active">Accueil</a>
 
         <div class="nav-item dropdown">
           <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Info</a>
           <div class="dropdown-menu fade-down m-0">
-            <a href="#" class="dropdown-item">Study Abroad</a>
-            <a href="#" class="dropdown-item">Student Resources</a>
+            <a href="#" class="dropdown-item">Etudes à l'étranger</a>
+            <a href="#" class="dropdown-item">Ressources</a>
           </div>
         </div>
 
-        <a href="./eventspage.html" class="nav-item nav-link">Events</a>
-        <a href="./internshippage.html" class="nav-item nav-link">Internships</a>
-        <a href="./servicepage.html" class="nav-item nav-link">Service</a>
-        <a href="./mediapage.html" class="nav-item nav-link">Media</a>
-
+        <a href="./eventspage.html" class="nav-item nav-link">événements</a>
+        <a href="./internshippage.html" class="nav-item nav-link">Stages</a>
+        <a href="./servicepage.html" class="nav-item nav-link">Services</a>
+        <a href="./mediapage.html" class="nav-item nav-link">Média</a>
+        <a class="btn btn-success py-4 px-lg-4 d-inline-flex d-lg-block align-items-center justify-content-center" style="border-radius: 0px !important;" onclick="toggleLang('EN');">
+          <i class="fa-solid fa-language"></i> Basculer au Anglais</a>
       </div>
+      <!--Navbar FR end-->
+      
     </div>
   </nav>
   <!-- Navbar End -->
 
   <!-- Carousel Start -->
-  <div class="container-fluid p-0 mb-5">
-    <div class="owl-carousel header-carousel">
+  <div class="container-fluid p-0 mb-5" >
 
+    <!--Carousel EN start-->
+    <div class="owl-carousel header-carousel" id = "carousel-EN">
       <div class="owl-carousel-item">
         <img class="header-img" src="./img/carousel-1.jpg" alt="">
         <div class="page-header-inner start-0 d-flex">
           <div class="container">
-            <div class="row justify-content-start">
+            <div class="row justify-content-start" >
               <div class="col-sm-10 col-lg-8">
                 <h5 class="text-light text-uppercase mb-3 animated slideInDown">Allons-y Département Français</h5>
                 <h1 class="display-3 text-white animated slideInDown">Bienvenue!</h1>
                 <p class="fs-5 text-white mb-4 pb-2">Welcome to Allons-y Département Français! A central hub for the French Department at Loyola University Maryland</p>
                 <a href="./log_in.html" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Log In</a>
                 <a href="./sign_up.html" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Sign Up</a>
-              </div>
+              </div>  
             </div>
           </div>
         </div>
       </div>
-
       <div class="owl-carousel-item">
         <img class="header-img" src="./img/carousel-2.jpeg" alt="">
-        <div class="page-header-inner start-0 d-flex">
+        <div class="page-header-inner start-0" style="display: flex;" id="item-EN">
           <div class="container">
-            <div class="row justify-content-start">
+            <div class="row justify-content-start" >
               <div class="col-sm-10 col-lg-8">
                 <h5 class="text-light text-uppercase mb-3 animated slideInDown">Allons-y Département Français</h5>
                 <h1 class="display-3 text-white animated slideInDown">Get Involved!</h1>
@@ -107,11 +132,10 @@
                 <a href="./log_in.html" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Log In</a>
                 <a href="./sign_up.html" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Sign Up</a>
               </div>
-            </div>
+            </div> 
           </div>
         </div>
-      </div>
-
+      </div> 
       <div class="owl-carousel-item">
         <img class="header-img" src="./img/carousel-3.jpeg" alt="">
         <div class="page-header-inner start-0 d-flex">
@@ -128,8 +152,63 @@
           </div>
         </div>
       </div>
-
     </div>
+    <!--Carousel EN end-->
+
+    <!--Carousel FR start-->
+    <div class="owl-carousel header-carousel" id="carousel-FR">
+      
+      <div class="owl-carousel-item">
+        <img class="header-img" src="./img/carousel-1.jpg" alt="">
+        <div class="page-header-inner start-0 d-flex" style="display: none;" >
+          <div class="container">
+            <div class="row justify-content-start" >
+              <div class="col-sm-10 col-lg-8">
+                <h5 class="text-light text-uppercase mb-3 animated slideInDown">Allons-y Département Français</h5>
+                <h1 class="display-3 text-white animated slideInDown">Bienvenue!</h1>
+                <p class="fs-5 text-white mb-4 pb-2">Bienvenue à Allons-y : Département de français! Une plateforme pour le département de français de Loyola University Maryland</p>
+                <a href="./log_in.html" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Se Connecter</a>
+                <a href="./sign_up.html" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Inscrivez-vous</a>
+              </div>
+            </div> 
+          </div>
+        </div>
+      </div>
+      <div class="owl-carousel-item">
+        <img class="header-img" src="./img/carousel-2.jpeg" alt="">
+        <div class="page-header-inner start-0 d-flex" style="display: none;" >
+          <div class="container">
+            <div class="row justify-content-start" >
+              <div class="col-sm-10 col-lg-8">
+                <h5 class="text-light text-uppercase mb-3 animated slideInDown">Allons-y Département Français</h5>
+                <h1 class="display-3 text-white animated slideInDown">Participez!</h1>
+                <p class="fs-5 text-white mb-4 pb-2">Pour voir les derniers événements, les stages, les opportunités de services et bénévolats, et nos recommandations de médias!</p>
+                <a href="./log_in.html" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Se Connecter</a>
+                <a href="./sign_up.html" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Inscrivez-vous</a>
+              </div>
+            </div> 
+          </div>
+        </div>
+      </div>
+      <div class="owl-carousel-item">
+        <img class="header-img" src="./img/carousel-3.jpeg" alt="">
+        <div class="page-header-inner start-0 d-flex" style="display: none;" >
+          <div class="container">
+            <div class="row justify-content-start" >
+              <div class="col-sm-10 col-lg-8">
+                <h5 class="text-light text-uppercase mb-3 animated slideInDown">Allons-y Département Français</h5>
+                <h1 class="display-3 text-white animated slideInDown">Apprenez plus!</h1>
+                <p class="fs-5 text-white mb-4 pb-2">Explorez des informations utiles pour les études à l' Étranger et des ressources pour les Étudiants!</p>
+                <a href="./log_in.html" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Se Connecter</a>
+                <a href="./sign_up.html" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Inscrivez-vous</a>
+              </div>
+            </div> 
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Carousel FR end-->
+
   </div>
   <!--Page header carousel end-->
 
@@ -137,35 +216,37 @@
   <!-- Service Start -->
   <div class="container-xxl py-5">
     <div class="container">
-
       <div class="row g-4">
+
         <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
           <div class="service-item text-center pt-3">
-            <div class="p-4">
+            <div class="p-4" id="service1-EN">
               <a href="./eventspage.html"><span class="service-link"></span></a>
               <i class="fa fa-3x fa-calendar-check frBlue mb-4"></i>
-              <h5 class="mb-3">Events</h5>
-              <p>Check out upcoming Events offered by the French/Language Department(s)</p>
+              <h5 class="mb-3" id="service1-title"></h5>
+              <p id="service1-body"></p>
             </div>
           </div>
         </div>
+
         <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
           <div class="service-item text-center pt-3" >
             <div class="p-4">
               <a href="./internshippage.html"><span class="service-link"></span></a>
               <i class="fa fa-3x fa-briefcase frBlue mb-4"></i>
-              <h5 class="mb-3">Internships</h5>
-              <p>Explore Internship Opportunities offered by the French/Language Department(s)</p>
+              <h5 class="mb-3" id="service2-title"></h5>
+              <p id="service2-body"></p>
             </div>
           </div>
         </div>
+
         <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
           <div class="service-item text-center pt-3">
             <div class="p-4">
               <a href="./servicepage.html"><span class="service-link"></span></a>
               <i class="fa fa-3x fa-handshake-angle frBlue mb-4"></i>
-              <h5 class="mb-3">Service</h5>
-              <p>Learn more about and browse new Service Opportunities</p>
+              <h5 class="mb-3" id="service3-title"></h5>
+              <p id="service3-body"></p>
             </div>
           </div>
         </div>
@@ -175,8 +256,8 @@
             <div class="p-4">
               <a href="./mediapage.html"><span class="service-link"></span></a>
               <i class="fa fa-3x fa-book-open frBlue mb-4"></i>
-              <h5 class="mb-3">Media</h5>
-              <p>View the latest French media recommended by professors and students</p>
+              <h5 class="mb-3" id="service4-title"></h5>
+              <p id="service4-body"></p>
             </div>
           </div>
         </div>
@@ -189,8 +270,8 @@
             <div class="p-4">
               <a href="./studyabroadpage.html"><span class="service-link"></span></a>
               <i class="fa fa-3x fa-earth-europe frBlue mb-4"></i>
-              <h5 class="mb-3">Study Abroad</h5>
-              <p>Learn more about Study Abroad opportunities and steps to apply</p>
+              <h5 class="mb-3" id="service5-title"></h5>
+              <p id="service5-body"></p>
             </div>
           </div>
         </div>
@@ -200,12 +281,14 @@
             <div class="p-4">
               <a href="./resourcepage.html"><span class="service-link"></span></a>
               <i class="fa fa-3x fa-circle-info frBlue mb-4"></i>
-              <h5 class="mb-3">Resources</h5>
-              <p>Learn more about Resources for Students</p>
+              <h5 class="mb-3" id="service6-title"></h5>
+              <p id="service6-body"></p>
             </div>
           </div>
         </div>
+
       </div>
+
     </div>
   </div>
 <!-- Service End -->
@@ -240,6 +323,61 @@
 
 <!-- Template Javascript -->
 <script src="js/main.js"></script>
+
+<script>
+
+  var langSetting = 'EN';
+  toggleLang(langSetting);
+
+  /* Toggle French
+   * Toggling hides/shows DOM elements or sets their innerHTMLS, depending on the display
+   * properties of whats being translated and the amount of text being translated
+   * 
+   * innerHTML manipulation is somewhat encouraged to facilitate future implementaion of editable pages
+   * Refactoring goals: Storing translations in seperate files / objects, including DOM elements
+  */
+  function toggleLang(setting)
+  {
+    let toggleFR = (setting === 'FR');
+
+    // Navbar
+    document.getElementById('navbar-EN').style = toggleFR ? 'display: none;' : 'display: flex;';
+    document.getElementById('navbar-FR').style = toggleFR ? 'display: flex;' : 'display: none;';
+
+    // Carousel
+    document.getElementById('carousel-EN').style = toggleFR ? 'display: none;' : 'display: flex;';
+    document.getElementById('carousel-FR').style = toggleFR ? 'display: flex;' : 'display: none;';
+
+    // Service titles
+    document.getElementById('service1-title').innerHTML = toggleFR ? 'Événements' : 'Events';
+    document.getElementById('service2-title').innerHTML = toggleFR ? 'Stages' : 'Internships';
+    document.getElementById('service3-title').innerHTML = 'Services'; // Translations are the same
+    document.getElementById('service4-title').innerHTML = toggleFR ? 'Médias' : 'Media';
+    document.getElementById('service5-title').innerHTML = toggleFR ? "Etudes à l'étranger" : "Study Abroad";
+    document.getElementById('service6-title').innerHTML = toggleFR ? 'Ressources' : 'Resources';
+      
+    // Service bodies
+    if (toggleFR)
+    {
+      document.getElementById('service1-body').innerHTML = 'Renseignez-vous sur les prochaines Activités offertes par le Département de Français';
+      document.getElementById('service2-body').innerHTML = 'Découvrez les opportunités pour les stages offerts par le Département de Français';
+      document.getElementById('service3-body').innerHTML = 'Découvrez les opportunités de Services et de bénévolats';
+      document.getElementById('service4-body').innerHTML = 'Regardez les derniers Médias francophones recommandés par professeurs et étudiants';
+      document.getElementById('service5-body').innerHTML = "Apprenez quelles sont les opportunités pour les Études à l' étranger et comment s' inscrire";
+      document.getElementById('service6-body').innerHTML = 'Apprenez plus sur les Ressources pour étudiants';
+    }
+    else
+    {
+      document.getElementById('service1-body').innerHTML = 'Check out upcoming Events offered by the French/Language Department(s)';
+      document.getElementById('service2-body').innerHTML = 'Explore Internship Opportunities offered by the French/Language Department(s)';
+      document.getElementById('service3-body').innerHTML = 'Learn more about and browse new Service Opportunities';
+      document.getElementById('service4-body').innerHTML = 'View the latest French media recommended by professors and students';
+      document.getElementById('service5-body').innerHTML = 'Learn more about Study Abroad opportunities and steps to apply';
+      document.getElementById('service6-body').innerHTML = 'Learn more about resources for students';
+    }      
+  }
+
+</script>
 </body>
 
 </html>
