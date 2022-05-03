@@ -7,9 +7,9 @@ exports.readAll = function(){ // REST get (all) method
 }
 
 exports.read = function(id){
-    if (id==='user')
+    if (id==='user' || id === 'listing')
         return 'found';
-    else 
+    else
         return null;
 }
 

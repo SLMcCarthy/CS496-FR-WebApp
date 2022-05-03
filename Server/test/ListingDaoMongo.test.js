@@ -31,6 +31,20 @@ test('Testing Create listing', async function(){
     expect(created.title).toBe(found.title); //assertion
 });
 
+test('testing update listing', async function(){
+    let newListing = {title:'test T', titleFR:'le test T', body:'test B', bodyFR:'le test B', 
+                    link:'test.com', listStart:new Date('2021-01-01'), listEnd:new Date('2021-08-01'), 
+                    autoOpen:false, autoClose:false, active:true, type:'Event'};
+    let created = await dao.create(newListing);
+    created.title = 'updated test';
+    created.active = false;
+    await dao.update(created);
+    let updated = await dao.read(created._id);
+    expect(updated._id).toStrictEqual(created._id);
+    expect(updated.title).toStrictEqual('updated test');
+    expect(updated.active).toBe(false);
+})
+
 test('Testing ReadAll', async function(){
     let listings = await dao.readAll();
     expect(listings.length).toBeGreaterThan(0);

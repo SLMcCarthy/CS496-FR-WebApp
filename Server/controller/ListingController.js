@@ -121,14 +121,27 @@ exports.postCreateOrUpdateListing = function(req,res){
     newListing.autoClose = false;
     newListing.active = true;
     newListing.type = req.body.listingType;
-    dao.create(newListing);        
-    
-    res.redirect('admin_page.html');
+
+    if(req.body.listingId){ // User ID exists, Update User
+        console.log('Update listing');
+        newListing._id= req.body.userId;
+        dao.update(newListing);
+        res.status(200);
+        res.redirect('admin_page.html');
+
+    }
+    else{
+        //insert user
+        dao.create(newListing);   
+        res.status(201);
+        res.redirect('admin_page.html');     
+    }
+
 }
 
 // Delete one Listing
 exports.deleteOne = function(req,res){
     let id = req.params.id; //get Listing id from params
     dao.del(id);
-    res.redirect('../admin_page.html');
+    res.redirect('/admin_page.html');
 }

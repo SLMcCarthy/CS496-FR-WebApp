@@ -41,7 +41,7 @@ exports.postCreateOrUpdate = function(req,res){
     newuser.permission = 2;
 
 
-    if(req.body.txt_id){ // User ID exists, Update User
+    if(req.body.userId){ // User ID exists, Update User
         console.log('Update user');
         newuser._id= req.body.userId;
         dao.update(newuser);

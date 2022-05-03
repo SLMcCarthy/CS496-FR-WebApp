@@ -48,7 +48,7 @@ test('controller post create', function(){
   expect(res._status).toBe(201);
 });
 
-test('controleler post update', function(){
+test('controller post update', function(){
   req.body = {userId:2, userEmail:"create@email.com",userFirstName:"John",userLastName:"E",
                 userPass:"password",emailNotifications:null,permission:null}
   controller.postCreateOrUpdate(req,res);
