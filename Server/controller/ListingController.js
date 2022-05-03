@@ -67,6 +67,30 @@ exports.getServices = async function(req, res) {
     res.end();
 }
 
+exports.getServicesNew = async function(req, res) {
+    res.status(200);
+    res.send(await dao.readServicesNew());
+    res.end();
+}
+
+exports.getServicesOld = async function(req, res) {
+    res.status(200);
+    res.send(await dao.readServicesOld());
+    res.end();
+}
+
+exports.getServicesAsc = async function(req, res) {
+    res.status(200);
+    res.send(await dao.readServicesAsc());
+    res.end();
+}
+
+exports.getServicesDesc = async function(req, res) {
+    res.status(200);
+    res.send(await dao.readServicesDesc());
+    res.end();
+}
+
 // Get Internship Listings
 exports.getInternships = async function(req, res) {
     res.status(200);

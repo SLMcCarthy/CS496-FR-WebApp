@@ -60,6 +60,26 @@ exports.readServices = async function(){
     return listings;
 }
 
+exports.readServicesNew = async function(){
+    let listings = await listingsModel.find({type : "Service"}).sort({creation: 'desc'});
+    return listings;
+}
+
+exports.readServicesOld = async function(){
+    let listings = await listingsModel.find({type : "Service"}).sort({creation: 'asc'});
+    return listings;
+}
+
+exports.readServicesAsc = async function(){
+    let listings = await listingsModel.find({type : "Service"}).collation({locale:'en',strength: 2}).sort({title: 'asc'});
+    return listings;
+}
+
+exports.readServicesDesc = async function(){
+    let listings = await listingsModel.find({type : "Service"}).collation({locale:'en',strength: 2}).sort({title: 'desc'});
+    return listings;
+}
+
 exports.readInternships = async function(){
     let listings = await listingsModel.find({ type : "Internship"}).exec();
     return listings;
