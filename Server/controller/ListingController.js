@@ -98,17 +98,65 @@ exports.getInternships = async function(req, res) {
     res.end();
 }
 
-// remove
-exports.getResources = async function(req, res) {
+exports.getInternshipsNew = async function(req, res) {
     res.status(200);
-    res.send(await dao.readResources());
+    res.send(await dao.readInternshipsNew());
     res.end();
 }
+
+exports.getInternshipsOld = async function(req, res) {
+    res.status(200);
+    res.send(await dao.readInternshipsOld());
+    res.end();
+}
+
+exports.getInternshipsAsc = async function(req, res) {
+    res.status(200);
+    res.send(await dao.readInternshipsAsc());
+    res.end();
+}
+
+exports.getInternshipsDesc = async function(req, res) {
+    res.status(200);
+    res.send(await dao.readInternshipsDesc());
+    res.end();
+}
+
+// remove
+// exports.getResources = async function(req, res) {
+//     res.status(200);
+//     res.send(await dao.readResources());
+//     res.end();
+// }
 
 // Get Media Listings
 exports.getMedias = async function(req, res) {
     res.status(200);
     res.send(await dao.readMedias());
+    res.end();
+}
+
+exports.getMediasNew = async function(req, res) {
+    res.status(200);
+    res.send(await dao.readMediasNew());
+    res.end();
+}
+
+exports.getMediasOld = async function(req, res) {
+    res.status(200);
+    res.send(await dao.readMediasOld());
+    res.end();
+}
+
+exports.getMediasAsc = async function(req, res) {
+    res.status(200);
+    res.send(await dao.readMediasAsc());
+    res.end();
+}
+
+exports.getMediasDesc = async function(req, res) {
+    res.status(200);
+    res.send(await dao.readMediasDesc());
     res.end();
 }
 

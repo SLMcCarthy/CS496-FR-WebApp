@@ -85,15 +85,55 @@ exports.readInternships = async function(){
     return listings;
 }
 
+exports.readInternshipsNew = async function(){
+    let listings = await listingsModel.find({type : "Internship"}).sort({creation: 'desc'});
+    return listings;
+}
+
+exports.readInternshipsOld = async function(){
+    let listings = await listingsModel.find({type : "Internship"}).sort({creation: 'asc'});
+    return listings;
+}
+
+exports.readInternshipsAsc = async function(){
+    let listings = await listingsModel.find({type : "Internship"}).collation({locale:'en',strength: 2}).sort({title: 'asc'});
+    return listings;
+}
+
+exports.readInternshipsDesc = async function(){
+    let listings = await listingsModel.find({type : "Internship"}).collation({locale:'en',strength: 2}).sort({title: 'desc'});
+    return listings;
+}
+
 exports.readMedias = async function(){
     let listings = await listingsModel.find({ type : "Media"}).exec();
     return listings;
 }
 
-exports.readResources = async function(){
-    let listings = await listingsModel.find({ type : "Resource"}).exec();
+exports.readMediasNew = async function(){
+    let listings = await listingsModel.find({type : "Media"}).sort({creation: 'desc'});
     return listings;
 }
+
+exports.readMediasOld = async function(){
+    let listings = await listingsModel.find({type : "Media"}).sort({creation: 'asc'});
+    return listings;
+}
+
+exports.readMediasAsc = async function(){
+    let listings = await listingsModel.find({type : "Media"}).collation({locale:'en',strength: 2}).sort({title: 'asc'});
+    return listings;
+}
+
+exports.readMediasDesc = async function(){
+    let listings = await listingsModel.find({type : "Media"}).collation({locale:'en',strength: 2}).sort({title: 'desc'});
+    return listings;
+}
+
+// exports.readResources = async function(){
+//     let listings = await listingsModel.find({ type : "Resource"}).exec();
+//     return listings;
+// }
 
 exports.read = async function(id){
     let listing = await listingsModel.findById(id);

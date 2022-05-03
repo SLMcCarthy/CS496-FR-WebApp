@@ -44,7 +44,7 @@ app.get('/listings/Services/old', listingCont.getServicesOld);
 app.get('/listings/Services/asc', listingCont.getServicesAsc);
 app.get('/listings/Services/desc', listingCont.getServicesDesc);
 
-/*
+
 app.get('/listings/Medias', listingCont.getMedias);
 app.get('/listings/Medias/new', listingCont.getMediasNew);
 app.get('/listings/Medias/old', listingCont.getMediasOld);
@@ -56,8 +56,8 @@ app.get('/listings/Internships/new', listingCont.getInternshipsNew);
 app.get('/listings/Internships/old', listingCont.getInternshipsOld);
 app.get('/listings/Internships/asc', listingCont.getInternshipsAsc);
 app.get('/listings/Internships/desc', listingCont.getInternshipsDesc);
-*/
-app.get('/listings/Resouces', listingCont.getResources); // not needed
+
+//app.get('/listings/Resouces', listingCont.getResources); // not needed
 
 // -------- users ---------
 app.post('/user', userCont.postCreateOrUpdate);
