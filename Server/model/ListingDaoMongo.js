@@ -39,12 +39,12 @@ exports.readEventsOld = async function(){
 }
 
 exports.readEventsAsc = async function(){
-    let listings = await listingsModel.find({type : "Event"}).sort({title: 'asc'});
+    let listings = await listingsModel.find({type : "Event"}).collation({locale:'en',strength: 2}).sort({title: 'asc'});
     return listings;
 }
 
 exports.readEventsDesc = async function(){
-    let listings = await listingsModel.find({type : "Event"}).sort({title: 'desc'});
+    let listings = await listingsModel.find({type : "Event"}).collation({locale:'en',strength: 2}).sort({title: 'desc'});
     return listings;
 }
 

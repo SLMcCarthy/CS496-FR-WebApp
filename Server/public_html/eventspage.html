@@ -313,7 +313,7 @@
       document.getElementById("listingModalBody").innerHTML = (hasFRBody) ? listings[index].bodyFR : listings[index].body;
       document.getElementById("expanded-FRbody-available").style = (hasFRBody) ? 'display: none;' : 'display: flex; color: #808080;';
       document.getElementById("modal-toggle-lang").innerHTML = '<i class="fa-solid fa-language"></i> Basculer au Anglais';
-      document.getElementById("modal-toggle-lang").onclick = `expandListing(${index},'EN');`;
+      //document.getElementById("modal-toggle-lang").onclick = `expandListing(${index},'EN');`;
       document.getElementById("more-info").innerHTML = "<i class='fa-solid fa-arrow-up-right-from-square'></i> Plus d'infos";
 
     }
@@ -325,15 +325,17 @@
       document.getElementById("expanded-FRtitle-available").style = 'display: none;';
       document.getElementById("expanded-FRbody-available").style = 'display: none;';
       document.getElementById("modal-toggle-lang").innerHTML = '<i class="fa-solid fa-language"></i> Toggle French';
-      document.getElementById("modal-toggle-lang").onclick = `expandListing(${index},'FR');`;
+      //document.getElementById("modal-toggle-lang").onclick = `expandListing(${index},'FR');`;
       document.getElementById("more-info").innerHTML = '<i class="fa-solid fa-arrow-up-right-from-square"></i> More Info';
       
     }
 
     // Set External Link, Hide button if empty
     document.getElementById("more-info").href = `${listings[index].link}`; 
-    if(listings[index].link === ""){ document.getElementById("more-info").style.display = "none"; } 
-    else { document.getElementById("more-info").style.display = "block"; } 
+    if(listings[index].link === "") 
+      document.getElementById("more-info").style.display = "none"; 
+    else 
+      document.getElementById("more-info").style.display = "block";  
   }
 
   function toggleLang(setting)
