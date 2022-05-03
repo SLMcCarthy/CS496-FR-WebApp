@@ -130,10 +130,6 @@ exports.readMediasDesc = async function(){
     return listings;
 }
 
-// exports.readResources = async function(){
-//     let listings = await listingsModel.find({ type : "Resource"}).exec();
-//     return listings;
-// }
 
 exports.read = async function(id){
     let listing = await listingsModel.findById(id);

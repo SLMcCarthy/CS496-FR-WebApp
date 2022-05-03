@@ -122,12 +122,6 @@ exports.getInternshipsDesc = async function(req, res) {
     res.end();
 }
 
-// remove
-// exports.getResources = async function(req, res) {
-//     res.status(200);
-//     res.send(await dao.readResources());
-//     res.end();
-// }
 
 // Get Media Listings
 exports.getMedias = async function(req, res) {

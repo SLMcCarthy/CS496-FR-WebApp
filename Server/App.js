@@ -57,8 +57,6 @@ app.get('/listings/Internships/old', listingCont.getInternshipsOld);
 app.get('/listings/Internships/asc', listingCont.getInternshipsAsc);
 app.get('/listings/Internships/desc', listingCont.getInternshipsDesc);
 
-//app.get('/listings/Resouces', listingCont.getResources); // not needed
-
 // -------- users ---------
 app.post('/user', userCont.postCreateOrUpdate);
 app.get('/user', userCont.getAll);
