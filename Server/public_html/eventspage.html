@@ -249,11 +249,10 @@
     let response = await fetch(address);
     listings = await response.json();
 
-    let out = ``;
-    let titleFRAvailable = "";
-    let bodyFRAvailable = "";
-    let listingTitleFR = "";
-    let listingBodyFR = ""; 
+    let out = '';
+    let listingTitle = '';
+    let listingBody = '';
+    let msgNoFR = '';
 
     for(let i=0;i<listings.length;i++) 
     {
@@ -270,28 +269,26 @@
           <small>Click for more info</small>
         </button>` ;
       }
-      // Give Listings with FR text
-      else                    
+      else  // Give Listings with FR text                 
       {
-        // Create notifications for user if listing title / body doesnt have FR translation
-        let hasFRTitle = !(listings[i].titleFR === "");
-        let hasFRBody = !(listings[i].bodyFR === "");
+        // Add notice if listing title / body doesnt have FR translation
         
-        listingTitleFR = (hasFRTitle) ? listings[i].titleFR : listings[i].title;
-        titleFRAvailable = (hasFRTitle) ? 'display: none' : 'display: flex; color: #808080;';
-
-        listingBodyFR = (hasFRBody) ? listings[i].bodyFR : listings[i].body;
-        bodyFRAvailable = (hasFRBody) ? 'display: none' : 'display: flex; color: #808080;'
+        listingTitle = (listings[i].titleFR === '') ? listings[i].title : listings[i].titleFR;
+        listingBody = (listings[i].bodyFR === '') ? listings[i].body : listings[i].bodyFR;
+        msgNoFR = ((listings[i].titleFR === '') || (listings[i].bodyFR === '')) ? 'flex' : 'none';
         
         out+= `  
         <button type="button" class="list-group-item list-group-item-action" onclick="expandListing(${i},'FR');" data-bs-toggle="modal" data-bs-target="#expandedListing">
-        <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">${listingTitleFR}</h5>
+        <div class="mb-1 d-flex w-100 justify-content-between">
+          <div class="d-flex justify-content-start align-items-center">
+            <h5>${listingTitle}</h5>
+            <small class="px-2 align-items-center" style="color: #808080; display: ${msgNoFR};"><i class="fa-solid fa-bell"></i>Translations may be missing</small>
+          </div>
+          <div class="d-flex">
             <small>Posté sur ${dateString(listings[i].creation)}</small>
+          </div>
         </div>
-        <small style="${titleFRAvailable}">(No translation for listing title)</small>
-        <small style="${bodyFRAvailable}">(No translation for listing body)</small>
-        <p class="listing-body mb-1" style="">${listingBodyFR}</p>
+        <p class="listing-body mb-1" style="">${listingBody}</p>
         <small>Click for more info</small>
         </button>` ;
       }
@@ -325,53 +322,42 @@
       document.getElementById("expanded-FRtitle-available").style = 'display: none;';
       document.getElementById("expanded-FRbody-available").style = 'display: none;';
       document.getElementById("modal-toggle-lang").innerHTML = '<i class="fa-solid fa-language"></i> Toggle French';
-      document.getElementById("modal-toggle-lang").onclick = `expandListing(${index},'FR');`;
+      //document.getElementById("modal-toggle-lang").onclick = `expandListing(${index},'FR');`;
       document.getElementById("more-info").innerHTML = '<i class="fa-solid fa-arrow-up-right-from-square"></i> More Info';
       
     }
 
     // Set External Link, Hide button if empty
     document.getElementById("more-info").href = `${listings[index].link}`; 
-    if(listings[index].link === ""){ document.getElementById("more-info").style.display = "none"; } 
-    else { document.getElementById("more-info").style.display = "block"; } 
+    document.getElementById("more-info").style.display = (listings[index].link === "") ? 'none' : 'block';
   }
 
+  // Toggle French - More info on homepage
   function toggleLang(setting)
   {
-    // Toggle navbar, heading, listings heading, listings, and footer
-    // Displays DIFFER: navbar = flex, heading = block, 
-    if (setting === 'FR'){
-      document.getElementById('navbar-EN').style = 'display: none;';
-      document.getElementById('navbar-FR').style = 'display: flex;';
-      document.getElementById('header-EN').style = 'display: none;';
-      document.getElementById('header-FR').style = 'display: block;';
+    let toggleFR = (setting === 'FR'); // True if text / element display is FR, false if EN
+    
+    // element EN = if toggleFR is true ? element is hidden : otherwise element is shown 
+    // element FR = if toggleFR is true ? element is shown : otherwise element is hidden 
+    
+    // Navbar
+    document.getElementById('navbar-EN').style = toggleFR ? 'display: none;' : 'display: flex;';
+    document.getElementById('navbar-FR').style = toggleFR ? 'display: flex;' : 'display: none;';
 
-      document.getElementById('list-header-title').innerHTML = 'Événements';
-      document.getElementById('list-search').placeholder = 'Rechercher';
-      document.getElementById('list-sort').innerHTML = 'Trier';
-      document.getElementById('list-sort-new').innerHTML = 'Plus Nouveau';
-      document.getElementById('list-sort-old').innerHTML = 'Plus Ancien';
-      document.getElementById('list-sort-alphasc').innerHTML = 'Ordre Alphabétique Ascendant';
-      document.getElementById('list-sort-alphdesc').innerHTML = 'Ordre Alphabétique Descendant';
+    // Header
+    document.getElementById('header-EN').style = toggleFR ? 'display: none;' : 'display: block;';
+    document.getElementById('header-FR').style = toggleFR ? 'display: block;' : 'display: none;';
 
-      getListings('/listings/Events', setting);
-    }
-    else{
-      document.getElementById('navbar-EN').style = 'display: flex;';
-      document.getElementById('navbar-FR').style = 'display: none;';
-      document.getElementById('header-EN').style = 'display: block;';
-      document.getElementById('header-FR').style = 'display: none;';
-
-      document.getElementById('list-header-title').innerHTML = 'Events';
-      document.getElementById('list-search').placeholder = 'Search Events';
-      document.getElementById('list-sort').innerHTML = 'Sort By:';
-      document.getElementById('list-sort-new').innerHTML = 'Newest';
-      document.getElementById('list-sort-old').innerHTML = 'Oldest';
-      document.getElementById('list-sort-alphasc').innerHTML = 'Alphabetical (Ascending)';
-      document.getElementById('list-sort-alphdesc').innerHTML = 'Alphabetical (Descending)';
-
-      getListings('/listings/Events', setting);
-    }      
+    // innerHTML text = if toggleFR is true ? text is French : otherwise text is English;
+    document.getElementById('list-header-title').innerHTML = toggleFR ? 'Événements' : 'Events';
+    document.getElementById('list-search').placeholder = toggleFR ? 'Rechercher' : 'Search Events';
+    document.getElementById('list-sort').innerHTML = toggleFR ? 'Trier' : 'Sort By:';
+    document.getElementById('list-sort-new').innerHTML = toggleFR ? 'Plus Nouveau' : 'Newest';
+    document.getElementById('list-sort-old').innerHTML = toggleFR ? 'Plus Ancien' : 'Oldest';
+    document.getElementById('list-sort-alphasc').innerHTML = toggleFR ? 'Ordre Alphabétique Ascendant' : 'Alphabetical (Ascending)';
+    document.getElementById('list-sort-alphdesc').innerHTML = toggleFR ? 'Ordre Alphabétique Descendant' : 'Alphabetical (Descending)';
+   
+    getListings('/listings/Events', setting);    
   }
 
   // Search Listings
