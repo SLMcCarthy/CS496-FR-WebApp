@@ -1,0 +1,2 @@
+log in check for email -- duplicates
+weird errors with toggle

@@ -43,6 +43,7 @@ exports.update = async function(user){
     //return user;
 }
 
+// returns one user or null otherwise
 exports.login = async function(plogin, pwd){
     let user = await userModel.findOne({login:plogin, password:pwd});
     return user;

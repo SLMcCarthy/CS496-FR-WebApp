@@ -98,7 +98,7 @@ exports.loggedUser = function(req,res){
 
 exports.logout = function(req, res){
     req.session.user = null;
-    res.redirect('index.html');
+    res.redirect('homepage.html');
 }
 
 exports.tester = function(req, res){

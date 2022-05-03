@@ -48,5 +48,9 @@ app.post('/user', userCont.postCreateOrUpdate);
 app.get('/user', userCont.getAll);
 app.get('/deluser/:id',userCont.deleteOne);
 
+app.post('/dologin',userCont.login); 
+app.get('/loggedUser',userCont.loggedUser);
+app.get('/logout',userCont.logout);
+
 
 exports.app = app;
