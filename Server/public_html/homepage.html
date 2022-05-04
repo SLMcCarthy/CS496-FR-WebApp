@@ -41,25 +41,36 @@
   </div>
   <!-- Spinner End -->
 
-
+  <!--Navbar Start-->
   <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
-    <a href="./homepage.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+    <a href="./homepage.html" class="navbar-brand d-flex align-items-center justify-content-center px-2 px-lg-3">
       <img class="img-fluid" width="100px" height="100px" src="./img/frlogo.jpg" alt="France Icon">
     </a>
 
-    <div id="adminPages" style="display: none;">
-      <a href="./admin_page.html" class="nav-item nav-link">Listings</a>
-      <a href="./admin_users.html" class="nav-item nav-link">Users</a>
+    <!--this will be hidden from frontend HTML-->
+    <div class="nav-item dropdown" id="admin-menu">
+      <a href="#" class="btn btn-outline-primary dropdown-toggle navbar-user" data-bs-toggle="dropdown">
+        <i class="fa-solid fa-user-gear fa-lg"></i>&nbsp;<p class="mb-0" id='username'></p>
+      </a>
+      <div class="dropdown-menu fade-down m-0">
+        <a href="./admin_page.html" class="dropdown-item">Manage Content</a>
+        <a href="./admin_users.html" class="dropdown-item">Manage Users</a>
+        <a href="#" class="dropdown-item">Bookmarks</a>
+        <a href="/logout" onclick='confirmLogout();' class="dropdown-item text-danger">Log Out</a>
+      </div>
     </div>
-    
-    <div id="userPages" style="display: none;">
-      <a href="/logout">logout</a>
+
+    <div class="nav-item dropdown" id="user-menu">
+      <a href="#" class="btn btn-outline-primary dropdown-toggle navbar-user" data-bs-toggle="dropdown">
+        <i class="fa-solid fa-user-gear fa-lg"></i>&nbsp;<p class="mb-0" id='username'></p>
+      </a>
+      <div class="dropdown-menu fade-down m-0">
+        <a href="#" class="dropdown-item">Your Testimonials</a>
+        <a href="#" class="dropdown-item">Your Bookmarks</a>
+        <a href="/logout" onclick='confirmLogout();' class="dropdown-item text-danger">Log Out</a>
+      </div>
     </div>
-    <div id="spectatorPages" style="display: flex;">
-      <a href="./sign_up.html" class="nav-item nav-link">Sign Up</a>
-      <a href="./log_in.html" class="nav-item nav-link">Log in</a>
-    </div>
-    
+
     <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -339,26 +350,24 @@
   <!--Script for page control-->
   <!--In future iterations more work will be done to refactor and delegate to controller / external js files-->
   <script>
+    
     var langSetting = 'EN';
     toggleLang(langSetting);
+    
+    document.getElementById('admin-menu').style = 'display: none';  
+    document.getElementById('user-menu').style = 'display: none'; 
 
-    async function checkLoggedUser(){ 
+    async function checkLoggedUser()
+    { 
       let response = await fetch('/loggedUser');
       let user = await response.json();
-      if(user != null){
-        document.getElementById("spectatorPages").style="display:none;";
-        document.getElementById("userPages").style="display:inherit;";
-        if(user.permission === 1) {
-          document.getElementById("adminPages").style="display:inherit;";
-        }
-        else {
-          document.getElementById("adminPages").style="display:none;";
-        }
-      }
-      else{
-        document.getElementById("spectatorPages").style="display:inherit;";
-        document.getElementById("userPages").style="display:none;";
-        document.getElementById("adminPages").style="display:none;";
+     
+      if(user != null)
+      {
+        let isAdmin = (user.permission === 1);
+        document.getElementById('admin-menu').style = (isAdmin) ? 'display: flex' : 'display: none';  
+        document.getElementById('user-menu').style = (isAdmin) ? 'display: none' : 'flex';  
+        document.getElementById('username').innerHTML = `${user.firstName}`;
       }
     }
     checkLoggedUser();
@@ -411,6 +420,9 @@
       }      
     }
 
+    function confirmLogout(){ 
+      return window.confirm('Are you sure you want to log out?'); 
+    };
   </script>
 </body>
 

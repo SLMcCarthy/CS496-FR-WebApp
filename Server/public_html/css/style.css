@@ -129,9 +129,18 @@
     }
 }
 
-.navbar-light .navbar-brand,
 .navbar-light a.btn {
     height: 75px;
+}
+
+.navbar-light .navbar-user
+{
+    height: 40px !important;
+    width: 100% !important;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    color: var(--primary);
 }
 
 .navbar-light .navbar-nav .nav-link {
@@ -234,6 +243,9 @@
     border-radius: 8px !important;
     border-color: var(--primary) !important;
     color: var(--primary) !important; 
+}
+
+.listing-search-btn{
     border-top-left-radius: 0% !important;
     border-bottom-left-radius: 0% !important;
 }
