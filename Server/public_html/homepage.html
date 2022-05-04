@@ -47,10 +47,10 @@
       <img class="img-fluid" width="100px" height="100px" src="./img/frlogo.jpg" alt="France Icon">
     </a>
 
-    <!--this will be hidden from frontend HTML-->
-    <div class="nav-item dropdown" id="admin-menu">
+    <!--this will be hidden from frontend HTML in future iterations-->
+    <div class="nav-item dropdown" style = 'display: none;' id="admin-menu">
       <a href="#" class="btn btn-outline-primary dropdown-toggle navbar-user" data-bs-toggle="dropdown">
-        <i class="fa-solid fa-user-gear fa-lg"></i>&nbsp;<p class="mb-0" id='username'></p>
+        <i class="fa-solid fa-user-gear fa-lg"></i>&nbsp;<p class="mb-0" id='username1'></p>
       </a>
       <div class="dropdown-menu fade-down m-0">
         <a href="./admin_page.html" class="dropdown-item">Manage Content</a>
@@ -60,9 +60,9 @@
       </div>
     </div>
 
-    <div class="nav-item dropdown" id="user-menu">
+    <div class="nav-item dropdown" style = 'display: none;' id="user-menu">
       <a href="#" class="btn btn-outline-primary dropdown-toggle navbar-user" data-bs-toggle="dropdown">
-        <i class="fa-solid fa-user-gear fa-lg"></i>&nbsp;<p class="mb-0" id='username'></p>
+        <i class="fa-solid fa-user fa-lg"></i>&nbsp;<p class="mb-0" id='username2'></p>
       </a>
       <div class="dropdown-menu fade-down m-0">
         <a href="#" class="dropdown-item">Your Testimonials</a>
@@ -137,8 +137,10 @@
                 <h5 class="text-light text-uppercase mb-3 animated slideInDown">Allons-y Département Français</h5>
                 <h1 class="display-3 text-white animated slideInDown">Bienvenue!</h1>
                 <p class="fs-5 text-white mb-4 pb-2">Welcome to Allons-y Département Français! A central hub for the French Department at Loyola University Maryland</p>
-                <a href="./log_in.html" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Log In</a>
-                <a href="./sign_up.html" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Sign Up</a>
+                <div id ="login-signup">
+                  <a href="./log_in.html" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Log In</a>
+                  <a href="./sign_up.html" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Sign Up</a>
+                </div>
               </div>  
             </div>
           </div>
@@ -153,8 +155,10 @@
                 <h5 class="text-light text-uppercase mb-3 animated slideInDown">Allons-y Département Français</h5>
                 <h1 class="display-3 text-white animated slideInDown">Get Involved!</h1>
                 <p class="fs-5 text-white mb-4 pb-2">View newly updated Events, Internships, Service Opportunities, and Media recommendations!</p>
-                <a href="./log_in.html" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Log In</a>
-                <a href="./sign_up.html" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Sign Up</a>
+                <div id ="login-signup">
+                  <a href="./log_in.html" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Log In</a>
+                  <a href="./sign_up.html" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Sign Up</a>
+                </div>
               </div>
             </div> 
           </div>
@@ -169,8 +173,10 @@
                 <h5 class="text-light text-uppercase mb-3 animated slideInDown">Allons-y Département Français</h5>
                 <h1 class="display-3 text-white animated slideInDown">Learn More!</h1>
                 <p class="fs-5 text-white mb-4 pb-2">Explore useful info about Study Abroad and Student Resources!</p>
-                <a href="./log_in.html" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Log In</a>
-                <a href="./sign_up.html" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Sign Up</a>
+                <div id ="login-signup">
+                  <a href="./log_in.html" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Log In</a>
+                  <a href="./sign_up.html" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Sign Up</a>
+                </div>
               </div>
             </div>
           </div>
@@ -191,8 +197,10 @@
                 <h5 class="text-light text-uppercase mb-3 animated slideInDown">Allons-y Département Français</h5>
                 <h1 class="display-3 text-white animated slideInDown">Bienvenue!</h1>
                 <p class="fs-5 text-white mb-4 pb-2">Bienvenue à Allons-y : Département de français! Une plateforme pour le département de français de Loyola University Maryland</p>
-                <a href="./log_in.html" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Se Connecter</a>
-                <a href="./sign_up.html" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Inscrivez-vous</a>
+                <div id ="login-signup">
+                  <a href="./log_in.html" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Se Connecter</a>
+                  <a href="./sign_up.html" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Inscrivez-vous</a>
+                </div>
               </div>
             </div> 
           </div>
@@ -207,8 +215,10 @@
                 <h5 class="text-light text-uppercase mb-3 animated slideInDown">Allons-y Département Français</h5>
                 <h1 class="display-3 text-white animated slideInDown">Participez!</h1>
                 <p class="fs-5 text-white mb-4 pb-2">Pour voir les derniers événements, les stages, les opportunités de services et bénévolats, et nos recommandations de médias!</p>
-                <a href="./log_in.html" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Se Connecter</a>
-                <a href="./sign_up.html" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Inscrivez-vous</a>
+                <div id ="login-signup">
+                  <a href="./log_in.html" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Se Connecter</a>
+                  <a href="./sign_up.html" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Inscrivez-vous</a>
+                </div>
               </div>
             </div> 
           </div>
@@ -223,8 +233,10 @@
                 <h5 class="text-light text-uppercase mb-3 animated slideInDown">Allons-y Département Français</h5>
                 <h1 class="display-3 text-white animated slideInDown">Apprenez plus!</h1>
                 <p class="fs-5 text-white mb-4 pb-2">Explorez des informations utiles pour les études à l' Étranger et des ressources pour les Étudiants!</p>
-                <a href="./log_in.html" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Se Connecter</a>
-                <a href="./sign_up.html" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Inscrivez-vous</a>
+                <div id ="login-signup">
+                  <a href="./log_in.html" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Se Connecter</a>
+                  <a href="./sign_up.html" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Inscrivez-vous</a>
+                </div>
               </div>
             </div> 
           </div>
@@ -353,10 +365,8 @@
     
     var langSetting = 'EN';
     toggleLang(langSetting);
-    
-    document.getElementById('admin-menu').style = 'display: none';  
-    document.getElementById('user-menu').style = 'display: none'; 
-
+     
+    // Determine if user is logged in
     async function checkLoggedUser()
     { 
       let response = await fetch('/loggedUser');
@@ -364,11 +374,16 @@
      
       if(user != null)
       {
-        let isAdmin = (user.permission === 1);
-        document.getElementById('admin-menu').style = (isAdmin) ? 'display: flex' : 'display: none';  
-        document.getElementById('user-menu').style = (isAdmin) ? 'display: none' : 'flex';  
-        document.getElementById('username').innerHTML = `${user.firstName}`;
+        document.getElementById('login-signup').style = 'display: none;'; // Remove signup/login buttons
+        
+        // Users menu = is user an admin ? admin menu if true : user menu if false
+        let isAdmin = (user.permission === 1); 
+        document.getElementById('admin-menu').style = (isAdmin) ? 'display: flex;' : 'display: none;';  
+        document.getElementById('user-menu').style = (isAdmin) ? 'display: none;' : 'display: flex;';  
+        document.getElementById(`username${user.permission}`).innerHTML = `${user.firstName}`;
       }
+      else
+        document.getElementById('login-signup').style = 'display: flex;';
     }
     checkLoggedUser();
 

@@ -59,7 +59,38 @@
     <a href="./homepage.html" class="navbar-brand d-flex align-items-center px-2 px-lg-3">
       <img class="img-fluid" width="100px" height="100px" src="./img/frlogo.jpg" alt="France Icon">
     </a>
- 
+
+    <!--this will be hidden from frontend HTML in future iterations-->
+    <!--User Menu Start-->
+    <div class="nav-item dropdown" style = 'display: none;' id="admin-menu">
+      <a href="#" class="btn btn-outline-primary dropdown-toggle navbar-user" data-bs-toggle="dropdown">
+        <i class="fa-solid fa-user-gear fa-lg"></i>&nbsp;<p class="mb-0" id='username1'></p>
+      </a>
+      <div class="dropdown-menu fade-down m-0">
+        <a href="./admin_page.html" class="dropdown-item">Manage Content</a>
+        <a href="./admin_users.html" class="dropdown-item">Manage Users</a>
+        <a href="#" class="dropdown-item">Bookmarks</a>
+        <a href="/logout" onclick='confirmLogout();' class="dropdown-item text-danger">Log Out</a>
+      </div>
+    </div>
+
+    <div class="nav-item dropdown" style = 'display: none;' id="user-menu">
+      <a href="#" class="btn btn-outline-primary dropdown-toggle navbar-user" data-bs-toggle="dropdown">
+        <i class="fa-solid fa-user fa-lg"></i>&nbsp;<p class="mb-0" id='username2'></p>
+      </a>
+      <div class="dropdown-menu fade-down m-0">
+        <a href="#" class="dropdown-item">Your Testimonials</a>
+        <a href="#" class="dropdown-item">Your Bookmarks</a>
+        <a href="/logout" onclick='confirmLogout();' class="dropdown-item text-danger">Log Out</a>
+      </div>
+    </div>
+
+    <div id="login-signup" style = 'display: none;'>
+      <a href="./log_in.html" class="btn btn-primary navbar-login-signup animated slideInDown">Log In</a>
+      <a href="./sign_up.html" class="btn btn-secondary navbar-login-signup animated slideInDown">Sign Up</a>
+    </div>
+   <!--User Menu End-->
+
     <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -247,6 +278,27 @@
 
     toggleLang(langSetting);
     getListings(listingsPath);
+  
+    // Determine if user is logged in
+    async function checkLoggedUser()
+    { 
+      let response = await fetch('/loggedUser');
+      let user = await response.json();
+     
+      if(user != null)
+      {
+        document.getElementById('login-signup').style = 'display: none;'; // Remove signup/login buttons
+        
+        // Users menu = is user an admin ? admin menu if true : user menu if false
+        let isAdmin = (user.permission === 1); 
+        document.getElementById('admin-menu').style = (isAdmin) ? 'display: flex;' : 'display: none;';  
+        document.getElementById('user-menu').style = (isAdmin) ? 'display: none;' : 'display: flex;';  
+        document.getElementById(`username${user.permission}`).innerHTML = `${user.firstName}`;
+      }
+      else
+        document.getElementById('login-signup').style = 'display: flex;';
+    }
+    checkLoggedUser();
 
     // Retrieve listings
     async function getListings(address)

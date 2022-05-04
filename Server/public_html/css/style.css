@@ -133,6 +133,12 @@
     height: 75px;
 }
 
+.navbar-light .navbar-login-signup
+{
+    height: 40px !important;
+}
+
+
 .navbar-light .navbar-user
 {
     height: 40px !important;
