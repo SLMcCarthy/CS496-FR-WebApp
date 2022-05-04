@@ -70,7 +70,8 @@
         <a href="./admin_page.html" class="dropdown-item">Manage Content</a>
         <a href="./admin_users.html" class="dropdown-item">Manage Users</a>
         <a href="#" class="dropdown-item">Bookmarks</a>
-        <a href="/logout" onclick='confirmLogout();' class="dropdown-item text-danger">Log Out</a>
+        <!--Onclick value appears invalid due to VSCode bug, ignore this-->
+        <a href="/logout" onclick='return confirmLogout();' class="dropdown-item text-danger">Log Out</a>
       </div>
     </div>
 
@@ -81,11 +82,12 @@
       <div class="dropdown-menu fade-down m-0">
         <a href="#" class="dropdown-item">Your Testimonials</a>
         <a href="#" class="dropdown-item">Your Bookmarks</a>
-        <a href="/logout" onclick='confirmLogout();' class="dropdown-item text-danger">Log Out</a>
+        <!--Onclick value appears invalid due to VSCode bug, ignore this-->
+        <a href="/logout" onclick='return confirmLogout();' class="dropdown-item text-danger">Log Out</a>
       </div>
     </div>
 
-    <div id="login-signup" style = 'display: none;'>
+    <div id="login-signup">
       <a href="./log_in.html" class="btn btn-primary navbar-login-signup animated slideInDown">Log In</a>
       <a href="./sign_up.html" class="btn btn-secondary navbar-login-signup animated slideInDown">Sign Up</a>
     </div>
@@ -428,6 +430,11 @@
       }
       else console.log('nothing');
     }
+
+    // Prompt user for log-out and following external links in expanded listing
+    function confirmLogout(){ return window.confirm('Are you sure you want to log out?'); };
+    function confirmLeave(){ return window.confirm('Are you sure you want to leave this page?'); };
+
   </script>
 
 </body>
