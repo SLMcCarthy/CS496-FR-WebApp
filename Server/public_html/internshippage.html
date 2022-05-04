@@ -170,7 +170,7 @@
     <!--List Group for listings-->
     <div class="row">
       <div class="col">
-        <div class="list-group border border-primary scroll w-100" id="internship-listings"></div> 
+        <div class="list-group border border-primary scroll w-100" id="listings"></div> 
       </div>
     </div>
 
@@ -297,7 +297,7 @@
           </button>` ;
         }
       }
-      document.getElementById('internship-listings').innerHTML = out; // Output Listings to HTML
+      document.getElementById('listings').innerHTML = out; // Output Listings to HTML
     }
    
     // Expand Listing
@@ -368,7 +368,7 @@
     {
       if(document.getElementById('list-search').hasAttribute('value'))
       {
-        let key = document.getElementById('search').value;
+        let key = document.getElementById('list-search').value;
         console.log(key);
         let address = `/search/Internships/${key}`;
         getListings(address);

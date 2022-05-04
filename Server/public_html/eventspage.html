@@ -170,7 +170,7 @@
     <!--List Group for listings-->
     <div class="row">
       <div class="col">
-        <div class="list-group border border-primary scroll w-100" id="event-listings"></div> 
+        <div class="list-group border border-primary scroll w-100" id="listings"></div> 
       </div>
     </div>
 
@@ -242,10 +242,11 @@
 
     var listings = [];
     var langSetting = 'EN';
-    var listingsPath = '/listings/Events';
-    toggleLang(langSetting);
+    var listingsPath = "/listings/Events"
+    var dateString = function(dateObj){return new Date(dateObj).toDateString();}
 
-    let dateString = function(dateObj){return new Date(dateObj).toDateString();}
+    toggleLang(langSetting);
+    getListings(listingsPath);
 
     // Retrieve listings
     async function getListings(address)
@@ -296,7 +297,7 @@
           </button>` ;
         }
       }
-      document.getElementById('event-listings').innerHTML = out; // Output Listings to HTML
+      document.getElementById('listings').innerHTML = out; // Output Listings to HTML
     }
    
     // Expand Listing
@@ -367,7 +368,7 @@
     {
       if(document.getElementById('list-search').hasAttribute('value'))
       {
-        let key = document.getElementById('search').value;
+        let key = document.getElementById('list-search').value;
         console.log(key);
         let address = `/search/Events/${key}`;
         getListings(address);
