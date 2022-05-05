@@ -62,7 +62,7 @@ exports.searchEvents = async function(req, res) {
 
 // Get Service Listings
 exports.getServices = async function(req, res) {
-    res.status(200);
+    res.status(208);
     res.send(await dao.readServices());
     res.end();
 }
@@ -165,7 +165,7 @@ exports.get = async function(req, res) {
     }
     else{                   // Listing not found
         res.status(404);    //404 = Not Found
-        res.send({msg:'User not found.'}); //Send error msg
+        res.send({msg:'Listing not found.'}); //Send error msg
     }
     res.end(); 
 }

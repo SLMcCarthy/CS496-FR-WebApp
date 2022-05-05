@@ -78,7 +78,7 @@ exports.login = async function(req, res){
     let pwd = req.body.userPassword;
     let user = await dao.login(plogin, pwd);
 
-    console.log(user);
+    //console.log(user);
     if(user != null){           // login successful
         user.password = null;   // for security
         //Save the user in the session
@@ -102,5 +102,5 @@ exports.logout = function(req, res){
 }
 
 exports.tester = function(req, res){
-    res.send(  dao.testing() )
+    res.send(  dao.testing() );
 }
