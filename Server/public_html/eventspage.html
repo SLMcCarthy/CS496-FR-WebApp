@@ -88,8 +88,8 @@
     </div>
 
     <div id="login-signup">
-      <a href="./log_in.html" class="btn btn-primary navbar-login-signup animated slideInDown">Log In</a>
-      <a href="./sign_up.html" class="btn btn-secondary navbar-login-signup animated slideInDown">Sign Up</a>
+      <a href="./log_in.html" class="btn btn-primary navbar-login-signup animated slideInDown" id="login-btn"></a>
+      <a href="./sign_up.html" class="btn btn-secondary navbar-login-signup animated slideInDown" id="signup-btn"></a>
     </div>
    <!--User Menu End-->
 
@@ -223,8 +223,8 @@
 
         <!--Expanded Listing missing FR notification, date, and body-->
         <div class="modal-body">
-          <small id="ex-listing-date"></small><br><br>
-          <small class="align-items-center" style="color: #808080;" id="ex-listing-noFR"><i class="fa-solid fa-bell"></i>Translations may be missing</small>
+          <small id="ex-listing-date"></small>
+          <small class="align-items-center" style="color: #808080;" id="ex-listing-noFR"><i class="fa-solid fa-bell"></i>&nbsp;Translations may be missing / Les traductions peuvent manquer</small><br>
           <p id="ex-listing-body"></p>
         </div>
 
@@ -379,9 +379,9 @@
       document.getElementById("ex-listing-date").innerHTML = (toggleFR) ? `Posté sur: ${listingDate}` : `Posted on: ${listingDate}` ;
       
       // Translate buttons
-      document.getElementById("ex-toggle-lang").innerHTML = (toggleFR) ? '<i class="fa-solid fa-language"></i> Basculer au Anglais' : '<i class="fa-solid fa-language"></i> Toggle French';
+      document.getElementById("ex-toggle-lang").innerHTML = (toggleFR) ?  '<i class="fa-solid fa-language"></i> Basculer au Anglais' : '<i class="fa-solid fa-language"></i> Toggle French';
       document.getElementById("ex-toggle-lang").onclick = (toggleFR) ? function() {expandListing(i,'EN');} : function() {expandListing(i,'FR');} ;
-      document.getElementById("ex-more-info").innerHTML = (toggleFR) ? "<i class='fa-solid fa-arrow-up-right-from-square'></i> Plus d'infos" : "<i class='fa-solid fa-language'></i> Toggle French";
+      document.getElementById("ex-more-info").innerHTML = (toggleFR) ? "<i class='fa-solid fa-arrow-up-right-from-square'></i> Plus d'infos" : "<i class='fa-solid fa-arrow-up-right-from-square'></i> More Info";
 
       // Set External Link, Hide button if empty
       document.getElementById("ex-more-info").href = `${listings[i].link}`; 
@@ -400,6 +400,7 @@
       // Navbar
       document.getElementById('navbar-EN').style = toggleFR ? 'display: none;' : 'display: flex;';
       document.getElementById('navbar-FR').style = toggleFR ? 'display: flex;' : 'display: none;';
+
 
       // Header
       document.getElementById('header-EN').style = toggleFR ? 'display: none;' : 'display: block;';
