@@ -14,7 +14,7 @@
 <ul>
   <li>npm test</li>
   <li>npm test -- --coverage</li>
-  <li>npm test <FileName></li>
+  <li>npm test (fileName)</li>
 </ul>
 
 
