@@ -10,7 +10,11 @@ res.redirect = function(url){
 }
 res.end = function(){}
 
-let req = {params:{},body:{}};
+res.clear = function(){
+    res = {_send:'',_status:0, _redirect:''};
+}
+
+let req = {params:{},body:{},session:{user:null}};
 
 
 exports.response = res;

@@ -30,7 +30,7 @@ test('controller get listing', function(){
     req.params.id = 'check false';
     controller.get(req,res);
     expect(res._status).toBe(404);
-    expect(res._send).toStrictEqual({msg:'User not found.'});
+    expect(res._send).toStrictEqual({msg:'Listing not found.'});
 });
 
 test('controller deleteone listing', function(){
@@ -58,89 +58,111 @@ test('controller update listing', function(){
     expect(res._redirect).toBe('admin_page.html');
     expect(res._status).toBe(200);
 });
-/*
+
+test('get services', function(){
+    controller.getServices(req,res);
+    expect(res._status).toBe(208)
+});
+
+test('Controller getServicesAsc',function(){
+    controller.getServicesAsc(req,res);
+    expect(res._status).toBe(200); 
+});
+
+test('Controller getServicesDesc',function(){
+    controller.getServicesDesc(req,res);
+    expect(res._status).toBe(200); 
+});
+
+test('Controller getServicesNew',function(){
+    controller.getServicesNew(req,res);
+    expect(res._status).toBe(200); 
+});
+
+test('Controller getServicesOld',function(){
+    controller.getServicesOld(req,res);
+    expect(res._status).toBe(200); 
+});
+
+
+
+
+
 test('Controller getAll',function(){
     controller.getAll(req,res);
     expect(res._status).toBe(200); 
-    expect(res._send.length).toBe(0);
-  });
-
-
-
-
+});
 
 test('Controller getEventsAsc',function(){
     controller.getEventsAsc(req,res);
     expect(res._status).toBe(200); 
-    expect(res._send.length).toBe(0);
 });
 
 test('Controller getEventsDesc',function(){
     controller.getEventsDesc(req,res);
     expect(res._status).toBe(200); 
-    expect(res._send.length).toBe(0);
 });
 
 test('Controller getEventsNew',function(){
     controller.getEventsNew(req,res);
     expect(res._status).toBe(200); 
-    expect(res._send.length).toBe(0);
 });
 
 test('Controller getEventsOld',function(){
     controller.getEventsOld(req,res);
     expect(res._status).toBe(200); 
-    expect(res._send.length).toBe(0);
 });
 
-test('Controller getServices',function(){
-    controller.getServices(req,res);
-    expect(res._status).toBe(200); 
-    expect(res._send.length).toBe(0);
-});
 
 test('Controller getInternships',function(){
     controller.getInternships(req,res);
     expect(res._status).toBe(200); 
-    expect(res._send.length).toBe(0);
+});
+
+test('Controller getInternshipsAsc',function(){
+    controller.getInternshipsAsc(req,res);
+    expect(res._status).toBe(200); 
+});
+
+test('Controller getInternshipsDesc',function(){
+    controller.getInternshipsDesc(req,res);
+    expect(res._status).toBe(200); 
+});
+
+test('Controller getInternshipsNew',function(){
+    controller.getInternshipsNew(req,res);
+    expect(res._status).toBe(200); 
+});
+
+test('Controller getInternshipsOld',function(){
+    controller.getInternshipsOld(req,res);
+    expect(res._status).toBe(200); 
 });
 
 test('Controller getMedias',function(){
     controller.getMedias(req,res);
     expect(res._status).toBe(200); 
-    expect(res._send.length).toBe(0);
 });
 
-
-test('controller get', function(){
-    req.params = {id:'user'};
-    controller.get(req,res);
-    expect(res._status).toBe(200);
-    expect(res._send).toBe('found');
-    req.params.id = 'check false';
-    controller.get(req,res);
-    expect(res._status).toBe(404);
-    expect(res._send).toStrictEqual({msg:'User not found.'});
+test('Controller getMediasAsc',function(){
+    controller.getMediasAsc(req,res);
+    expect(res._status).toBe(200); 
 });
 
-test('controller deleteone', function(){
-    req.params = {id:'delete'};
-    controller.deleteOne(req,res);
-    expect(res._redirect).toBe('/admin_users.html');
+test('Controller getMediasDesc',function(){
+    controller.getMediasDesc(req,res);
+    expect(res._status).toBe(200); 
 });
 
-test('controller post create', function(){
-  req.body = {userEmail:"create@email.com",userFirstName:"John",userLastName:"E",
-                userPass:"password",emailNotifications:null,permission:null}
-  controller.postCreateOrUpdate(req,res);
-  expect(res._redirect).toBe('log_in.html');
-  expect(res._status).toBe(201);
+test('Controller getMediasNew',function(){
+    controller.getMediasNew(req,res);
+    expect(res._status).toBe(200); 
 });
 
-test('controller post update', function(){
-  req.body = {userId:2, userEmail:"create@email.com",userFirstName:"John",userLastName:"E",
-                userPass:"password",emailNotifications:null,permission:null}
-  controller.postCreateOrUpdate(req,res);
-  expect(res._redirect).toBe('admin_users.html');
-  expect(res._status).toBe(200);
-});  */
+test('Controller getMediasOld',function(){
+    controller.getMediasOld(req,res);
+    expect(res._status).toBe(200); 
+});
+//-------------------
+
+
