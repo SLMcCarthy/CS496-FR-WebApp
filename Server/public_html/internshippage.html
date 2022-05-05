@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Allons-y: Internships</title>
+  <title>Allons-Y Departement Francias!</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta name="authors" content="Jeremy Unanue, Shane McCarthy, Bootstrap Template by HTML Codex" />
   <meta content="" name="description">
@@ -35,7 +35,7 @@
 
     .static-header 
     {
-    background: linear-gradient(rgba(24, 29, 56, .7), rgba(24, 29, 56, .7)), url(./img/events-header.jpg);
+    background: linear-gradient(rgba(24, 29, 56, .7), rgba(24, 29, 56, .7)), url(./img/internship-header.jpg);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -56,32 +56,91 @@
 
   <!-- Navbar Start -->
   <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
-    <a href="./homepage.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+    <a href="./homepage.html" class="navbar-brand d-flex align-items-center px-2 px-lg-3">
       <img class="img-fluid" width="100px" height="100px" src="./img/frlogo.jpg" alt="France Icon">
     </a>
-    
+
+    <!--this will be hidden from frontend HTML in future iterations-->
+    <!--User Menu Start-->
+    <div class="nav-item dropdown" style = 'display: none;' id="admin-menu">
+      <a href="#" class="btn btn-outline-primary dropdown-toggle navbar-user" data-bs-toggle="dropdown">
+        <i class="fa-solid fa-user-gear fa-lg"></i>&nbsp;<p class="mb-0" id='username1'></p>
+      </a>
+      <div class="dropdown-menu fade-down m-0">
+        <a href="./admin_page.html" class="dropdown-item">Manage Content</a>
+        <a href="./admin_users.html" class="dropdown-item">Manage Users</a>
+        <a href="#" class="dropdown-item">Bookmarks</a>
+        <!--Onclick value appears invalid due to VSCode bug, ignore this-->
+        <a href="/logout" onclick='return confirmLogout();' class="dropdown-item text-danger">Log Out</a>
+      </div>
+    </div>
+
+    <div class="nav-item dropdown" style = 'display: none;' id="user-menu">
+      <a href="#" class="btn btn-outline-primary dropdown-toggle navbar-user" data-bs-toggle="dropdown">
+        <i class="fa-solid fa-user fa-lg"></i>&nbsp;<p class="mb-0" id='username2'></p>
+      </a>
+      <div class="dropdown-menu fade-down m-0">
+        <a href="#" class="dropdown-item">Your Testimonials</a>
+        <a href="#" class="dropdown-item">Your Bookmarks</a>
+        <!--Onclick value appears invalid due to VSCode bug, ignore this-->
+        <a href="/logout" onclick='return confirmLogout();' class="dropdown-item text-danger">Log Out</a>
+      </div>
+    </div>
+
+    <div id="login-signup">
+      <a href="./log_in.html" class="btn btn-primary navbar-login-signup animated slideInDown">Log In</a>
+      <a href="./sign_up.html" class="btn btn-secondary navbar-login-signup animated slideInDown">Sign Up</a>
+    </div>
+   <!--User Menu End-->
+ 
     <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarCollapse">
-      <div class="navbar-nav ms-auto p-4 p-lg-0">
-        <a href="./homepage.html" class="nav-item nav-link active">Home</a>
+
+      <!--Navbar EN-->
+      <div class="navbar-nav ms-auto p-4 p-lg-0" id="navbar-EN">
+          <a href="./homepage.html" class="nav-item nav-link active">Home</a>
+
+          <div class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Info</a>
+            <div class="dropdown-menu fade-down m-0">
+              <a href="#" class="dropdown-item">Study Abroad <p class="text-danger">Coming Soon!</p></a>
+              <a href="#" class="dropdown-item">Student Resources<p class="text-danger">Coming Soon!</p></a>
+            </div>
+          </div>
+  
+          <a href="./eventspage.html" class="nav-item nav-link">Events</a>
+          <a href="./internshippage.html" class="nav-item nav-link">Internships</a>
+          <a href="./servicepage.html" class="nav-item nav-link">Service</a>
+          <a href="./mediapage.html" class="nav-item nav-link">Media</a>
+          <a class="btn btn-success py-4 px-lg-4 d-inline-flex d-lg-block align-items-center justify-content-center" style="border-radius: 0px !important;" onclick="toggleLang('FR');">
+            <i class="fa-solid fa-language"></i> Toggle FR</a>
+      </div>
+      <!--Navbar EN end-->
+
+      <!--Navbar FR-->
+      <div class="navbar-nav ms-auto p-4 p-lg-0" id="navbar-FR">
+        <a href="./homepage.html" class="nav-item nav-link active">Accueil</a>
 
         <div class="nav-item dropdown">
           <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Info</a>
           <div class="dropdown-menu fade-down m-0">
-            <a href="#" class="dropdown-item">Study Abroad</a>
-            <a href="#" class="dropdown-item">Student Resources</a>
+            <a href="#" class="dropdown-item">Etudes à l'étranger <p class="text-danger">À venir!</p></a>
+            <a href="#" class="dropdown-item">Ressources <p class="text-danger">À venir!</p></a>
           </div>
         </div>
 
-        <a href="./eventspage.html" class="nav-item nav-link">Events</a>
-        <a href="./internshippage.html" class="nav-item nav-link">Internships</a>
-        <a href="./servicepage.html" class="nav-item nav-link">Service</a>
-        <a href="./mediapage.html" class="nav-item nav-link">Media</a>
-
+        <a href="./eventspage.html" class="nav-item nav-link">événements</a>
+        <a href="./internshippage.html" class="nav-item nav-link">Stages</a>
+        <a href="./servicepage.html" class="nav-item nav-link">Services</a>
+        <a href="./mediapage.html" class="nav-item nav-link">Média</a>
+        <a class="btn btn-success py-4 px-lg-4 d-inline-flex d-lg-block align-items-center justify-content-center" style="border-radius: 0px !important;" onclick="toggleLang('EN');">
+          <i class="fa-solid fa-language"></i> Basculer au Anglais</a>
       </div>
+      <!--Navbar FR end-->
+      
     </div>
   </nav>
   <!-- Navbar End -->
@@ -89,78 +148,92 @@
   <!--Header Start-->
   <div class="container-fluid py-5 mb-5 static-header">
     <div class="container py-5">
-        <div class="row justify-content-center">
-            <div class="col-lg-10 text-center">
-                <h1 class="display-3 text-white animated slideInDown">Internships</h1>
-                <p class="fs-5 text-white mb-4 pb-2">Here, you can check out Internship opportunities offered by the French and Language Department(s). You can click on listings to expand them and view more information. Once expanded, click the ‘More Info’ button for internships to navigate to external webpages and applications</p>
-            </div>
+      <div class="row justify-content-center">
+
+        <!--Header EN-->
+        <div class="col-lg-10 text-center" id="header-EN">
+          <h1 class="display-3 text-white animated slideInDown">Internship Opportunities</h1>
+          <p class="fs-5 text-white mb-4 pb-2">Here, you can check out Internship opportunities offered by the French and Language Department(s). You can click on listings to expand them and view more information. Once expanded, click the ‘more info’ button for internships to navigate to an external webpages and applications</p>
         </div>
+        <!--Header EN end-->
+
+        <!--Header FR-->
+        <div class="col-lg-10 text-center" id="header-FR">
+          <h1 class="display-3 text-white animated slideInDown">Liste des Stages offerts</h1>
+          <p class="fs-5 text-white mb-4 pb-2">Vous pouvez, ici, rechercher des opportunités pour des stages offerts par le Département de français . Vous pouvez ici cliquer sur la liste pour y accéder et voir plus d’informations. Une fois ouvert, cliquez sur le bouton « plus d’infos » pour les stages pour accéder aux pages web externes et aux candidatures.</p>
+        </div>
+        <!--Header FR end-->
+
+      </div>
     </div>
   </div>
   <!--Header End-->
 
-  <!--Listing Preview (List Group)-->
+  <!--Listings (List Group)-->
   <div class="container mt-5 mb-5">
 
-    <!--Listing Header-->
+    <!--Listing Header (Language toggle done thru innerHTML)-->
     <div class="row align-items-center mb-3">
+
       <div class="col col-md-6">
-        <h1>Event Listings</h1>
+        <h1 id="list-header-title"></h1>
       </div>
+      
       <div class="col col-md-4">
         <div class="input-group">
-          <input type="text" class="form-control search-box" placeholder="Search Listings" id="search" aria-label="Search Listings" aria-describedby="searchButton">
-          <button class="btn btn-outline-primary" onclick="searchListings()" type="button" id="searchButton"><i class="bi bi-search"></i></button>
+          <input type="text" class="form-control search-box" placeholder="" id="list-search" aria-label="Search Listings" aria-describedby="searchButton">
+          <button class="btn btn-outline-primary" onclick="searchListings()" type="button" id="list-search-btn"><i class="bi bi-search"></i></button>
         </div>
       </div>
+
       <div class="col col-md-2">
-        <div class="dropdown">
-          <button class="btn btn-primary dropdown-toggle w-100" type="button" id="listingsSort" data-bs-toggle="dropdown" aria-expanded="false">Sort By:</button>
-          <ul class="dropdown-menu" aria-labelledby="listingsSort">
-            <li><a class="dropdown-item" onclick="getListings('/listings/Internships/new')" href="#">Newest</a></li>
-            <li><a class="dropdown-item" onclick="getListings('/listings/Internships/old')" href="#">Oldest</a></li>
-            <li><a class="dropdown-item" onclick="getListings('/listings/Internships/asc')" href="#">Alphabetical (Ascending)</a></li>
-            <li><a class="dropdown-item" onclick="getListings('/listings/Internships/desc')" href="#">Alphabetical (Descending)</a></li>
+        <div class="dropdown" id="list-sortby">
+          <button class="btn btn-primary dropdown-toggle w-100" type="button" id="list-sort" data-bs-toggle="dropdown" aria-expanded="false">Sort By:</button>
+          <ul class="dropdown-menu" aria-labelledby="list-sort" id="list-sort-menuEN">
+            <li><a class="dropdown-item" onclick="getListings('/listings/Internships/new');" href="#" id="list-sort-new"></a></li>
+            <li><a class="dropdown-item" onclick="getListings('/listings/Internships/old');" href="#" id="list-sort-old"></a></li>
+            <li><a class="dropdown-item" onclick="getListings('/listings/Internships/asc');" href="#" id="list-sort-alphasc"></a></li>
+            <li><a class="dropdown-item" onclick="getListings('/listings/Internships/desc');" href="#" id="list-sort-alphdesc"></a></li>
           </ul>
         </div>
       </div>
     </div>
-    <!--Lisitng Header End-->
+    <!--Listing Header end-->
 
     <!--List Group for listings-->
     <div class="row">
       <div class="col">
-        <div class="list-group border border-primary scroll w-100" id="eventListings"></div> 
+        <div class="list-group border border-primary scroll w-100" id="listings"></div> 
       </div>
     </div>
-    <!--List Group End-->
 
   </div>
-  <!--Listings Preview End-->
+
 
   <!-- Expanded Listing (Modal) -->
   <div class="modal fade" id="expandedListing" tabindex="-1" aria-labelledby="expandedListing" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
-
+        
+        <!--Expanded Listing Title and close button-->
         <div class="modal-header">
-          <h5 class="modal-title" id="listingModalTitle"></h5>
-          <h5 class="modal-title" id="listingModalTitleFR"></h5>
+          <h5 class="modal-title" id="ex-listing-title"></h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
 
+        <!--Expanded Listing missing FR notification, date, and body-->
         <div class="modal-body">
-          <small id="listingModalDate"></small><br><br>
-          <p id="listingModalBody"></p>
-          <p id="listingModalBodyFR"></p>
+          <small id="ex-listing-date"></small><br><br>
+          <small class="align-items-center" style="color: #808080;" id="ex-listing-noFR"><i class="fa-solid fa-bell"></i>Translations may be missing</small>
+          <p id="ex-listing-body"></p>
         </div>
 
         <div class="modal-footer justify-content-center">
-          <a class="btn btn-success" onclick="toggleModalFrench();"><i class="fa-solid fa-language"></i> Toggle FR</a>
-          <a href="" class="btn btn-primary" onclick="confirmLeave();" id="more-info"><i class="fa-solid fa-arrow-up-right-from-square"></i> More Info</a>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <a class="btn btn-success" style="border-radius: 8px !important;" id="ex-toggle-lang"></a>
+          <a href="" class="btn btn-primary" onclick="confirmLeave();" id="ex-more-info"></a>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="ex-close">Close</button>
         </div>
-
+        
       </div>
     </div>
   </div>
@@ -196,78 +269,172 @@
   <!-- Template Javascript -->
   <script src="js/main.js"></script>
 
+  <!--Script for page control-->
+  <!--In future iterations more work will be done to refactor and delegate to controller / external js files-->
   <script>
 
-		let listings = [];
+    var listings = [];
+    var langSetting = 'EN';
+    var listingsPath = "/listings/Internships"
+    var dateString = function(dateObj){return new Date(dateObj).toDateString();}
 
-		let dateString = function(dateObj){return new Date(dateObj).toDateString();}
+    toggleLang(langSetting);
+    getListings(listingsPath);
 
-		// Retrieve listings
+    // Determine if user is logged in
+    async function checkLoggedUser()
+    { 
+      let response = await fetch('/loggedUser');
+      let user = await response.json();
+     
+      if(user != null)
+      {
+        document.getElementById('login-signup').style = 'display: none;'; // Remove signup/login buttons
+        
+        // Users menu = is user an admin ? admin menu if true : user menu if false
+        let isAdmin = (user.permission === 1); 
+        document.getElementById('admin-menu').style = (isAdmin) ? 'display: flex;' : 'display: none;';  
+        document.getElementById('user-menu').style = (isAdmin) ? 'display: none;' : 'display: flex;';  
+        document.getElementById(`username${user.permission}`).innerHTML = `${user.firstName}`;
+      }
+      else
+        document.getElementById('login-signup').style = 'display: flex;';
+    }
+    checkLoggedUser();
+    
+    // Retrieve listings
     async function getListings(address)
-		{ 
+    { 
       let response = await fetch(address);
       listings = await response.json();
 
       let out = ``;
-			for(let i=0;i<listings.length;i++) 
-			{
-				out+= `  
-				<button type="button" class="list-group-item list-group-item-action" onclick="expandListing(${i});" data-bs-toggle="modal" data-bs-target="#expandedListing">
-				<div class="d-flex w-100 justify-content-between">
-						<h5 class="mb-1">${listings[i].title}</h5>
-						<small>Posted ${dateString(listings[i].creation)}</small>
-				</div>
-				<p class="listing-body mb-1" style="">${listings[i].body}</p>
-				<small>Click for more info</small>
-				</button>` ;
-			}
-      document.getElementById('eventListings').innerHTML = out;
+      let listingTitle = '';
+      let listingBody = '';
+      let msgNoFR = '';
+   
+      for(let i=0;i<listings.length;i++) 
+      {
+        // Give Listings with English Text
+        if(langSetting === 'EN')       
+        {
+          out+= `  
+          <button type="button" class="list-group-item list-group-item-action" onclick="expandListing(${i},'EN');" data-bs-toggle="modal" data-bs-target="#expandedListing">
+            <div class="mb-1 d-flex w-100 justify-content-between">
+                <h5 class = "d-flex justify-content-start">${listings[i].title}</h5>
+                <small>Posted ${dateString(listings[i].creation)}</small>
+            </div>
+            <p class="listing-body mb-1">${listings[i].body}</p>
+            <small>Click for more info</small>
+          </button>` ;
+        }
+        else  // Give Listings with FR text                 
+        {
+          // Add notice if listing title / body doesnt have FR translation
+          listingTitle = (listings[i].titleFR === '') ? listings[i].title : listings[i].titleFR;
+          listingBody = (listings[i].bodyFR === '') ? listings[i].body : listings[i].bodyFR;
+          msgNoFR = ((listings[i].titleFR === '') || (listings[i].bodyFR === '')) ? 'inline' : 'none';
+          
+          out+= `  
+          <button type="button" class="list-group-item list-group-item-action" onclick="expandListing(${i},'FR');" data-bs-toggle="modal" data-bs-target="#expandedListing">
+          <div class="mb-1 d-flex w-100 justify-content-between">
+            <div class="d-flex justify-content-start">
+              <h5>${listingTitle}</h5>
+              <small class="px-2" style="color: #808080; display: ${msgNoFR};"><i class="fa-solid fa-bell"></i> Translations may be missing / Les traductions peuvent manquer</small>
+            </div>
+            <div class="d-flex">
+              <small>Posté sur ${dateString(listings[i].creation)}</small>
+            </div>
+          </div>
+          <p class="listing-body mb-1">${listingBody}</p>
+          <small>Cliquez pour plus d'informations</small>
+          </button>` ;
+        }
+      }
+      document.getElementById('listings').innerHTML = out; // Output Listings to HTML
     }
-    getListings('/listings/internships');
-
-    function expandListing(index)
+   
+    // Expand Listing
+    function expandListing(i, lang)
     {
-      document.getElementById("listingModalTitleFR").style = 'display: none;';
-			document.getElementById("listingModalBodyFR").style = 'display: none;'
+      let toggleFR = (lang === 'FR');
 
-			document.getElementById("listingModalTitle").innerHTML = listings[index].title;
-			document.getElementById("listingModalDate").innerHTML = `Posted on: ${dateString(listings[index].creation)}`;
-			document.getElementById("listingModalBody").innerHTML = listings[index].body;
-      document.getElementById("listingModalTitleFR").innerHTML = listings[index].titleFR;
-      document.getElementById("listingModalBodyFR").innerHTML = listings[index].bodyFR;
+      // Determine if french title and/or body is missing, and to notify the user if so
+      let noTitleFR = (listings[i].titleFR === '');
+      let noBodyFR = (listings[i].bodyFR === '');
+      let noticeNoFR = (noTitleFR || noBodyFR);
+  
+      // Set title and body
+      // if 'FR' and has french title/body, set to titleFR and bodyFR respectively.
+      // if 'FR' and has no french title/body, set to titleEN and bodyEN respectively
+      // if 'EN', set to set to titleEN and bodyEN
+      document.getElementById("ex-listing-title").innerHTML = (toggleFR && !noTitleFR) ? listings[i].titleFR : listings[i].title;
+      document.getElementById("ex-listing-body").innerHTML = (toggleFR && !noTitleFR) ? listings[i].bodyFR : listings[i].body;
+
+      // Show notice if translations are missing
+      document.getElementById("ex-listing-noFR").style = (toggleFR && noticeNoFR) ? 'display: flex;' : 'display: none;';
+
+      // Set Date
+      let listingDate = dateString(listings[i].creation);
+      document.getElementById("ex-listing-date").innerHTML = (toggleFR) ? `Posté sur: ${listingDate}` : `Posted on: ${listingDate}`;
+      
+      // Translate buttons
+      document.getElementById("ex-toggle-lang").innerHTML = (toggleFR) ? '<i class="fa-solid fa-language"></i> Basculer au Anglais' : '<i class="fa-solid fa-language"></i> Toggle French';
+      document.getElementById("ex-toggle-lang").onclick = (toggleFR) ? function() {expandListing(i,'EN');} : function() {expandListing(i,'FR');} ;
+      document.getElementById("ex-more-info").innerHTML = (toggleFR) ? "<i class='fa-solid fa-arrow-up-right-from-square'></i> Plus d'infos" : "<i class='fa-solid fa-language'></i> Toggle French";
 
       // Set External Link, Hide button if empty
-      document.getElementById("more-info").href = `${listings[index].link}`; 
-      if(listings[index].link === "")
-        document.getElementById("more-info").style.display = "none"; 
-      else
-        document.getElementById("more-info").style.display = "block"; 
+      document.getElementById("ex-more-info").href = `${listings[i].link}`; 
+      document.getElementById("ex-more-info").style.display = (listings[i].link === "") ? 'none' : 'block';
     }
 
-    function toggleModalFrench()
+    // Toggle Language - More info on homepage
+    function toggleLang(setting)
     {
-        let titleEn = document.getElementById("listingModalTitle");
-        let bodyEn = document.getElementById("listingModalBody");
-				let titleFr = document.getElementById("listingModalTitleFR");
-        let bodyFr = document.getElementById("listingModalBodyFR");
+      let toggleFR = (setting === 'FR'); // True if text / element display is FR, false if EN
+      langSetting = (toggleFR) ? 'FR' : 'EN';
+      
+      // element EN = if toggleFR is true ? element is hidden : otherwise element is shown 
+      // element FR = if toggleFR is true ? element is shown : otherwise element is hidden 
+      
+      // Navbar
+      document.getElementById('navbar-EN').style = toggleFR ? 'display: none;' : 'display: flex;';
+      document.getElementById('navbar-FR').style = toggleFR ? 'display: flex;' : 'display: none;';
 
-        if (titleFr.getAttribute('style')== 'display: none;')
-        {
-            titleEn.style = 'display: none;';
-            bodyEn.style ='display: none;';
-            titleFr.style = 'display: flex;';
-            bodyFr.style = 'display: flex;';
-        }
-        else
-        {
-            titleFr.style = 'display: none;';
-            bodyFr.style = 'display: none;';
-            titleEn.style = 'display: flex;';
-            bodyEn.style = 'display: flex;';
-        }      
+      // Header
+      document.getElementById('header-EN').style = toggleFR ? 'display: none;' : 'display: block;';
+      document.getElementById('header-FR').style = toggleFR ? 'display: block;' : 'display: none;';
+
+      // innerHTML text = if toggleFR is true ? text is French : otherwise text is English;
+      document.getElementById('list-header-title').innerHTML = toggleFR ? 'Stages' : 'Internships';
+      document.getElementById('list-search').placeholder = toggleFR ? 'Rechercher' : 'Search Internships';
+      document.getElementById('list-sort').innerHTML = toggleFR ? 'Trier' : 'Sort By:';
+      document.getElementById('list-sort-new').innerHTML = toggleFR ? 'Plus Nouveau' : 'Newest';
+      document.getElementById('list-sort-old').innerHTML = toggleFR ? 'Plus Ancien' : 'Oldest';
+      document.getElementById('list-sort-alphasc').innerHTML = toggleFR ? 'Ordre Alphabétique Ascendant' : 'Alphabetical (Ascending)';
+      document.getElementById('list-sort-alphdesc').innerHTML = toggleFR ? 'Ordre Alphabétique Descendant' : 'Alphabetical (Descending)'; 
+    
+      getListings(listingsPath); // Refresh listings
     }
+
+    // Search Listings
+    function searchListings()
+    {
+      if(document.getElementById('list-search').hasAttribute('value'))
+      {
+        let key = document.getElementById('list-search').value;
+        console.log(key);
+        let address = `/search/Internships/${key}`;
+        getListings(address);
+        console.log(address);
+      }
+      else console.log('nothing');
+    }
+
+    // Prompt user for log-out and following external links in expanded listing
+    function confirmLogout(){ return window.confirm('Are you sure you want to log out?'); };
+    function confirmLeave(){ return window.confirm('Are you sure you want to leave this page?'); };
   </script>
 
 </body>
-
 </html>

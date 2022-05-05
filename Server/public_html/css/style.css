@@ -93,7 +93,6 @@
     border-radius: 0px;
 }
 
-
 /*** Navbar ***/
 .navbar .dropdown-toggle::after {
     border: none;
@@ -129,9 +128,24 @@
     }
 }
 
-.navbar-light .navbar-brand,
 .navbar-light a.btn {
     height: 75px;
+}
+
+.navbar-light .navbar-login-signup
+{
+    height: 40px !important;
+}
+
+
+.navbar-light .navbar-user
+{
+    height: 40px !important;
+    width: 100% !important;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    color: var(--primary);
 }
 
 .navbar-light .navbar-nav .nav-link {
@@ -234,6 +248,9 @@
     border-radius: 8px !important;
     border-color: var(--primary) !important;
     color: var(--primary) !important; 
+}
+
+.listing-search-btn{
     border-top-left-radius: 0% !important;
     border-bottom-left-radius: 0% !important;
 }
@@ -243,10 +260,21 @@
     color: #FFFFFF !important; 
 }
 
+.listing-header .dropdown-toggle::after {
+    border: none;
+    content: "\f107";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    vertical-align: middle;
+    margin-left: 8px;
+}
+
 /*** Listings: List Group ***/
 .list-group { border-color: var(--primary) !important;}
 
-.list-group-item{height: 200px;}
+.list-group-item{max-height: 250px;}
+
+.listing-title{ max-width: 600px; overflow: hidden; text-overflow: ellipsis; white-space: normal;}
 
 .listing-body{ max-height: 70px; overflow: hidden; text-overflow: ellipsis; white-space: normal;}
 
