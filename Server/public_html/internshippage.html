@@ -324,7 +324,7 @@
           out+= `  
           <button type="button" class="list-group-item list-group-item-action" onclick="expandListing(${i},'EN');" data-bs-toggle="modal" data-bs-target="#expandedListing">
             <div class="mb-1 d-flex w-100 justify-content-between">
-                <h5 class = "d-flex justify-content-start"><i class="fa fa-briefcase frBlue"></i>&nbsp;${listings[i].title}</h5>
+                <h5 class = "d-flex justify-content-start">${listings[i].title}</h5>
                 <small>Posted ${dateString(listings[i].creation)}</small>
             </div>
             <p class="listing-body mb-1">${listings[i].body}</p>
