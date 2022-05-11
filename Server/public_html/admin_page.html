@@ -536,11 +536,12 @@
     // Toggle French title and body inputs on form
     function toggleFrenchModal()
     {
-      let toggleSetting = (titleFr.getAttribute('style') === 'display: none;')
+      let toggleTitleFR = (document.getElementById('form-titleFR').getAttribute('style') === 'display: none;')
+      let toggleBodyFR = (document.getElementById('form-bodyFR').getAttribute('style') === 'display: none;')
 
       // If French inputs are hidden, show them : hide them otherwise.
-      document.getElementById('form-titleFR').style = (toggleSetting) ? 'display: flex;' : 'display: none;';
-      document.getElementById('form-BodyEN').style = (toggleSetting) ? 'display: flex;' : 'display: none;';
+      document.getElementById('form-titleFR').style = (toggleTitleFR) ? 'display: flex;' : 'display: none;';
+      document.getElementById('form-bodyFR').style = (toggleBodyFR) ? 'display: flex;' : 'display: none;';
     }
 
     function conf(){ return window.confirm('Are you sure you want to delete?'); }
