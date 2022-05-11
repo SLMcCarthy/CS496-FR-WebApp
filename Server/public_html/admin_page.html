@@ -208,7 +208,7 @@
       </div>
 
       <div class="col col-md-2">
-        <button class="btn btn-success w-100" onclick='insertForm();' style="border-radius: 8px !important;" data-bs-toggle="modal" data-bs-target="#ListingModal" >Add Listing</button>
+        <button class="btn btn-success w-100" onclick='createUpdateListing(-1);' style="border-radius: 8px !important;" data-bs-toggle="modal" data-bs-target="#ListingModal" >Add Listing</button>
       </div>
 
     </div>
@@ -242,7 +242,7 @@
               <div class="row mb-2" id="listingID" style="display: none;" id="form-listingID-EN">
                 <div class="col-12 col-md mb-2">
                   <label for="listingID" class="form-label" id="form-listingID-label">Listing ID:</label>
-                  <input type="text" class="form-control" name="listingID" id="form-listingID-label" value="" autocomplete="off" readonly />
+                  <input type="text" class="form-control" name="listingID" id="form-listingID-input" value="" autocomplete="off" readonly />
                 </div>
               </div>
 
@@ -255,8 +255,8 @@
               <!--Create/Update Listing Form: Listing Type-->
               <div class="row mb-2" id="form-type-EN">
                 <div class="col-12 col-md mb-2">
-                  <label for="form-type-dropdown" class="form-label" id="form-type-label">Set Listing Type:</label>
-                  <select class="form-control" name="listingType" id="form-type-dropdown" required>
+                  <label for="form-type-input" class="form-label" id="form-type-label">Set Listing Type:</label>
+                  <select class="form-control" name="listingType" id="form-type-input" required>
                     <option id="dropdown-event">Event</option>
                     <option id="dropdown-service">Service</option>
                     <option id="dropdown-internship">Internship</option>
@@ -269,7 +269,7 @@
               <div class="row mb-2" id="form-titleEN-EN">
                 <div class="col-12 col-md mb-2">
                   <label for="form-titleEN-input" class="form-label" id="form-titleEN-label">English Listing Title:</label><br>
-                  <input type="text" class="form-control" name="titleEN" id="form-titleEN-input" required/>
+                  <input type="text" class="form-control" name="listingTitleEN" id="form-titleEN-input" required/>
                 </div>
               </div>
 
@@ -277,7 +277,7 @@
               <div class="row mb-2" id="form-bodyEN">
                 <div class="col-12 col-md mb-2">
                   <label for="form-bodyEN-input" class="form-label" id="form-bodyEN-label">English Listing Body: </label>
-                  <textarea class="form-control" name="bodyEN" id="form-bodyEN-input" rows="3" required></textarea>
+                  <textarea class="form-control" name="listingBodyEN" id="form-bodyEN-input" rows="3" required></textarea>
                 </div>
               </div>  
               
@@ -428,7 +428,7 @@
         if(langSetting === 'EN')
         {
           out+= `      
-          <button type="button" class="list-group-item list-group-item-action"  onclick="editForm(${i});" data-bs-toggle="modal" data-bs-target="#ListingModal">
+          <button type="button" class="list-group-item list-group-item-action"  onclick="createUpdateListing(${i});" data-bs-toggle="modal" data-bs-target="#ListingModal">
             <div class="d-flex mb-3 w-100 justify-content-between">
               <h5 class="listing-title justify-content-start"> ${listings[i].title}</h5>
               <div class="d-flex h-100 justify-content-end align-items-start" style="flex-direction: column; width: 330px;">
@@ -448,7 +448,7 @@
           msgNoFR = ((listings[i].titleFR === '') || (listings[i].bodyFR === '')) ? 'inline' : 'none';
           
           out+= `  
-          <button type="button" class="list-group-item list-group-item-action" onclick="editForm(${i});" data-bs-toggle="modal" data-bs-target="#ListingModal">
+          <button type="button" class="list-group-item list-group-item-action" onclick="createUpdateListing(${i});" data-bs-toggle="modal" data-bs-target="#ListingModal">
           <div class="mb-2 mt-1 d-flex w-100 justify-content-between">
             <div class="d-flex justify-content-start" style="flex-direction: column">
               <h5 class="listing-title mb-0">${listingTitle}</h5>
@@ -507,41 +507,20 @@
     {
       let newListing = (i < 0);
     
-      document.getElementById("listingID").value = `${listings[i]._id}`;
+      document.getElementById("form-listingID-input").value = (newListing) ? '' : `${listings[i]._id}`;
       
-      document.getElementById("listingTitleEN").value = '';
-      document.getElementById("listingBodyEN").value = '';
-      document.getElementById("listingLink").value = '';
+      document.getElementById("form-titleEN-input").value = (newListing) ? '' : `${listings[i].title}`;
+      document.getElementById("form-bodyEN-input").value = (newListing) ? '' : `${listings[i].body}`;
+      document.getElementById("form-link-input").value = (newListing) ? '' : `${listings[i].link}`;
+      document.getElementById("form-titleFR-input").value = (newListing) ? '' : `${listings[i].titleFR}`;
+      document.getElementById("form-bodyFR-input").value = (newListing) ? '' : `${listings[i].bodyFR}`;
 
-      //if (document.getElementById("listAutoOpen").hasAttribute("checked"))
-      document.getElementById("listAutoOpen").removeAttribute("checked");
-      
-      //if (document.getElementById("listAutoClose").hasAttribute("checked"))
-      document.getElementById("listAutoClose").removeAttribute("checked");
+      document.getElementById("form-startdate-input").value = (newListing) ? '' : `${listings[i].listingStartDate}`;
+      document.getElementById("form-enddate-input").value = (newListing) ? '' : `${listings[i].listingEndDate}`;
 
-      document.getElementById("listingTitleFR").value = '';
-      document.getElementById("listingBodyFR").value = '';
-      document.getElementById("clear_button").style = 'display: flex;';
-      document.getElementById("delete_button").style = 'display: none;';
-    }
-
-    function editForm(i)
-    {
-      
-      document.getElementById("listingTitleEN").value = '';
-      document.getElementById("listingBodyEN").value = '';
-      document.getElementById("listingLink").value = '';
-
-      //if (document.getElementById("listAutoOpen").hasAttribute("checked"))
-      document.getElementById("listAutoOpen").removeAttribute("checked");
-      
-      //if (document.getElementById("listAutoClose").hasAttribute("checked"))
-      document.getElementById("listAutoClose").removeAttribute("checked");
-
-      document.getElementById("listingTitleFR").value = '';
-      document.getElementById("listingBodyFR").value = '';
-      document.getElementById("clear_button").style = 'display: flex;';
-      document.getElementById("delete_button").style = 'display: none;';
+      document.getElementById("clear_button").style = (newListing) ?  'display: flex;' : 'display: none;';
+      document.getElementById("delete_button").href = (newListing) ? '' : `/deletelistings/${listings[i]._id}`
+      document.getElementById("delete_button").style = (newListing) ?  'display: none;' : 'display: flex;';
     }
 
     function toggleFrenchModal()
@@ -566,7 +545,6 @@
     
     // Prompt user for log-out and following external links in expanded listing
     function confirmLogout(){ return window.confirm('Are you sure you want to log out?'); };
-    function confirmLeave(){ return window.confirm('Are you sure you want to leave this page?'); };
 
   </script>
 
