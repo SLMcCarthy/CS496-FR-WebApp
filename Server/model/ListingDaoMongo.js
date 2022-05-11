@@ -152,7 +152,7 @@ exports.deleteAll = async function(test){
         await listingsModel.deleteMany();
 }
 
-exports.update = function(listing){
-    let updated = listingsModel.findByIdAndUpdate(listing._id,listing);
+exports.update = function(updatedListing){
+    let updated = listingsModel.findByIdAndUpdate(updatedListing._id,updatedListing);
 	return updated;
 }

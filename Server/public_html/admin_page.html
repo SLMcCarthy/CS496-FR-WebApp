@@ -239,17 +239,16 @@
           <div class="modal-body">
             <div class="container" id="MainForm">
 
-              <div class="row mb-2" id="listingID" style="display: none;" id="form-listingID-EN">
+              <div class="row mb-2" id="form-listingID-EN">
                 <div class="col-12 col-md mb-2">
-                  <label for="listingID" class="form-label" id="form-listingID-label">Listing ID:</label>
-                  <input type="text" class="form-control" name="listingID" id="form-listingID-input" value="" autocomplete="off" readonly />
+                  <input type="text" class="form-control" name="listingID" id="listingID" autocomplete="off" readonly />
                 </div>
               </div>
 
               <!--Create/Update Listing Form Header-->
               <div class="row mb-4 text-center">
-                <h6>Insert Listing Information Below</h6>
-                <small>Click the "Add FR" button below to add a French title and/or body!</small>
+                <h6 id="form-header">Insert Listing Information Below</h6>
+                <small id="form-header-info">Click the "Add FR" button below to add a French title and/or body!</small>
               </div>
 
               <!--Create/Update Listing Form: Listing Type-->
@@ -281,6 +280,7 @@
                 </div>
               </div>  
               
+              <!--Create/Update Listing Form: Listing Title (FR)-->
               <div class="row mb-2" style="display: none;" id="form-titleFR">
                 <div class="col-12 col-md mb-2">
                   <label for="form-titleFR-input" class="form-label" id="form-titleFR-label">French Listing Title:</label>
@@ -288,6 +288,7 @@
                 </div>
               </div>
 
+              <!--Create/Update Listing Form: Listing Body (FR)-->
               <div class="row mb-2" style="display: none;" id="form-bodyFR">
                 <div class="col-12 col-md mb-2">
                   <label for="form-bodyFR-input" class="form-label" id="form-bodyFR-label">French Listing Body:</label>
@@ -295,6 +296,7 @@
                 </div>
               </div>
 
+              <!--Create/Update Listing Form: Listing Link-->
               <div class="row mb-4" id="form-link-EN">
                 <div class="col-12 col-md mb-2">
                   <label for="form-link-input" class="form-label" id="form-link-label">Listing Link:</label>
@@ -302,11 +304,13 @@
                 </div>
               </div>
 
+              <!--Create/Update Listing Form: Listing Auto Open / Close-->
               <div class="row mb-4 text-center">
                 <h6>Set Listing to Automatically Open/Close on a Certain Date</h6>
                 <small>Listings will only be visible to users after the open date and before the close date. If not defined, this listing will be visible to users once submitted and can be manually closed at any time</small>
               </div>
 
+              <!--Create/Update Auto Open Date-->
               <div class="row mb-2 align-items-center justify-content-start" id="form-auto-open-EN">
                 <div class="col-5">
                   <label for="form-startdate-input" class="form-label mb-0" id="form-startdate-label">Auto-Open Listing On:</label>
@@ -316,6 +320,7 @@
                 </div>
               </div>
 
+              <!--Create/Update Auto Close Date-->
               <div class="row mb-2 align-items-center justify-content-start" id="form-auto-close-EN">
                 <div class="col-5">
                   <label for="form-enddate-input" class="form-label mb-0" id="form-enddate-label">Auto-Close Listing On:</label>
@@ -334,7 +339,9 @@
             <button type="reset" class="btn btn-secondary" id="clear_button" style="display: flex;"> Clear </button>
             <a class="btn btn-success" onclick='toggleFrenchModal();' style="border-radius: 8px !important;"><i class="fa-solid fa-language"></i> Add FR</a></a>
           </div>
+
         </form>
+      
       </div>
     </div>
   </div>
@@ -377,7 +384,7 @@
     var listings = [];
     var langSetting = 'EN';
     var listingsPath = "/listings";
-    var dateString = function(dateObj){return new Date(dateObj).toDateString();}
+    function dateString(dateObj){ return new Date(dateObj).toDateString(); }
 
     toggleLang(langSetting);
     getListings(listingsPath);
@@ -503,11 +510,14 @@
       getListings(listingsPath);    
     }
 
+    // Handle whether form updates existing listing or creates a new one
     function createUpdateListing(i)
     {
+      // True if creating a new listing, otherwise user is updating an existing listing
       let newListing = (i < 0);
     
-      document.getElementById("form-listingID-input").value = (newListing) ? '' : `${listings[i]._id}`;
+
+      document.getElementById("listingID").value = (newListing) ? '' : `${listings[i]._id}`;
       
       document.getElementById("form-titleEN-input").value = (newListing) ? '' : `${listings[i].title}`;
       document.getElementById("form-bodyEN-input").value = (newListing) ? '' : `${listings[i].body}`;
@@ -523,25 +533,17 @@
       document.getElementById("delete_button").style = (newListing) ?  'display: none;' : 'display: flex;';
     }
 
+    // Toggle French title and body inputs on form
     function toggleFrenchModal()
     {
-      let titleFr = document.getElementById('test1');
-      let bodyFr = document.getElementById('test2');
-      
-      if (titleFr.getAttribute('style')== 'display: none;'){
-        titleFr.style = 'display: flex;';
-        bodyFr.style = 'display: flex;';
-      }
-      else{
-        titleFr.style = 'display: none;';
-        bodyFr.style = 'display: none;';
-      }      
+      let toggleSetting = (titleFr.getAttribute('style') === 'display: none;')
+
+      // If French inputs are hidden, show them : hide them otherwise.
+      document.getElementById('form-titleFR').style = (toggleSetting) ? 'display: flex;' : 'display: none;';
+      document.getElementById('form-BodyEN').style = (toggleSetting) ? 'display: flex;' : 'display: none;';
     }
 
-    function conf()
-    {
-      return window.confirm('Are you sure you want to delete?');
-    }
+    function conf(){ return window.confirm('Are you sure you want to delete?'); }
     
     // Prompt user for log-out and following external links in expanded listing
     function confirmLogout(){ return window.confirm('Are you sure you want to log out?'); };

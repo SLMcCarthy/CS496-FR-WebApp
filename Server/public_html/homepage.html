@@ -361,10 +361,14 @@
   <!-- Template Javascript -->
   <script src="js/main.js"></script>
 
+  <!--Page Utilities-->
+  <script type="text/javascript" src="./js/pageUtilities.js"></script>
+
   <!--Script for page control-->
-  <!--In future iterations more work will be done to refactor and delegate to controller / external js, ultimately REACT-->
   <script>
-    
+    // In Future iterations, more work will be done to delegate the work done here to REACT and other external files
+    // Some design decisions have been made with this future work in mind.
+   
     var langSetting = 'EN';
     toggleLang(langSetting);
      
@@ -394,7 +398,7 @@
     * properties of whats being translated and the amount of text being translated
     * 
     * innerHTML manipulation is somewhat encouraged to facilitate future implementaion of editable pages
-    * Refactoring goals: Storing translations in seperate files / objects, including DOM elements
+    * Refactoring goals: Storing translations in seperate files / objects, including DOM elements, REACT
     */
     function toggleLang(setting)
     {
@@ -436,9 +440,6 @@
         document.getElementById('service6-body').innerHTML = 'Learn more about resources for students';
       }      
     }
-
-    // Prompt user for confirmation to log-out
-    function confirmLogout(){  return window.confirm('Are you sure you want to log out?'); };
   </script>
 </body>
 

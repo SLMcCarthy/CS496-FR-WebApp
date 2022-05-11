@@ -171,10 +171,10 @@ exports.get = async function(req, res) {
 }
 
 // Create or Update a Listing
-exports.postCreateOrUpdateListing = function(req,res){
-    // Instantiate empty Listing object
-    let newListing = {};     
+exports.postCreateOrUpdateListing = function(req,res){ 
+    let newListing = {}; // Instantiate empty Listing object    
 
+    console.log("Update Listing");
     // Insert Requested Data and create Schema
     newListing.title = req.body.listingTitleEN;
     newListing.titleFR = req.body.listingTitleFR;
@@ -188,16 +188,16 @@ exports.postCreateOrUpdateListing = function(req,res){
     newListing.active = true;
     newListing.type = req.body.listingType;
 
-    if(req.body.listingId){ // User ID exists, Update User
-        console.log('Update listing');
-        newListing._id= req.body.userId;
+    if(req.body.listingID){ // Listing exists, update
+        console.log("Update Listing");
+        newListing._id = req.body.listingID;
         dao.update(newListing);
         res.status(200);
         res.redirect('admin_page.html');
 
     }
-    else{
-        //insert user
+    else{                   // Listing does not exist, create
+        console.log("Create Listing");
         dao.create(newListing);   
         res.status(201);
         res.redirect('admin_page.html');     

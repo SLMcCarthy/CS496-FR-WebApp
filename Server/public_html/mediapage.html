@@ -182,7 +182,7 @@
       <div class="col col-md-4">
         <div class="input-group">
           <input type="text" class="form-control search-box" placeholder="" id="list-search" aria-label="Search Listings" aria-describedby="searchButton">
-          <button class="btn btn-outline-primary" onclick="searchListings();" type="button" id="list-search-btn"><i class="bi bi-search"></i></button>
+          <button class="btn btn-outline-primary listing-search-btn" onclick="searchListings();" type="button" id="list-search-btn"><i class="bi bi-search"></i></button>
         </div>
       </div>
 
@@ -230,7 +230,7 @@
 
         <div class="modal-footer justify-content-center">
           <a class="btn btn-success" style="border-radius: 8px !important;" id="ex-toggle-lang"></a>
-          <a href="" class="btn btn-primary" onclick="confirmLeave();" id="ex-more-info"></a>
+          <a href="" class="btn btn-primary" onclick='return confirmFollowLink();' id="ex-more-info"></a>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="ex-close">Close</button>
         </div>
         
@@ -269,14 +269,17 @@
   <!-- Template Javascript -->
   <script src="js/main.js"></script>
 
-  <!--Script for page control-->
-  <!--In future iterations more work will be done to refactor and delegate to controller / external js files-->
-  <script>
+  <!--Page Utilities-->
+  <script type="text/javascript" src="./js/pageUtilities.js"></script>
 
+  <!--Script for page control-->
+  <script>
+    // In Future iterations, more work will be done to delegate the work done here to REACT and other external files
+    // Some design decisions have been made with this future work in mind.
+   
     var listings = [];
     var langSetting = 'EN';
     var listingsPath = "/listings/Medias"
-    var dateString = function(dateObj){return new Date(dateObj).toDateString();}
 
     toggleLang(langSetting);
     getListings(listingsPath);
@@ -381,7 +384,7 @@
       // Translate buttons
       document.getElementById("ex-toggle-lang").innerHTML = (toggleFR) ? '<i class="fa-solid fa-language"></i> Basculer au Anglais' : '<i class="fa-solid fa-language"></i> Toggle French';
       document.getElementById("ex-toggle-lang").onclick = (toggleFR) ? function() {expandListing(i,'EN');} : function() {expandListing(i,'FR');} ;
-      document.getElementById("ex-more-info").innerHTML = (toggleFR) ? "<i class='fa-solid fa-arrow-up-right-from-square'></i> Plus d'infos" : "<i class='fa-solid fa-language'></i> Toggle French";
+      document.getElementById("ex-more-info").innerHTML = (toggleFR) ? "<i class='fa-solid fa-arrow-up-right-from-square'></i> Plus d'infos" : "<i class='fa-solid fa-arrow-up-right-from-square'></i> More Info";
 
       // Set External Link, Hide button if empty
       document.getElementById("ex-more-info").href = `${listings[i].link}`; 
@@ -430,10 +433,6 @@
       }
       else console.log('nothing');
     }
-
-    // Prompt user for log-out and following external links in expanded listing
-    function confirmLogout(){ return window.confirm('Are you sure you want to log out?'); };
-    function confirmLeave(){ return window.confirm('Are you sure you want to leave this page?'); };
   </script>
 
 </body>
