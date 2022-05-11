@@ -45,6 +45,20 @@
 </head>
 
 <body>
+  <script>
+    async function redirect(){
+      let response = await fetch('/loggedUser');
+      let user = await response.json();
+      if(user.permission !== 1) {
+      
+      window.location.replace("homepage.html");
+      
+      }
+    }
+    redirect();
+    
+
+  </script>
   <!-- Spinner Start -->
   <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
       <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
@@ -394,7 +408,7 @@
     { 
       let response = await fetch('/loggedUser');
       let user = await response.json();
-     
+
       if(user != null)
       {
         document.getElementById('login-signup').style = 'display: none;'; // Remove signup/login buttons
