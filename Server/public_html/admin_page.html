@@ -429,18 +429,24 @@
       let listingTitle = '';
       let listingBody = '';
       let msgNoFR = '';
+      let startDate = '';
+      let closeDate = '';
 
       for(let i=0;i<listings.length;i++)
       {
         if(langSetting === 'EN')
         {
+          startDate = (listings[i].listStart === null) ? 'Not defined' : dateString(listings[i].listStart); 
+          endDate = (listings[i].listEnd === null) ? 'Not defined' : dateString(listings[i].listEnd); 
           out+= `      
           <button type="button" class="list-group-item list-group-item-action"  onclick="createUpdateListing(${i});" data-bs-toggle="modal" data-bs-target="#ListingModal">
             <div class="d-flex mb-3 w-100 justify-content-between">
               <h5 class="listing-title justify-content-start"> ${listings[i].title}</h5>
               <div class="d-flex h-100 justify-content-end align-items-start" style="flex-direction: column; width: 330px;">
                 <small>Posted: ${dateString(listings[i].creation)}</small>
-                <small>Opens: ${dateString(listings[i].listStart)} - Closes: ${dateString(listings[i].listEnd)}</small>
+                <div class="justify-content-center">
+                  <small>Opens: ${startDate}</small><small> - Closes: ${endDate}</small>
+                </div>
               </div>
             </div>
             <p class="listing-body mb-1">${listings[i].body}</p>
@@ -453,6 +459,9 @@
           listingTitle = (listings[i].titleFR === '') ? listings[i].title : listings[i].titleFR;
           listingBody = (listings[i].bodyFR === '') ? listings[i].body : listings[i].bodyFR;
           msgNoFR = ((listings[i].titleFR === '') || (listings[i].bodyFR === '')) ? 'inline' : 'none';
+
+          startDate = (listings[i].listStart === null) ? 'Non défini' : dateString(listings[i].listStart); 
+          endDate = (listings[i].listEnd === null) ? 'Non défini' : dateString(listings[i].listEnd); 
           
           out+= `  
           <button type="button" class="list-group-item list-group-item-action" onclick="createUpdateListing(${i});" data-bs-toggle="modal" data-bs-target="#ListingModal">
@@ -463,7 +472,9 @@
             </div>
             <div class="d-flex h-100 justify-content-end align-items-start" style="flex-direction: column; width: 330px;">
               <small>Posté sur ${dateString(listings[i].creation)}</small>
-              <small>Ouvrir: ${dateString(listings[i].listStart)} - Ferme: ${dateString(listings[i].listEnd)}</small>
+              <div class="justify-content-center">
+                  <small>Ouvrir: ${startDate}</small><small> - Ferme: ${endDate}</small>
+              </div>
             </div>
           </div>
           <p class="listing-body mb-1">${listingBody}</p>
