@@ -93,6 +93,12 @@
     border-radius: 0px;
 }
 
+.form-label{
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    color: var(--primary);
+}
+
 /*** Navbar ***/
 .navbar .dropdown-toggle::after {
     border: none;

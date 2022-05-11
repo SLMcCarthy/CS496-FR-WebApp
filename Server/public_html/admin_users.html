@@ -1,121 +1,321 @@
 <!DOCTYPE html>
+<html lang="en">
 
-<html>
-  <head>
+<head>
+  <meta charset="utf-8">
+  <title>Allons-Y Departement Francias!</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta name="authors" content="Jeremy Unanue, Shane McCarthy, Bootstrap Template by HTML Codex" />
+  <meta content="" name="description">
 
-    <title> Let's Go France**** </title>
-    <meta charset="utf-8"> <!-- charset --> 
-    <meta name="description" content="admin page for maintaining users" /> 
-    <meta name="author" content="Jeremy Unanue, Shane McCarthy" />
-    <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- viewport --> 
- 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"> <!-- Bootstrap CSS --> 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script> <!-- Bootstrap JS --> 
-    
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">  <!-- Bootstrap Icons -->   
+  <!-- Favicon -->
+  <link href="img/favicon.ico" rel="icon">
 
-    <style>
+  <!-- Google Web Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
 
-      /* Current BG images are placeholders */
-      .hero-bg-image 
-      {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./images/paris-florian-wehde-408590-unsplash.jpeg');
+  <!-- Icon Font Stylesheet -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/ebecec7f8d.js" crossorigin="anonymous"></script>
 
-        /* Set a specific height */
-        height: 50%;
+  <!-- Libraries Stylesheet -->
+  <link href="lib/animate/animate.min.css" rel="stylesheet">
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
-        /* Position and center the image to scale nicely on all screens */
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        position: relative;
-      }
+  <!-- Customized Bootstrap Stylesheet -->
+  <link href="./css/bootstrap.min.css" rel="stylesheet">
 
-      .scroll
-      {
-        height: 725px;
-        overflow-y: scroll;
-      }
+  <!-- Template Stylesheet -->
+  <link href="./css/style.css" rel="stylesheet">
 
-    </style>
+  <style>
 
+    .static-header 
+    {
+    background: linear-gradient(rgba(24, 29, 56, .7), rgba(24, 29, 56, .7)), url(./img/events-header.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    }
+
+  </style>
 </head>
 
 <body>
-
-  <div class="container-fluid">
-    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom border-danger">
-			<div class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-        <img class="img-fluid" width="100px" height="100px" src="./img/frlogo.jpg" alt="France Icon">
+  <!-- Spinner Start -->
+  <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+      <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+          <span class="sr-only">Loading...</span>
       </div>
-
-      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-        <li><a href="./homepage.html" class="nav-link px-2 link-secondary"><i class="bi bi-house-door"></i></a></li>
-        <li><a href="./eventspage.html" class="nav-link px-2 link-dark">Events</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">Study Abroad</a></li>
-        <li><a href="./internshippage.html" class="nav-link px-2 link-dark">Internships</a></li>
-        <li><a href="./servicepage.html" class="nav-link px-2 link-dark">Services</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">Resources</a></li>
-        <li><a href="./mediapage.html" class="nav-link px-2 link-dark">Media</a></li>
-      </ul>
-    </header>
   </div>
+  <!-- Spinner End -->
 
-  <!-- main table -->
+
+  <!-- Navbar Start -->
+  <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+    <a href="./homepage.html" class="navbar-brand d-flex align-items-center px-2 px-lg-3">
+      <img class="img-fluid" width="100px" height="100px" src="./img/frlogo.jpg" alt="France Icon">
+    </a>
+
+    <!--this will be hidden from frontend HTML in future iterations-->
+    <!--User Menu Start-->
+    <div class="nav-item dropdown" style = 'display: none;' id="admin-menu">
+      <a href="#" class="btn btn-outline-primary dropdown-toggle navbar-user" data-bs-toggle="dropdown">
+        <i class="fa-solid fa-user-gear fa-lg"></i>&nbsp;<p class="mb-0" id='username1'></p>
+      </a>
+      <div class="dropdown-menu fade-down m-0">
+        <a href="./admin_page.html" class="dropdown-item">Manage Content</a>
+        <a href="./admin_users.html" class="dropdown-item">Manage Users</a>
+        <a href="#" class="dropdown-item">Bookmarks</a>
+        <!--Onclick value appears invalid due to VSCode bug, ignore this-->
+        <a href="/logout" onclick='return confirmLogout();' class="dropdown-item text-danger">Log Out</a>
+      </div>
+    </div>
+
+    <div class="nav-item dropdown" style = 'display: none;' id="user-menu">
+      <a href="#" class="btn btn-outline-primary dropdown-toggle navbar-user" data-bs-toggle="dropdown">
+        <i class="fa-solid fa-user fa-lg"></i>&nbsp;<p class="mb-0" id='username2'></p>
+      </a>
+      <div class="dropdown-menu fade-down m-0">
+        <a href="#" class="dropdown-item">Your Testimonials</a>
+        <a href="#" class="dropdown-item">Your Bookmarks</a>
+        <!--Onclick value appears invalid due to VSCode bug, ignore this-->
+        <a href="/logout" onclick='return confirmLogout();' class="dropdown-item text-danger">Log Out</a>
+      </div>
+    </div>
+
+    <div id="login-signup">
+      <a href="./log_in.html" class="btn btn-primary navbar-login-signup animated slideInDown">Log In</a>
+      <a href="./sign_up.html" class="btn btn-secondary navbar-login-signup animated slideInDown">Sign Up</a>
+    </div>
+   <!--User Menu End-->
+
+    <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+
+      <!--Navbar EN-->
+      <div class="navbar-nav ms-auto p-4 p-lg-0" id="navbar-EN">
+          <a href="./homepage.html" class="nav-item nav-link active">Home</a>
+
+          <div class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Info</a>
+            <div class="dropdown-menu fade-down m-0">
+              <a href="#" class="dropdown-item">Study Abroad <p class="text-danger">Coming Soon!</p></a>
+              <a href="#" class="dropdown-item">Student Resources<p class="text-danger">Coming Soon!</p></a>
+            </div>
+          </div>
+  
+          <a href="./eventspage.html" class="nav-item nav-link">Events</a>
+          <a href="./internshippage.html" class="nav-item nav-link">Internships</a>
+          <a href="./servicepage.html" class="nav-item nav-link">Service</a>
+          <a href="./mediapage.html" class="nav-item nav-link">Media</a>
+          <a class="btn btn-success py-4 px-lg-4 d-inline-flex d-lg-block align-items-center justify-content-center" style="border-radius: 0px !important;" onclick="toggleLang('FR');">
+            <i class="fa-solid fa-language"></i> Toggle FR</a>
+      </div>
+      <!--Navbar EN end-->
+
+      <!--Navbar FR-->
+      <div class="navbar-nav ms-auto p-4 p-lg-0" id="navbar-FR">
+        <a href="./homepage.html" class="nav-item nav-link active">Accueil</a>
+
+        <div class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Info</a>
+          <div class="dropdown-menu fade-down m-0">
+            <a href="#" class="dropdown-item">Etudes à l'étranger <p class="text-danger">À venir!</p></a>
+            <a href="#" class="dropdown-item">Ressources <p class="text-danger">À venir!</p></a>
+          </div>
+        </div>
+
+        <a href="./eventspage.html" class="nav-item nav-link">événements</a>
+        <a href="./internshippage.html" class="nav-item nav-link">Stages</a>
+        <a href="./servicepage.html" class="nav-item nav-link">Services</a>
+        <a href="./mediapage.html" class="nav-item nav-link">Média</a>
+        <a class="btn btn-success py-4 px-lg-4 d-inline-flex d-lg-block align-items-center justify-content-center" style="border-radius: 0px !important;" onclick="toggleLang('EN');">
+          <i class="fa-solid fa-language"></i> Basculer au Anglais</a>
+      </div>
+      <!--Navbar FR end-->
+      
+    </div>
+  </nav>
+  <!-- Navbar End -->
+
+  <!--Header Start-->
+  <div class="container-fluid py-5 mb-5 static-header">
+    <div class="container py-3">
+      <div class="row justify-content-center">
+
+        <!--Header EN-->
+        <div class="col-lg-10 text-center" id="header-EN">
+          <h1 class="display-3 text-white animated slideInDown">Manage Users</h1>
+          <p class="fs-5 text-white mb-4 pb-2">Here Admins can view, edit, and delete information on site users</p>
+        </div>
+        <!--Header EN end-->
+
+        <!--Header FR-->
+        <div class="col-lg-10 text-center" id="header-FR">
+          <h1 class="display-3 text-white animated slideInDown">Gérer les utilisateurs</h1>
+          <p class="fs-5 text-white mb-4 pb-2">Ici, les administrateurs peuvent afficher, modifier et supprimer les informations des utilisateurs</p>
+        </div>
+        <!--Header FR end-->
+
+      </div>
+    </div>
+  </div>
+  <!--Header End-->
+
+  <!-- Users table -->
   <div class="container">
-      <div id="table">
-      </div>
+    <div class="table-responsive-lg" id="table">
+    </div>
   </div>
 
 
-<script>
-    function conf(){
-      return window.confirm('Are you sure you want to delete?');
-    }
-    async function getUsers(){ 
+
+  
+    
+  <!-- Footer Start -->
+  <div class="container-fluid bg-dark text-light footer mt-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="copyright">
+      <div class="row">
+        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+          &copy; <a href="./homepage.html">Allons-y Département Français</a>, All Right Reserved.
+
+          <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+          Designed By <a href="https://htmlcodex.com">HTML Codex</a><br><br>
+          Distributed By <a href="https://themewagon.com">ThemeWagon</a>
+        </div>    
+      </div>
+    </div>
+  </div>
+  <!-- Footer End -->
+
+  <!-- Back to Top -->
+  <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+  <!-- JavaScript Libraries -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="lib/wow/wow.min.js"></script>
+  <script src="lib/easing/easing.min.js"></script>
+  <script src="lib/waypoints/waypoints.min.js"></script>
+  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+  <!-- Template Javascript -->
+  <script src="js/main.js"></script>
+
+  <!--Script for page control-->
+  <!--In future iterations more work will be done to refactor and delegate to controller / external js files-->
+  <script>
+
+    var langSetting = 'EN';
+    var dateString = function(dateObj){return new Date(dateObj).toDateString();}
+
+    checkLoggedUser();
+    toggleLang(langSetting);
+    getUsers();
+
+    async function getUsers()
+    { 
       let response = await fetch('/user');
       //If this page is running on the same server, then just fetch('/user') would also work
 
       users = await response.json();
       
       let out = `
-      <table class="table table-striped table-hover">
-        <thead>
-          <tr>
-            <th> </th>
-            <th> ID </th>
-            <th> Email </th>
-            <th> First Name </th>
-            <th> Last Name </th>
-            <th> Password </th>
-            <th> Email notification </th>
-            <th> Permission </th>
-            <th> Created </th>
-          </tr>
-        </thead>
-        <tbody>`;
-          for(let i=0; i<users.length; i++){
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th scope="col"> </th>
+              <th hidden scope="col"> ID </th>
+              <th scope="col"> Email </th>
+              <th scope="col"> First Name </th>
+              <th scope="col"> Last Name </th>
+              <th scope="col"> Password </th>
+              <th scope="col"> Email notification </th>
+              <th scope="col"> Permission </th>
+              <th scope="col"> Created </th>
+            </tr>
+          </thead>
+          <tbody>`;
+
+          for(let i=0; i<users.length; i++)
+          {
             out += `
             <tr>
-              <td> <a href="/deluser/${users[i]._id}" onclick="return conf();"><span class="text-danger bi-x-circle-fill"></span></a>  &nbsp; 
+              <th scope="row"> <a href="/deluser/${users[i]._id}" onclick="return conf();"><span class="text-danger bi-x-circle-fill"></span></a>  &nbsp; 
                 <a href="#MainForm" onclick="editForm(${i})" data-bs-toggle="modal" data-bs-target="#ModalForm"> <span class="bi-pencil-square text-info"></span></a>  </td>
-              <td> ${users[i]._id} </td>
+              <td hidden> ${users[i]._id} </td>
               <td> ${users[i].login} </td>
               <td> ${users[i].firstName} </td>
               <td> ${users[i].lastName} </td>
               <td> ${users[i].password} </td>
-              <td> ${users[i].emailNotification===true?'yes':'no'} </td>
+              <td> ${users[i].emailNotification===true?'Yes':'No'} </td>
               <td> ${users[i].permission===1?'Admin':'Normal'} </td>
               <td> ${new Date(users[i].creation).toLocaleString()} </td>
             </tr>`;
           }
+
           out+= `</tbody>
-        </table>`;
+          </table>`;
         
         document.getElementById('table').innerHTML = out;
       }
       
-      getUsers();
-</script>
+
+    // Determine if user is logged in
+    async function checkLoggedUser()
+    { 
+      let response = await fetch('/loggedUser');
+      let user = await response.json();
+     
+      if(user != null)
+      {
+        document.getElementById('login-signup').style = 'display: none;'; // Remove signup/login buttons
+        
+        // Users menu = is user an admin ? admin menu if true : user menu if false
+        let isAdmin = (user.permission === 1); 
+        document.getElementById('admin-menu').style = (isAdmin) ? 'display: flex;' : 'display: none;';  
+        document.getElementById('user-menu').style = (isAdmin) ? 'display: none;' : 'display: flex;';  
+        document.getElementById(`username${user.permission}`).innerHTML = `${user.firstName}`;
+      }
+      else
+        document.getElementById('login-signup').style = 'display: flex;';
+    }
+    
+
+    // Toggle Language - More info on homepage
+    function toggleLang(setting)
+    {
+      let toggleFR = (setting === 'FR'); // True if text / element display is FR, false if EN
+      langSetting = (toggleFR) ? 'FR' : 'EN';
+      
+      // element EN = if toggleFR is true ? element is hidden : otherwise element is shown 
+      // element FR = if toggleFR is true ? element is shown : otherwise element is hidden 
+      
+      // Navbar
+      document.getElementById('navbar-EN').style = toggleFR ? 'display: none;' : 'display: flex;';
+      document.getElementById('navbar-FR').style = toggleFR ? 'display: flex;' : 'display: none;';
+
+      // Header
+      document.getElementById('header-EN').style = toggleFR ? 'display: none;' : 'display: block;';
+      document.getElementById('header-FR').style = toggleFR ? 'display: block;' : 'display: none;';
+
+    }
+
+    // Prompt Admin for confirmation when deleting a user
+    function conf(){ return window.confirm('Are you sure you want to delete?'); }
+    
+    // Prompt user for log-out
+    function confirmLogout(){ return window.confirm('Are you sure you want to log out?'); };
+
+  </script>
 
 </body>
+</html>

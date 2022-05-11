@@ -147,7 +147,7 @@
 
   <!--Header Start-->
   <div class="container-fluid py-5 mb-5 static-header">
-    <div class="container py-5">
+    <div class="container py-md-3">
       <div class="row justify-content-center">
 
         <!--Header EN-->
@@ -159,7 +159,7 @@
 
         <!--Header FR-->
         <div class="col-lg-10 text-center" id="header-FR">
-          <h1 class="display-3 text-white animated slideInDown">Panneau des listes d'administration</h1>
+          <h1 class="display-3 text-white animated slideInDown">Gérer les listes</h1>
           <p class="fs-5 text-white mb-4 pb-2">Ici, les administrateurs peuvent afficher toutes les annonces, ainsi que publier, modifier et supprimer des annonces</p>
         </div>
         <!--Header FR end-->
@@ -223,101 +223,108 @@
   </div>
   <!--Listing Header end-->
 
-  <!-- New Listing Form (Modal) -->
+  <!-- Create/Update Listing Modal Start -->
   <div class="modal fade" id="ListingModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
 
-        <div class="modal-header">
-          <h4 class="modal-title" id="modalTitle">Add A New Listing: </h5>
+        <!--Create/Update Listing Modal Title-->
+        <div class="modal-header justify-content-center">
+          <h4 class="modal-title text-center w-100" id="modalTitle">Add A New Listing:</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
 
+        <!--Create/Update Listing Form Start-->
         <form class="was-validated" method="post" action="/listings">
           <div class="modal-body">
             <div class="container" id="MainForm">
-              
-              <div class="row mb-2" id="listingID" style="display: none;">
+
+              <div class="row mb-2" id="listingID" style="display: none;" id="form-listingID-EN">
                 <div class="col-12 col-md mb-2">
-                  <label for="listingID" class="form-label"> Listing ID:</label>
-                  <input type="text" class="form-control" name="listingID" id="listingID" value="" autocomplete="off" readonly />
+                  <label for="listingID" class="form-label" id="form-listingID-label">Listing ID:</label>
+                  <input type="text" class="form-control" name="listingID" id="form-listingID-label" value="" autocomplete="off" readonly />
                 </div>
               </div>
 
-              <div class="row mb-2">
+              <!--Create/Update Listing Form Header-->
+              <div class="row mb-4 text-center">
+                <h6>Insert Listing Information Below</h6>
+                <small>Click the "Add FR" button below to add a French title and/or body!</small>
+              </div>
+
+              <!--Create/Update Listing Form: Listing Type-->
+              <div class="row mb-2" id="form-type-EN">
                 <div class="col-12 col-md mb-2">
-                  <label for="listingType" class="form-label">Set type of Listing:</label>
-                  <select class="form-control" name="listingType" id="listingType" required>
-                    <option id="identifyDefault" selected disabled placeholder="choose"> </option>
-                    <option id="event">Event</option>
-                    <option id="service">Service</option>
-                    <option id="media">Media</option>
-                    <option id="internship">Internship</option>
+                  <label for="form-type-dropdown" class="form-label" id="form-type-label">Set Listing Type:</label>
+                  <select class="form-control" name="listingType" id="form-type-dropdown" required>
+                    <option id="dropdown-event">Event</option>
+                    <option id="dropdown-service">Service</option>
+                    <option id="dropdown-internship">Internship</option>
+                    <option id="dropdown-media">Media</option>
                   </select>
                 </div>
               </div>
 
-              <div class="row mb-2">
+              <!--Create/Update Listing Form: Listing Title (EN)-->
+              <div class="row mb-2" id="form-titleEN-EN">
                 <div class="col-12 col-md mb-2">
-                  <label for="listingTitle" class="form-label">English Listing Title:</label>
-                  <input type="text" class="form-control" name="listingTitleEN" id="listingTitleEN" placeholder="Enter the Listing Title" required/>
+                  <label for="form-titleEN-input" class="form-label" id="form-titleEN-label">English Listing Title:</label><br>
+                  <input type="text" class="form-control" name="titleEN" id="form-titleEN-input" required/>
                 </div>
               </div>
 
-              <div class="row mb-2">
+              <!--Create/Update Listing Form: Listing Title (EN)-->
+              <div class="row mb-2" id="form-bodyEN">
                 <div class="col-12 col-md mb-2">
-                  <label for="listingBody" class="form-label" >Listing Info:</label>
-                  <textarea class="form-control" id="listingBodyEN" name="listingBodyEN" rows="3" required></textarea>
+                  <label for="form-bodyEN-input" class="form-label" id="form-bodyEN-label">English Listing Body: </label>
+                  <textarea class="form-control" name="bodyEN" id="form-bodyEN-input" rows="3" required></textarea>
                 </div>
-              </div>              
-
-              <div class="row mb-2">
+              </div>  
+              
+              <div class="row mb-2" style="display: none;" id="form-titleFR">
                 <div class="col-12 col-md mb-2">
-                  <label for="listingLink" class="form-label">Listing Link:</label>
-                  <input type="text" class="form-control" name="listingLink" id="listingLink" placeholder="Enter an External Link"/>
-                </div>
-              </div>
-            
-              <div class="row mb-2">
-                <div class="col-12 col-md mb-2">
-                  <label for="listingStartDate" class="form-label" >Listing Start Date:</label>
-                  <input type="datetime-local" class="form-control" name="listingStartDate" id="listingStartDate"/>
+                  <label for="form-titleFR-input" class="form-label" id="form-titleFR-label">French Listing Title:</label>
+                  <input type="text" class="form-control" name="listingTitleFR" id="form-titleFR-input" placeholder="Enter the Listing Title in French"/>
                 </div>
               </div>
 
-              <div class = "row mb-2">
+              <div class="row mb-2" style="display: none;" id="form-bodyFR">
                 <div class="col-12 col-md mb-2">
-                  <label for="listingEndDate" class="form-label" >Listing End Date:</label>
-                  <input type="date" class="form-control" name="listingEndDate" id="listingEndDate"/>
-                </div>  
-              </div>
-
-              <div class="row mb-4">
-                <div class="col-6">
-                  <input type="checkbox" id="listAutoOpen" name="listAutoOpen" checked />
-                  <label for="listAutoOpen">Auto-Open on Start Date</label>
-                </div>
-                <div class="col-6">
-                  <input type="checkbox" id="listAutoClose" name="listAutoClose" checked>
-                  <label for="listAutoClose">Auto-Close on End Date</label>
+                  <label for="form-bodyFR-input" class="form-label" id="form-bodyFR-label">French Listing Body:</label>
+                  <textarea class="form-control" name="listingBodyFR" id="form-bodyFR-input" rows="3"></textarea>
                 </div>
               </div>
 
-              <div class="row mb-2" style="display: none;" id="test1">
-                <!-- <div class="row mb-2" style="display: none;" id="test1"> -->
-                <label for="listingTitleFR" class="form-label">French Listing Title:</label>
+              <div class="row mb-4" id="form-link-EN">
                 <div class="col-12 col-md mb-2">
-                  <input type="text" class="form-control" name="listingTitleFR" id="listingTitleFR" placeholder="Enter the Listing Title in French"/>
+                  <label for="form-link-input" class="form-label" id="form-link-label">Listing Link:</label>
+                  <input type="text" class="form-control" name="listingLink" id="form-link-input" placeholder="Enter an External Link"/>
                 </div>
               </div>
 
-              <div class="row mb-2" style="display: none;" id="test2">
-                <!-- <div class="row mb-2" style="display: none;" id="test2"> -->
-                <label for="listingBodyFR" class="form-label" >French Listing Info:</label>
-                <div class="col-12 col-md mb-2">
-                  <textarea class="form-control" id="listingBodyFR" name="listingBodyFR" rows="3" ></textarea>
+              <div class="row mb-4 text-center">
+                <h6>Set Listing to Automatically Open/Close on a Certain Date</h6>
+                <small>Listings will only be visible to users after the open date and before the close date. If not defined, this listing will be visible to users once submitted and can be manually closed at any time</small>
+              </div>
+
+              <div class="row mb-2 align-items-center justify-content-start" id="form-auto-open-EN">
+                <div class="col-5">
+                  <label for="form-startdate-input" class="form-label mb-0" id="form-startdate-label">Auto-Open Listing On:</label>
                 </div>
-              </div>    
+                <div class="col-7">
+                  <input type="date" class="form-control" name="listingStartDate" id="form-startdate-input"/>
+                </div>
+              </div>
+
+              <div class="row mb-2 align-items-center justify-content-start" id="form-auto-close-EN">
+                <div class="col-5">
+                  <label for="form-enddate-input" class="form-label mb-0" id="form-enddate-label">Auto-Close Listing On:</label>
+                </div>
+                <div class="col-7">
+                  <input type="date" class="form-control" name="listingEndDate" id="form-enddate-input"/>
+                </div>
+              </div>
+
             </div>
           </div>
         
@@ -325,7 +332,7 @@
             <button type="submit" class="btn btn-primary">Submit</button>
             <a href="" class="btn btn-secondary" onclick="conf();" id="delete_button" style="display: none;"> Delete </a>
             <button type="reset" class="btn btn-secondary" id="clear_button" style="display: flex;"> Clear </button>
-            <a class="btn btn-success" onclick='toggleFrenchModal();' style="border-radius: 8px !important;"><i class="fa-solid fa-language"></i> Toggle FR</a></a>
+            <a class="btn btn-success" onclick='toggleFrenchModal();' style="border-radius: 8px !important;"><i class="fa-solid fa-language"></i> Add FR</a></a>
           </div>
         </form>
       </div>
@@ -496,9 +503,31 @@
       getListings(listingsPath);    
     }
 
-    function insertForm()
+    function createUpdateListing(i)
     {
-      document.getElementById("listingID").style = 'display:none;';
+      let newListing = (i < 0);
+    
+      document.getElementById("listingID").value = `${listings[i]._id}`;
+      
+      document.getElementById("listingTitleEN").value = '';
+      document.getElementById("listingBodyEN").value = '';
+      document.getElementById("listingLink").value = '';
+
+      //if (document.getElementById("listAutoOpen").hasAttribute("checked"))
+      document.getElementById("listAutoOpen").removeAttribute("checked");
+      
+      //if (document.getElementById("listAutoClose").hasAttribute("checked"))
+      document.getElementById("listAutoClose").removeAttribute("checked");
+
+      document.getElementById("listingTitleFR").value = '';
+      document.getElementById("listingBodyFR").value = '';
+      document.getElementById("clear_button").style = 'display: flex;';
+      document.getElementById("delete_button").style = 'display: none;';
+    }
+
+    function editForm(i)
+    {
+      
       document.getElementById("listingTitleEN").value = '';
       document.getElementById("listingBodyEN").value = '';
       document.getElementById("listingLink").value = '';
