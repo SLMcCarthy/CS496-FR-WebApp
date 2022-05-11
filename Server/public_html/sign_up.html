@@ -1,74 +1,174 @@
 <!DOCTYPE html>
+<html lang="en">
 
-<html>
-  <head>
-    
-    <title> Let's Go France**** </title>
-    <meta charset="utf-8"> <!-- charset --> 
-    <meta name="description" content="unfinishedhomepage" /> 
-    <meta name="author" content="Jeremy Unanue, Shane McCarthy" />
-    <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- viewport --> 
- 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"> <!-- Bootstrap CSS --> 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script> <!-- Bootstrap JS --> 
-    
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">  <!-- Bootstrap Icons -->   
+<head>
+  <meta charset="utf-8">
+  <title>Allons-y Département Français</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta name="authors" content="Jeremy Unanue, Shane McCarthy, Bootstrap Template by HTML Codex" />
+  <meta content="" name="description">
 
-    <style>
+  <!-- Favicon -->
+  <link href="img/favicon.ico" rel="icon">
 
-      .bg-text 
-      {
-        text-align: center; 
-        color: white;
-        text-shadow: 2px 2px 5px rgba(0,0,0,0.8), 0px 0px 2px  rgba(0,0,0,1);
-      }
-      /* Current BG images are placeholders */
-      .hero-bg-image 
-      {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./images/Colmar.jpeg');
+  <!-- Google Web Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
 
-        /* Set a specific height */
-        height: 50%;
+  <!-- Icon Font Stylesheet -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/ebecec7f8d.js" crossorigin="anonymous"></script>
 
-        /* Position and center the image to scale nicely on all screens */
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        position: relative;
-      }
+  <!-- Libraries Stylesheet -->
+  <link href="lib/animate/animate.min.css" rel="stylesheet">
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
-    </style>
+  <!-- Customized Bootstrap Stylesheet -->
+  <link href="./css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Template Stylesheet -->
+  <link href="./css/style.css" rel="stylesheet">
+
+  <style>
+
+    .static-header 
+    {
+    background: linear-gradient(rgba(24, 29, 56, .7), rgba(24, 29, 56, .7)), url(./img/signup-header.jpg);
+    height: 200px !important;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    }
+
+  </style>
 </head>
 
 <body>
-
-  <div class="container-fluid">
-    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom border-danger">
-			<div class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-        <img class="img-fluid" width="100px" height="100px" src="./img/frlogo.jpg" alt="France Icon">
+  <!-- Spinner Start -->
+  <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+      <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+          <span class="sr-only">Loading...</span>
       </div>
-
-      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-        <li><a href="./homepage.html" class="nav-link px-2 link-secondary"><i class="bi bi-house-door"></i></a></li>
-        <li><a href="./eventspage.html" class="nav-link px-2 link-dark">Events</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">Study Abroad</a></li>
-        <li><a href="./internshippage.html" class="nav-link px-2 link-dark">Internships</a></li>
-        <li><a href="./servicepage.html" class="nav-link px-2 link-dark">Services</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">Resources</a></li>
-        <li><a href="./mediapage.html" class="nav-link px-2 link-dark">Media</a></li>
-      </ul>
-    </header>
   </div>
+  <!-- Spinner End -->
 
-  <!-- Hero -->
-  <div class="container-fluid">
-    <div class="hero-bg-image p-5 text-center rounded mb-5">
-      <div class="bg-text" style="text-align: center; color: white;"> <!-- Need to find a better text color -->
-        <h1 style="font-weight: bold;">Bienvenue à Allons-y Département Français!</h1>
-        <h1 style="font-weight: bold;">Sign Up</h1><br/>
+
+  <!-- Navbar Start -->
+  <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+    <a href="./homepage.html" class="navbar-brand d-flex align-items-center px-2 px-lg-3">
+      <img class="img-fluid" width="100px" height="100px" src="./img/frlogo.jpg" alt="France Icon">
+    </a>
+
+    <!--this will be hidden from frontend HTML in future iterations-->
+    <!--User Menu Start-->
+    <div class="nav-item dropdown" style = 'display: none;' id="admin-menu">
+      <a href="#" class="btn btn-outline-primary dropdown-toggle navbar-user" data-bs-toggle="dropdown">
+        <i class="fa-solid fa-user-gear fa-lg"></i>&nbsp;<p class="mb-0" id='username1'></p>
+      </a>
+      <div class="dropdown-menu fade-down m-0">
+        <a href="./admin_page.html" class="dropdown-item">Manage Content</a>
+        <a href="./admin_users.html" class="dropdown-item">Manage Users</a>
+        <a href="#" class="dropdown-item">Bookmarks</a>
+        <!--Onclick value appears invalid due to VSCode bug, ignore this-->
+        <a href="/logout" onclick='return confirmLogout();' class="dropdown-item text-danger">Log Out</a>
+      </div>
+    </div>
+
+    <div class="nav-item dropdown" style = 'display: none;' id="user-menu">
+      <a href="#" class="btn btn-outline-primary dropdown-toggle navbar-user" data-bs-toggle="dropdown">
+        <i class="fa-solid fa-user fa-lg"></i>&nbsp;<p class="mb-0" id='username2'></p>
+      </a>
+      <div class="dropdown-menu fade-down m-0">
+        <a href="#" class="dropdown-item">Your Testimonials</a>
+        <a href="#" class="dropdown-item">Your Bookmarks</a>
+        <!--Onclick value appears invalid due to VSCode bug, ignore this-->
+        <a href="/logout" onclick='return confirmLogout();' class="dropdown-item text-danger">Log Out</a>
+      </div>
+    </div>
+
+    <div id="login-signup">
+      <a href="./log_in.html" class="btn btn-primary navbar-login-signup animated slideInDown" id="login-btn">Login</a>
+      <a href="./sign_up.html" class="btn btn-secondary navbar-login-signup animated slideInDown" id="signup-btn">Sign up</a>
+    </div>
+   <!--User Menu End-->
+
+    <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+
+      <!--Navbar EN-->
+      <div class="navbar-nav ms-auto p-4 p-lg-0" id="navbar-EN">
+          <a href="./homepage.html" class="nav-item nav-link active">Home</a>
+
+          <div class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Info</a>
+            <div class="dropdown-menu fade-down m-0">
+              <a href="#" class="dropdown-item">Study Abroad <p class="text-danger">Coming Soon!</p></a>
+              <a href="#" class="dropdown-item">Student Resources<p class="text-danger">Coming Soon!</p></a>
+            </div>
+          </div>
+  
+          <a href="./eventspage.html" class="nav-item nav-link">Events</a>
+          <a href="./internshippage.html" class="nav-item nav-link">Internships</a>
+          <a href="./servicepage.html" class="nav-item nav-link">Service</a>
+          <a href="./mediapage.html" class="nav-item nav-link">Media</a>
+          <a class="btn btn-success py-4 px-lg-4 d-inline-flex d-lg-block align-items-center justify-content-center" style="border-radius: 0px !important;" onclick="toggleLang('FR');">
+            <i class="fa-solid fa-language"></i> Toggle FR</a>
+      </div>
+      <!--Navbar EN end-->
+
+      <!--Navbar FR-->
+      <div class="navbar-nav ms-auto p-4 p-lg-0" id="navbar-FR">
+        <a href="./homepage.html" class="nav-item nav-link active">Accueil</a>
+
+        <div class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Info</a>
+          <div class="dropdown-menu fade-down m-0">
+            <a href="#" class="dropdown-item">Etudes à l'étranger <p class="text-danger">À venir!</p></a>
+            <a href="#" class="dropdown-item">Ressources <p class="text-danger">À venir!</p></a>
+          </div>
+        </div>
+
+        <a href="./eventspage.html" class="nav-item nav-link">événements</a>
+        <a href="./internshippage.html" class="nav-item nav-link">Stages</a>
+        <a href="./servicepage.html" class="nav-item nav-link">Services</a>
+        <a href="./mediapage.html" class="nav-item nav-link">Média</a>
+        <a class="btn btn-success py-4 px-lg-4 d-inline-flex d-lg-block align-items-center justify-content-center" style="border-radius: 0px !important;" onclick="toggleLang('EN');">
+          <i class="fa-solid fa-language"></i> Basculer au Anglais</a>
+      </div>
+      <!--Navbar FR end-->
+      
+    </div>
+  </nav>
+  <!-- Navbar End -->
+
+  <!--Header Start-->
+  <div class="container-fluid py-5 mb-5 static-header">
+    <div class="container py-1">
+      <div class="row justify-content-center">
+
+        <!--Header EN-->
+        <div class="col-lg-10 text-center" id="header-EN">
+          <h1 class="display-3 text-white animated slideInDown">Sign-Up</h1>
+          <p class="fs-5 text-white mb-4 pb-2">Welcome to Allons-y Département Français!</p>
+        </div>
+        <!--Header EN end-->
+
+        <!--Header FR-->
+        <div class="col-lg-10 text-center" id="header-FR">
+          <h1 class="display-3 text-white animated slideInDown">Inscrivez-vous</h1>
+          <p class="fs-5 text-white mb-4 pb-2">Bienvenue au Allons-y Département Français!</p>
+        </div>
+        <!--Header FR end-->
+
       </div>
     </div>
   </div>
+  <!--Header End-->
 
   <!-- User Sign In Form -->
   <div class="container">
@@ -79,14 +179,14 @@
       <div class="row mt-5 justify-content-center align-items-center">
         <div class="col-12 col-md-4">
           <div class="form-group">
-            <label for="userEmail" class="form-label">Enter your Email:</label>
+            <label for="userEmail" class="form-label" id="form-email-label">Enter your Email:</label>
             <input class="form-control" type="email" name="userEmail" id="userEmail" required><br/><br/>
           </div>
         </div>
 
         <div class="col-12 col-md-4">
           <div class="form-check">
-            <label class="form-check-label" for="emailNotifications">Opt-In to Email Notifications</label>
+            <label class="form-check-label" for="emailNotifications" id="form-notifs-label">Opt-In to Email Notifications</label>
             <input class="form-check-input" type="checkbox" value="" id="emailNotifications" name="emailNotifications"><br/><br/>
           </div>
         </div>
@@ -95,13 +195,13 @@
       <div class="row justify-content-center align-items-center">
         <div class="col-12 col-md-4">
           <div class="form-group">
-            <label for="userFirstName" class="form-label">First Name:</label>
+            <label for="userFirstName" class="form-label" id="form-firstname-label">First Name:</label>
             <input type="text" class="form-control" name="userFirstName" id="userFirstName"><br/><br/>
           </div>
         </div>
         <div class="col-12 col-md-4">
           <div class="form-group">
-            <label for="userLastName" class="form-label">Last Name:</label>
+            <label for="userLastName" class="form-label" id="form-lastname-label">Last Name:</label>
             <input type="text" class="form-control" name="userLastName" id="userLastName"><br/><br/>
           </div>
         </div>
@@ -110,13 +210,13 @@
       <div class="row justify-content-center align-items-center">
         <div class="col-12 col-md-4">
           <div class="form-group">
-            <label for="userPass" class="form-label">Enter your Password:</label>
+            <label for="userPass" class="form-label" id="form-pswd-label">Enter your Password:</label>
             <input type="password" class="form-control" name="userPass" id="userPass" minlength="6" required><br/><br/>
           </div>
         </div>
         <div class="col-12 col-md-4">
           <div class="form-group">
-            <label for="userPass" class="form-label">Confirm your Password:</label>
+            <label for="userPass" class="form-label" id="form-confirmpswd-label">Confirm your Password:</label>
             <input type="password" class="form-control" name="confPass" id="confPass" minlength="6" required><br/><br/>
           </div>
         </div>
@@ -124,26 +224,89 @@
 
       <div class="row justify-content-center">
         <div class="col-md-auto mb-3 g-3">
-          <button type="submit" class="w-100 btn btn-primary">Sign Up</button>
+          <button type="submit" class="w-100 btn btn-primary" id="form-signup-btn">Sign Up</button>
         </div>
         <div class="col-md-auto mb-3 g-3">
-          <a href="/homepage.html" class="w-100 btn btn-secondary" role="button" type="reset">Cancel</a>
+          <a href="/homepage.html" class="w-100 btn btn-secondary" role="button" type="reset" id="form-cancel-btn">Cancel</a>
         </div>
       </div>
 
       <div class="row" style="text-align: center;">
         <div class="col">
-          <p>Already have an account? <a href="/log_in.html">Log In!</a></p>
+          <p id="form-loginlink-labelEN">Already have an account? <a href="/log_in.html" class="frBlue">Log In!</a></p>
+          <p id="form-loginlink-labelFR">Avez-vous déjà un compte? <a href="/log_in.html" class="frBlue">Connexion!</a></p>
         </div>
       </div>
 
     </form>
   </div>
 
-  <script>
+  <!-- Footer Start -->
+  <div class="container-fluid bg-dark text-light footer mt-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="copyright">
+      <div class="row">
+        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+          &copy; <a href="./homepage.html">Allons-y Département Français</a>, All Right Reserved.
 
-    function newUser()
-    {
+          <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+          Designed By <a href="https://htmlcodex.com">HTML Codex</a><br><br>
+          Distributed By <a href="https://themewagon.com">ThemeWagon</a>
+        </div>    
+      </div>
+    </div>
+  </div>
+  <!-- Footer End -->
+
+  <!-- Back to Top -->
+  <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+  <!-- JavaScript Libraries (Template)-->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="lib/wow/wow.min.js"></script>
+  <script src="lib/easing/easing.min.js"></script>
+  <script src="lib/waypoints/waypoints.min.js"></script>
+  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+  <!-- Template Javascript -->
+  <script src="js/main.js"></script>
+
+  <!--Page Utilities-->
+  <script type="text/javascript" src="./js/pageUtilities.js"></script>
+
+  <!--Script for page control-->
+  <script>
+    // In Future iterations, more work will be done to delegate the work done here to REACT and other external files
+    // Some design decisions have been made with this future work in mind.
+   
+    var langSetting = 'EN';
+    
+    toggleLang(langSetting);
+  
+    // Determine if user is logged in
+    async function checkLoggedUser()
+    { 
+      let response = await fetch('/loggedUser');
+      let user = await response.json();
+    
+      if(user != null)
+      {
+        document.getElementById('login-signup').style = 'display: none;'; // Remove signup/login buttons
+        
+        // Users menu = is user an admin ? admin menu if true : user menu if false
+        let isAdmin = (user.permission === 1); 
+        document.getElementById('admin-menu').style = (isAdmin) ? 'display: flex;' : 'display: none;';  
+        document.getElementById('user-menu').style = (isAdmin) ? 'display: none;' : 'display: flex;';  
+        document.getElementById(`username${user.permission}`).innerHTML = `${user.firstName}`;
+      }
+      else
+        document.getElementById('login-signup').style = 'display: flex;';
+    }
+    checkLoggedUser();
+
+    // Send new user data
+    function newUser(){
       document.getElementById("userPass").value = '';
       document.getElementById("userFirstName").value = '';
       document.getElementById("userLastName").value = '';
@@ -151,8 +314,36 @@
       document.getElementById("emailNotifications").value = '';
     }
 
+    // Toggle Language - More info on homepage
+    function toggleLang(setting)
+    {
+      let toggleFR = (setting === 'FR'); // True if text / element display is FR, false if EN
+      langSetting = (toggleFR) ? 'FR' : 'EN';
+      
+      // element EN = if toggleFR is true ? element is hidden : otherwise element is shown 
+      // element FR = if toggleFR is true ? element is shown : otherwise element is hidden 
+      
+      // Navbar
+      document.getElementById('navbar-EN').style = toggleFR ? 'display: none;' : 'display: flex;';
+      document.getElementById('navbar-FR').style = toggleFR ? 'display: flex;' : 'display: none;';
+
+      // Header
+      document.getElementById('header-EN').style = toggleFR ? 'display: none;' : 'display: block;';
+      document.getElementById('header-FR').style = toggleFR ? 'display: block;' : 'display: none;'; 
+
+      document.getElementById('form-email-label').innerHTML = (toggleFR) ? "Entrer votre Email:" : "Enter Your Email:";
+      document.getElementById('form-notifs-label').innerHTML = (toggleFR) ? "Accepter les Notifications par E-mail:" : "Opt-In to Email Notifications:";
+      document.getElementById('form-firstname-label').innerHTML = (toggleFR) ? "Prénom:" : "First Name:";
+      document.getElementById('form-lastname-label').innerHTML = (toggleFR) ? "Nom de famille:" : "Last Name:";
+      document.getElementById('form-pswd-label').innerHTML = (toggleFR) ? "Tapez Votre mot de Passe:" : "Enter Your Password:";
+      document.getElementById('form-confirmpswd-label').innerHTML = (toggleFR) ? "Confirmer Votre mot de Passe:" : "Confirm Password:";
+      document.getElementById('form-signup-btn').innerHTML = (toggleFR) ? "Inscrivez Vous!" : "Sign up!";
+      document.getElementById('form-cancel-btn').innerHTML = (toggleFR) ? "Annuler" : "Cancel";
+    
+      document.getElementById('form-loginlink-labelEN').style = (toggleFR) ? 'display: none;' : 'display: block;'
+      document.getElementById('form-loginlink-labelFR').style = (toggleFR) ? 'display: block;' : 'display: none;'; 
+    }
   </script>
 
 </body>
-
 </html>
