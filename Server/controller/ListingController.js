@@ -191,6 +191,7 @@ exports.postCreateOrUpdateListing = function(req,res){
     if(req.body.listingID){ // Listing exists, update
         console.log("Update Listing");
         newListing._id = req.body.listingID;
+        console.log(newListing);
         dao.update(newListing);
         res.status(200);
         res.redirect('admin_page.html');

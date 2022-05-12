@@ -153,6 +153,14 @@ exports.deleteAll = async function(test){
 }
 
 exports.update = function(updatedListing){
-    let updated = listingsModel.findByIdAndUpdate(updatedListing._id,updatedListing);
+    let updated = listingsModel.findByIdAndUpdate({_id: updatedListing._id}, updatedListing, function (err, responce) {
+        if (err){
+            console.log(err)
+        }
+        else{
+            console.log("Updated User : ", responce);
+        }
+    });
+    console.log(updated);
 	return updated;
 }
