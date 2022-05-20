@@ -188,10 +188,6 @@
     </div>
   </div>
 
-
-
-  
-    
   <!-- Footer Start -->
   <div class="container-fluid bg-dark text-light footer mt-5 wow fadeIn" data-wow-delay="0.1s">
     <div class="copyright">
@@ -223,12 +219,14 @@
   <!-- Template Javascript -->
   <script src="js/main.js"></script>
 
+  <!--Page Utilities-->
+  <script type="text/javascript" src="./js/pageUtilities.js"></script>
+
   <!--Script for page control-->
   <!--In future iterations more work will be done to refactor and delegate to controller / external js files-->
   <script>
 
     var langSetting = 'EN';
-    var dateString = function(dateObj){return new Date(dateObj).toDateString();}
 
     checkLoggedUser();
     toggleLang(langSetting);
@@ -250,7 +248,6 @@
               <th scope="col"> Email </th>
               <th scope="col"> First Name </th>
               <th scope="col"> Last Name </th>
-              <th scope="col"> Password </th>
               <th scope="col"> Email notification </th>
               <th scope="col"> Permission </th>
               <th scope="col"> Created </th>
@@ -262,16 +259,15 @@
           {
             out += `
             <tr>
-              <th scope="row"> <a href="/deluser/${users[i]._id}" onclick="return conf();"><span class="text-danger bi-x-circle-fill"></span></a>  &nbsp; 
+              <th scope="row"> <a href="/deluser/${users[i]._id}" onclick="return confirmDeleteUser();"><span class="text-danger bi-x-circle-fill"></span></a>  &nbsp; 
                 <a href="#MainForm" onclick="editForm(${i})" data-bs-toggle="modal" data-bs-target="#ModalForm"> <span class="bi-pencil-square text-info"></span></a>  </td>
               <td hidden> ${users[i]._id} </td>
               <td> ${users[i].login} </td>
               <td> ${users[i].firstName} </td>
               <td> ${users[i].lastName} </td>
-              <td> ${users[i].password} </td>
               <td> ${users[i].emailNotification===true?'Yes':'No'} </td>
               <td> ${users[i].permission===1?'Admin':'Normal'} </td>
-              <td> ${new Date(users[i].creation).toLocaleString()} </td>
+              <td> ${dateStringLocale(users[i].creation)} </td>
             </tr>`;
           }
 
@@ -321,13 +317,6 @@
       document.getElementById('header-FR').style = toggleFR ? 'display: block;' : 'display: none;';
 
     }
-
-    // Prompt Admin for confirmation when deleting a user
-    function conf(){ return window.confirm('Are you sure you want to delete?'); }
-    
-    // Prompt user for log-out
-    function confirmLogout(){ return window.confirm('Are you sure you want to log out?'); };
-
   </script>
 
 </body>
