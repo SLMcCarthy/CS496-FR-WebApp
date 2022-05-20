@@ -1,0 +1,71 @@
+Future Iteration Planning V1 (5/20/22)
+
+The following document outlines features, technologies, and fixes which we plan to implement in future iterations
+A proper iteration plan will be developed following client feedback
+
+-=-=-= Features =-=-=-
+
+  1. Manual opening and closing of listings
+    - From the listings panel, admins can toggle listings between open and closed
+    - Users will be unable to see closed listings, admins will see closed listings darkened and marked as closed
+    
+  2. Auto opening and closing of listings
+    - Auto open/close date form is implemented
+    - When loading listings, backend must check to see if either date has arrived and set the listing to be opened / closed
+    
+    ****
+
+-=-=-= Frontend =-=-=-
+
+  Bugs / Fixes:
+    - Button hovering on Primary (FRblue) and Secondary (FRred) is broken (Success buttons (Green) work fine)
+    - Listing "Sort By" and "Listing Type" (Admin) dropdown menus animations are broken, positioning is off (Navbar dropdowns seem fine)
+    - Carousel login/signup buttons should be removed when user is logged in
+  
+  
+  Cosmetic / Content:
+  Some content in our pages will need to be refined, this includes:
+    
+    1. Overall improvement of French translations
+    
+    2. Improvement of text visibility and smoothness (get rid of pixelation, experiment with different header sizes)
+    
+    3. Overall improvement of element positioning (focus on standardization)
+      
+    4. Refine buttons and responsive elements 
+    
+    5. User button (top left of page next to logo) needs to be overhauled
+
+    6. Listings
+      - Overall list item sizes need work
+      - Positioning of listing title, body, and date posted need to be tweaked to be more appealing to the eye
+      - Listing body cutoff using elipses (...)
+      - Better positioning of "missing translations" notification
+      
+    7. Expanded Listings
+      - Size (atleast width) should be standardized
+      - Better spacing for title and body
+      - Better positioning of "missing translations" notification and posted on date
+      - Cosemetic update (add some color perhaps?)
+      
+
+  REACT:
+  Most DOM manipulation found in the script of our HTML pages should be delegated to REACT, these specific elements are outlined below
+    
+    1. General (Standardized elements across all pages)
+      - Navbar EN and FR translations
+      - Navbar User menus (None, User, Admin) and their respective EN and FR translations (translations missing ATM)
+      - Footer EN and FR translations
+      
+    2. Homepage
+      - Carousel EN and FR translations
+      - Services (Square hyperlinks below header carousel) EN and FR translations
+      
+    3. Listing Pages
+      - Static header image, EN and FR translations
+      - Listings header translations
+      - Listings translations
+      - Translations and format for individual listing items
+      - Expanded listings
+       
+
