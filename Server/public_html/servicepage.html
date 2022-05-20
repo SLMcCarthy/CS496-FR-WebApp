@@ -371,7 +371,7 @@
       // if 'FR' and has no french title/body, set to titleEN and bodyEN respectively
       // if 'EN', set to set to titleEN and bodyEN
       document.getElementById("ex-listing-title").innerHTML = (toggleFR && !noTitleFR) ? listings[i].titleFR : listings[i].title;
-      document.getElementById("ex-listing-body").innerHTML = (toggleFR && !noTitleFR) ? listings[i].bodyFR : listings[i].body;
+      document.getElementById("ex-listing-body").innerHTML = (toggleFR && !noBodyFR) ? listings[i].bodyFR : listings[i].body;
 
       // Show notice if translations are missing
       document.getElementById("ex-listing-noFR").style = (toggleFR && noticeNoFR) ? 'display: flex;' : 'display: none;';
