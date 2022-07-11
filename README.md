@@ -6,8 +6,8 @@
 <ol>
   <li>Navigate to the <i>Server</i> directory (<i>CS496-FR-WebApp\Server</i>)</li>
   <li>Run <i>npm install</i> to automatically install required modules</li>
-  <li>Run the app using <i>node Server.js<i/></li>
-  <li>The server will run on localhost:4000, Navigate to your browser and enter <i> localhost:4000/ <i/> into the searchbar</li>
+  <li>Run the app using <i>node Server.js</i></li>
+  <li>The server will run on localhost:4000, Navigate to your browser and enter <i> localhost:4000/ </i> into the searchbar to access the homepage</li>
 </ol>
 
 <h3> To run testing</h3>
