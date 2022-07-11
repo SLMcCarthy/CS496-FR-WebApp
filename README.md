@@ -19,7 +19,7 @@
 
 <h3>Documentation</h3>
 
-Project Definition:
+<p>Project Definition: The initial idea for our project, exploring our preliminary ideas for Allons-y and explaining their utility</p></br>
 https://docs.google.com/document/d/1nX1D92DwF1sWFRyyX53nMIu8roj7E4n1yxBLtqR57iM/edit?usp=sharing
 
 Verbose Requirements List:
