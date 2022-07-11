@@ -17,8 +17,7 @@
   <li>npm test (fileName)</li>
 </ul>
 
-
-
+<h3>Documentation</h3>
 
 Project Definition:
 https://docs.google.com/document/d/1nX1D92DwF1sWFRyyX53nMIu8roj7E4n1yxBLtqR57iM/edit?usp=sharing
