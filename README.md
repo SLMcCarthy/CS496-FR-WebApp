@@ -4,9 +4,10 @@
 <h3> Instructions </h3>
 <p> Here are the steps to run this server </p>
 <ol>
-  <li>Go into the Server Folder</li>
-  <li>To install all the correct packages run: npm install </li>
-  <li>To start up the web app run: node Server.js</li>
+  <li>Navigate to the <i>Server</i> directory (<i>CS496-FR-WebApp\Server</i>)</li>
+  <li>Run <i>npm install</i> to automatically install required modules</li>
+  <li>Run the app using <i>node Server.js<i/></li>
+  <li>The server will run on localhost:4000, Navigate to your browser and enter <i> localhost:4000/ <i/> into the searchbar</li>
 </ol>
 
 <h3> To run testing</h3>
