@@ -1,8 +1,7 @@
 <h1> CS496-FR-WebApp </h1>
-<p>A Web-App encapsulating useful information and accessibility to the LUM French Departments study abroad program, service, and internship opportunities - the webapp will harbor many useful functionalities to help students explore what the french department has to offer</p>
+<p>Allons-y Département Français is a Web-App encapsulating useful information and accessibility to the LUM French Departments Events, Study Abroad program, Service opportunities, internships, and more! Allons-y will harbor many useful functionalities to help students explore what the french department has to offer</p>
 
-<h3> Instructions </h3>
-<p> Here are the steps to run this server </p>
+<h3> How to run </h3>
 <ol>
   <li>Navigate to the <i>Server</i> directory (<i>CS496-FR-WebApp\Server</i>)</li>
   <li>Run <i>npm install</i> to automatically install required modules</li>
@@ -10,8 +9,8 @@
   <li>The server will run on localhost:4000, Navigate to your browser and enter <i> localhost:4000/ </i> into the searchbar to access the homepage</li>
 </ol>
 
-<h3> To run testing</h3>
-<p> Here are some commands to see testing</p>
+<h3>Testing</h3>
+<p>The following commands can be used to test the proper storing and retrieval of listings by utilizing the Jest framework</p>
 <ul>
   <li>npm test</li>
   <li>npm test -- --coverage</li>
