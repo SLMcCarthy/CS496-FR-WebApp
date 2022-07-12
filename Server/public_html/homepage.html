@@ -250,7 +250,6 @@
   </div>
   <!--Page header carousel end-->
 
-
   <!-- Service Start -->
   <div class="container-xxl py-5">
     <div class="container">
@@ -367,7 +366,8 @@
   <!--Script for page control-->
   <script>
     // In Future iterations, more work will be done to delegate the work done here to REACT and other external files
-    // Some design decisions have been made with this future work in mind.
+    // React will be utilized to reduce the need for DOM manipulation, allowing the above HTML to be less redundant
+    // between French and English translations. Some design decisions have been made with this future work in mind.
    
     var langSetting = 'EN';
     toggleLang(langSetting);
@@ -394,7 +394,7 @@
     checkLoggedUser();
 
     /* Toggle French
-    * Toggling hides/shows DOM elements or sets their innerHTMLS, depending on the display
+    * Toggling hides/shows DOM elements or sets their innerHTML, depending on the display
     * properties of whats being translated and the amount of text being translated
     * 
     * innerHTML manipulation is somewhat encouraged to facilitate future implementaion of editable pages
