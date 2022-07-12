@@ -19,6 +19,9 @@
 
 <h3>Documentation</h3>
 
+<b>Project Documentation 01:</b> A verbose documentation of Allons-y including its background, development, features, and technology used<br>
+https://docs.google.com/document/d/1PqJleDktg68pMiaTmAVNxveTGC-qSpaN6rwLQwN3-44/edit?usp=sharing
+
 <b>Project Definition:</b> The initial idea for our project, exploring our preliminary ideas for Allons-y and explaining their utility<br>
 https://docs.google.com/document/d/1nX1D92DwF1sWFRyyX53nMIu8roj7E4n1yxBLtqR57iM/edit?usp=sharing
 
