@@ -20,13 +20,13 @@
 <h3>Documentation</h3>
 
 <p>Project Definition: The initial idea for our project, exploring our preliminary ideas for Allons-y and explaining their utility</p>
-https://docs.google.com/document/d/1nX1D92DwF1sWFRyyX53nMIu8roj7E4n1yxBLtqR57iM/edit?usp=sharing
+https://docs.google.com/document/d/1nX1D92DwF1sWFRyyX53nMIu8roj7E4n1yxBLtqR57iM/edit?usp=sharing </br>
 
 <p>Verbose Requirements: An initial, more detailed look into the features and functionalities of Allons-y in the form of user stories</p>
-https://docs.google.com/document/d/16YUo763EvtuhvDke_LvGwz5d2_zicV5pOJYPoHJMZTs/edit?usp=sharing
+https://docs.google.com/document/d/16YUo763EvtuhvDke_LvGwz5d2_zicV5pOJYPoHJMZTs/edit?usp=sharing </br>
 
 <p>User Stories: Refined user stories, encapsulating features and functionalities of the app from the users perspective</p>
-https://docs.google.com/spreadsheets/d/1xpO4QXAz2QJKGdvALRZPuO8Yp-0lh8K0L8P4IuvzYC4/edit?usp=sharing
+https://docs.google.com/spreadsheets/d/1xpO4QXAz2QJKGdvALRZPuO8Yp-0lh8K0L8P4IuvzYC4/edit?usp=sharing </br>
 
 <p>Iteration Planning: Timeline of our preliminary schedule for implementing user stories</p>
-https://docs.google.com/document/d/1RUVLgKL8Uku-mX5xUD6Ulww6sSS_znkhontuoKgrihI/edit?usp=sharing
+https://docs.google.com/document/d/1RUVLgKL8Uku-mX5xUD6Ulww6sSS_znkhontuoKgrihI/edit?usp=sharing 
