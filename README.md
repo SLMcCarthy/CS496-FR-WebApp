@@ -22,13 +22,13 @@
 <b>Project Documentation 01:</b> A verbose documentation of Allons-y including its background, development, features, and technology used<br>
 https://docs.google.com/document/d/1PqJleDktg68pMiaTmAVNxveTGC-qSpaN6rwLQwN3-44/edit?usp=sharing
 
-<b>Project Definition:</b> The initial idea for our project, exploring our preliminary ideas for Allons-y and explaining their utility<br>
+<b>Project Definition:</b> The initial pitch / brainstorming for our project, exploring our preliminary ideas for Allons-y and explaining their utility<br>
 https://docs.google.com/document/d/1nX1D92DwF1sWFRyyX53nMIu8roj7E4n1yxBLtqR57iM/edit?usp=sharing
 
-<b>Verbose Requirements:</b> An initial, more detailed look into the features and functionalities of Allons-y in the form of user stories<br>
+<b>Verbose User Stories:</b> An initial, more detailed look into the features and functionalities of Allons-y in the form of user stories<br>
 https://docs.google.com/document/d/16YUo763EvtuhvDke_LvGwz5d2_zicV5pOJYPoHJMZTs/edit?usp=sharing 
 
-<b>User Stories:</b> Refined user stories, encapsulating features and functionalities of the app from the users perspective<br>
+<b>Final User Stories:</b> Refined user stories, encapsulating features and functionalities of the app from the users perspective<br>
 https://docs.google.com/spreadsheets/d/1xpO4QXAz2QJKGdvALRZPuO8Yp-0lh8K0L8P4IuvzYC4/edit?usp=sharing 
 
 <b>Iteration Planning:</b> Timeline of our preliminary schedule for implementing user stories<br>
